@@ -33,7 +33,7 @@ const plans = [
 
 export function PricingSection() {
   return (
-    <section id="preise" className="bg-[#FBFAF7] px-5 pb-6 sm:px-6 lg:px-8">
+    <section id="preise" className="bg-white px-5 pb-6 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-[1180px] border-b border-[#D8C7A3] pb-9">
         <h2 className="text-center font-serif text-3xl font-semibold text-[#17130D] sm:text-4xl">
           Wähle das Modell, das zu dir passt

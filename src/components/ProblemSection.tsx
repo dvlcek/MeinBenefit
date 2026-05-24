@@ -12,7 +12,7 @@ const bullets = [
 export function ProblemSection() {
   return (
     <Section id="vorteile" className="bg-white">
-      <div className="grid overflow-hidden border border-[#D8C7A3] bg-[#FBFAF7] shadow-[0_22px_70px_rgba(17,18,15,0.08)] lg:grid-cols-[0.74fr_1fr]">
+      <div className="grid overflow-hidden border border-[#D8C7A3] bg-white shadow-[0_22px_70px_rgba(17,18,15,0.08)] lg:grid-cols-[0.74fr_1fr]">
         <div className="relative min-h-[280px] border-b border-[#D8C7A3] lg:border-b-0 lg:border-r">
           <Image
             src="/images/mind-benefit-family-consultation.png"

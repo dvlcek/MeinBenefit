@@ -15,7 +15,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#D8C7A3] bg-[#FBFAF7]/95 px-5 backdrop-blur-xl sm:px-6 lg:px-8">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#D8C7A3] bg-white/95 px-5 backdrop-blur-xl sm:px-6 lg:px-8">
       <div className="mx-auto flex h-[72px] max-w-[1180px] items-center justify-between">
         <a href="#top" className="group flex items-center gap-3" aria-label="Mind Benefit Startseite">
           <span className="flex h-12 w-12 items-center justify-center border-2 border-[#C99A38] bg-white font-serif text-lg font-bold text-[#073F2A] shadow-[inset_0_0_0_4px_#F7EFE1]">

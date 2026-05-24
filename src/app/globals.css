@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fbfaf7;
+  --background: #ffffff;
   --foreground: #17130d;
 }
 
@@ -18,7 +18,7 @@
 }
 
 html {
-  background: #11120f;
+  background: #ffffff;
   scroll-behavior: smooth;
 }
 

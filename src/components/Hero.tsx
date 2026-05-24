@@ -1,19 +1,12 @@
 import Image from "next/image";
-import { ArrowRight, BarChart3, LockKeyhole, ShieldCheck, UsersRound } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { ButtonLink } from "./ui/Button";
-
-const proofPoints = [
-  { label: "Mehr Überblick", icon: ShieldCheck },
-  { label: "Langfristiger Mehrwert", icon: BarChart3 },
-  { label: "Persönliche Begleitung", icon: UsersRound },
-  { label: "100% Vertraulich", icon: LockKeyhole },
-];
 
 export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden border-b border-[#D8C7A3] bg-[#FBFAF7] px-5 pt-[112px] sm:px-6 lg:px-8"
+      className="relative overflow-hidden border-b border-[#D8C7A3] bg-white px-5 pt-[112px] sm:px-6 lg:px-8"
     >
       <div className="absolute bottom-[74px] right-0 top-[72px] hidden w-[58%] lg:block">
         <Image
@@ -24,7 +17,7 @@ export function Hero() {
           sizes="58vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-[#FBFAF7] via-[#FBFAF7]/88 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/88 to-transparent" />
       </div>
 
       <div className="relative mx-auto max-w-[1180px]">
@@ -58,18 +51,6 @@ export function Hero() {
             />
           </div>
         </div>
-
-        {/* <div className="grid border-t border-[#D8C7A3] bg-[#FBFAF7]/94 py-5 sm:grid-cols-2 lg:grid-cols-4">
-          {proofPoints.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div key={item.label} className="flex items-center gap-3 px-3 py-2">
-                <Icon className="text-[#B88420]" size={22} strokeWidth={1.7} />
-                <span className="text-sm font-semibold text-[#2D271F]">{item.label}</span>
-              </div>
-            );
-          })}
-        </div> */}
       </div>
     </section>
   );

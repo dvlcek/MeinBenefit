@@ -13,7 +13,7 @@ const rows = [
 export function ComparisonSection() {
   return (
     <Section className="bg-white">
-      <div className="grid gap-10 lg:grid-cols-[0.36fr_0.64fr] lg:items-start">
+      <div className="grid gap-8 lg:grid-cols-[0.28fr_0.72fr] lg:items-start">
         <div>
           <h2 className="font-serif text-3xl font-semibold leading-tight text-[#17130D] sm:text-4xl">
             Mehr als ein Vergleich. Persönlich begleitet.
@@ -24,42 +24,79 @@ export function ComparisonSection() {
           </p>
         </div>
 
-        <div className="overflow-x-auto border border-[#D8C7A3]">
-          <div className="min-w-[700px]">
-            <div className="grid grid-cols-[1.45fr_0.8fr_0.8fr_0.9fr] border-b border-[#D8C7A3] bg-[#FBFAF7] text-xs font-bold uppercase tracking-[0.08em] text-[#4A453C]">
-              <div className="px-5 py-4" />
-              <div className="bg-[#073F2A] px-5 py-4 text-center text-[#F6E6B8]">Mind Benefit</div>
-              <div className="px-5 py-4 text-center">Makler</div>
-              <div className="px-5 py-4 text-center">Vergleichsportale</div>
-            </div>
-            {rows.map((row) => (
-              <div
-                key={row[0]}
-                className="grid grid-cols-[1.45fr_0.8fr_0.8fr_0.9fr] border-b border-[#E6D8BA] last:border-b-0"
-              >
-                <div className="px-5 py-3 text-sm font-semibold text-[#2D271F]">{row[0]}</div>
-                <Cell value={row[1]} highlight />
-                <Cell value={row[2]} />
-                <Cell value={row[3]} />
-              </div>
-            ))}
-          </div>
+        <div className="relative border border-[#D8C7A3] bg-white shadow-[0_18px_46px_rgba(17,18,15,0.06)]">
+          <div className="pointer-events-none absolute inset-y-0 left-[41%] z-10 w-[22%] border-2 border-[#073F2A]" />
+          <table className="w-full table-fixed border-separate border-spacing-0 text-[11px] sm:text-sm">
+            <colgroup>
+              <col className="w-[41%]" />
+              <col className="w-[22%]" />
+              <col className="w-[17%]" />
+              <col className="w-[20%]" />
+            </colgroup>
+            <thead>
+              <tr className="text-[9px] font-bold uppercase tracking-[0.04em] text-[#4A453C] sm:text-xs sm:tracking-[0.08em]">
+                <th className="border-b border-[#D8C7A3] bg-white px-2 py-4 text-left font-bold sm:px-5" />
+                <th className="border-b border-[#D8C7A3] bg-[#073F2A] px-2 py-4 text-center font-bold text-[#F6E6B8] sm:px-5">
+                  <span className="block text-[10px] leading-tight sm:text-[13px]">Mind Benefit</span>
+                  <span className="mt-1 hidden text-[10px] font-semibold tracking-[0.14em] text-[#EAC871] sm:block">
+                    Beste Wahl
+                  </span>
+                </th>
+                <th className="border-b border-[#D8C7A3] bg-white px-2 py-4 text-center font-bold sm:px-5">
+                  Makler
+                </th>
+                <th className="border-b border-[#D8C7A3] bg-white px-2 py-4 text-center font-bold sm:px-5">
+                  Vergleichsportale
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr key={row[0]}>
+                  <td className="h-[58px] border-b border-[#E6D8BA] bg-white px-2 py-3 align-middle font-semibold leading-5 text-[#2D271F] sm:px-5 sm:py-4 sm:leading-6">
+                    {row[0]}
+                  </td>
+                  <Cell value={row[1]} highlight />
+                  <Cell value={row[2]} />
+                  <Cell value={row[3]} end />
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </Section>
   );
 }
 
-function Cell({ value, highlight = false }: { value: string; highlight?: boolean }) {
+function Cell({
+  value,
+  highlight = false,
+  end = false,
+}: {
+  value: string;
+  highlight?: boolean;
+  end?: boolean;
+}) {
   const Icon = value === "check" ? Check : Minus;
 
   return (
-    <div
-      className={`flex items-center justify-center px-5 py-3 ${
-        highlight ? "bg-[#FBFAF7] text-[#B88420]" : "text-[#7A756B]"
+    <td
+      className={`h-[58px] px-2 py-3 text-center align-middle sm:px-5 ${
+        highlight
+          ? "border-b border-[#E6D8BA] bg-[#F5FAF6] text-[#073F2A]"
+          : `border-b border-[#E6D8BA] bg-white text-[#7A756B] ${end ? "" : "border-r border-[#EEE2C9]"}`
       }`}
     >
-      <Icon size={18} strokeWidth={2} />
-    </div>
+      <span
+        className={`mx-auto flex h-8 w-8 items-center justify-center border ${
+          highlight
+            ? "border-[#073F2A] bg-[#073F2A] text-[#F6E6B8]"
+            : "border-transparent text-[#8A857A]"
+        }`}
+      >
+        <Icon size={18} strokeWidth={highlight ? 2.6 : 2} />
+      </span>
+    </td>
   );
 }

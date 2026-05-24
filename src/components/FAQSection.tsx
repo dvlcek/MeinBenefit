@@ -30,7 +30,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="faq" className="bg-[#FBFAF7] px-5 py-10 sm:px-6 lg:px-8">
+    <section id="faq" className="bg-white px-5 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-[1180px] gap-8 border-t border-[#D8C7A3] pt-8 lg:grid-cols-[0.22fr_0.78fr]">
         <h2 className="font-serif text-3xl font-semibold text-[#17130D]">Häufige Fragen</h2>
         <div className="grid gap-3 md:grid-cols-2">

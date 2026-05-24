@@ -29,7 +29,7 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section id="ablauf" className="bg-[#FBFAF7] px-5 py-10 sm:px-6 lg:px-8">
+    <section id="ablauf" className="bg-white px-5 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-[1180px]">
         <h2 className="text-center font-serif text-3xl font-semibold text-[#17130D]">
           So funktioniert Mind Benefit
