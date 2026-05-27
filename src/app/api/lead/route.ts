@@ -54,7 +54,7 @@ export async function POST(request: Request) {
 
     // TODO: Connect Resend, Brevo, HubSpot, or the selected CRM here.
     // TODO: Store lead consent and source attribution before production launch.
-    console.log("Mind Benefit lead", lead);
+    console.log("MeinBenefit lead", lead);
 
     return NextResponse.json({ success: true });
   } catch {

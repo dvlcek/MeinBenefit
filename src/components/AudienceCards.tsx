@@ -15,7 +15,7 @@ const audiences = [
     id: "unternehmen",
     icon: BriefcaseBusiness,
     title: "Unternehmen / Arbeitgeber",
-    text: "Wir zeigen, wie Mind Benefit als moderner Mitarbeiter-Benefit eingesetzt werden kann.",
+    text: "Wir zeigen, wie MeinBenefit als moderner Mitarbeiter-Benefit eingesetzt werden kann.",
     cta: "Arbeitgebergespräch anfragen",
     href: "#lead-b2b",
   },

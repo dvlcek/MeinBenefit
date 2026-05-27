@@ -14,8 +14,8 @@ export function Section({
   innerClassName = "",
 }: SectionProps) {
   return (
-    <section id={id} className={`px-5 py-14 sm:px-6 lg:px-8 lg:py-18 ${className}`}>
-      <div className={`mx-auto w-full max-w-[1180px] ${innerClassName}`}>{children}</div>
+    <section id={id} className={`px-5 py-16 sm:px-6 lg:px-8 lg:py-20 ${className}`}>
+      <div className={`mx-auto w-full max-w-[1200px] ${innerClassName}`}>{children}</div>
     </section>
   );
 }
@@ -38,7 +38,7 @@ export function SectionHeading({
 
   return (
     <div
-      className={`mb-12 max-w-3xl ${
+      className={`mb-10 max-w-3xl sm:mb-12 ${
         align === "center" ? "mx-auto text-center" : "text-left"
       }`}
     >
@@ -47,7 +47,7 @@ export function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className={`font-serif text-3xl font-semibold leading-tight sm:text-4xl lg:text-[44px] ${titleColor}`}>
+      <h2 className={`font-serif text-3xl font-semibold leading-[1.08] sm:text-4xl lg:text-[44px] ${titleColor}`}>
         {title}
       </h2>
       {subtitle ? (

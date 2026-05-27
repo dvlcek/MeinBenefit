@@ -12,37 +12,38 @@ const rows = [
 
 export function ComparisonSection() {
   return (
-    <Section className="bg-white">
-      <div className="grid gap-8 lg:grid-cols-[0.28fr_0.72fr] lg:items-start">
+    <Section className="bg-white" innerClassName="max-w-[1240px]">
+      <div className="grid gap-9 lg:grid-cols-[0.24fr_0.76fr] lg:items-start">
         <div>
-          <h2 className="font-serif text-3xl font-semibold leading-tight text-[#17130D] sm:text-4xl">
+          <h2 className="font-serif text-3xl font-semibold leading-[1.08] text-[#17130D] sm:text-4xl">
             Mehr als ein Vergleich. Persönlich begleitet.
           </h2>
           <p className="mt-5 text-sm leading-7 text-[#4A453C] sm:text-base">
-            Mind Benefit verbindet persönliche Analyse, klare Empfehlungen und langfristige
+            MeinBenefit verbindet persönliche Analyse, klare Empfehlungen und langfristige
             Begleitung, damit aus laufenden Ausgaben echte Vorteile entstehen.
           </p>
         </div>
 
         <div className="relative border border-[#D8C7A3] bg-white shadow-[0_18px_46px_rgba(17,18,15,0.06)]">
-          <div className="pointer-events-none absolute inset-y-0 left-[41%] z-10 w-[22%] border-2 border-[#073F2A]" />
+          <div className="pointer-events-none absolute inset-y-0 left-[38%] z-10 w-[22%] border-2 border-[#073F2A]" />
+          <div className="pointer-events-none absolute inset-y-0 left-[78%] z-10 w-px bg-[#D8C7A3]" />
           <table className="w-full table-fixed border-separate border-spacing-0 text-[11px] sm:text-sm">
             <colgroup>
-              <col className="w-[41%]" />
+              <col className="w-[38%]" />
               <col className="w-[22%]" />
-              <col className="w-[17%]" />
-              <col className="w-[20%]" />
+              <col className="w-[18%]" />
+              <col className="w-[22%]" />
             </colgroup>
             <thead>
               <tr className="text-[9px] font-bold uppercase tracking-[0.04em] text-[#4A453C] sm:text-xs sm:tracking-[0.08em]">
                 <th className="border-b border-[#D8C7A3] bg-white px-2 py-4 text-left font-bold sm:px-5" />
                 <th className="border-b border-[#D8C7A3] bg-[#073F2A] px-2 py-4 text-center font-bold text-[#F6E6B8] sm:px-5">
-                  <span className="block text-[10px] leading-tight sm:text-[13px]">Mind Benefit</span>
+                  <span className="block text-[10px] leading-tight sm:text-[13px]">MeinBenefit</span>
                   <span className="mt-1 hidden text-[10px] font-semibold tracking-[0.14em] text-[#EAC871] sm:block">
                     Beste Wahl
                   </span>
                 </th>
-                <th className="border-b border-[#D8C7A3] bg-white px-2 py-4 text-center font-bold sm:px-5">
+                <th className="border-b border-r border-[#D8C7A3] bg-white px-2 py-4 text-center font-bold sm:px-5">
                   Makler
                 </th>
                 <th className="border-b border-[#D8C7A3] bg-white px-2 py-4 text-center font-bold sm:px-5">

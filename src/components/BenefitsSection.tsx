@@ -10,7 +10,7 @@ const benefits = [
   {
     icon: Gem,
     title: "Laufende Optimierung",
-    text: "Mind Benefit bleibt an deiner Seite und prüft regelmäßig, ob bessere Konditionen möglich sind.",
+    text: "MeinBenefit bleibt an deiner Seite und prüft regelmäßig, ob bessere Konditionen möglich sind.",
   },
   {
     icon: Handshake,
@@ -24,7 +24,7 @@ export function BenefitsSection() {
     <Section id="vorteile" className="bg-[#F7F3EA]">
       <SectionHeading
         title="Vorteile, die bleiben — für dich oder dein Unternehmen."
-        subtitle="Mind Benefit unterstützt Berufstätige, Familien und Unternehmen dabei, mehr Klarheit, mehr Spielraum und langfristige Vorteile aufzubauen."
+        subtitle="MeinBenefit unterstützt Berufstätige, Familien und Unternehmen dabei, mehr Klarheit, mehr Spielraum und langfristige Vorteile aufzubauen."
       />
       <div className="grid gap-6 md:grid-cols-3">
         {benefits.map((benefit) => {

@@ -4,6 +4,7 @@ import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { LeadForms } from "@/components/LeadForms";
 import { PricingSection } from "@/components/PricingSection";
 import { ProblemSection } from "@/components/ProblemSection";
 import { ProcessSection } from "@/components/ProcessSection";
@@ -22,6 +23,7 @@ export default function Home() {
         <ComparisonSection />
         <FAQSection />
         <FinalCTA />
+        <LeadForms />
       </main>
       <Footer />
     </>

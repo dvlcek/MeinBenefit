@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mind-benefit.at"),
-  title: "Mind Benefit | Premium Benefit für finanzielle Klarheit",
+  metadataBase: new URL("https://meinbenefit.at"),
+  title: "MeinBenefit | Premium Benefit für finanzielle Klarheit",
   description:
-    "Mind Benefit unterstützt Berufstätige, Familien und Unternehmen mit persönlicher Analyse, laufender Kostenoptimierung und greifbaren Mitarbeiter-Benefits.",
+    "MeinBenefit unterstützt Berufstätige, Familien und Unternehmen mit persönlicher Analyse, laufender Kostenoptimierung und greifbaren Mitarbeiter-Benefits.",
   keywords: [
-    "Mind Benefit",
+    "MeinBenefit",
     "Mitarbeiter Benefit",
     "Kostenoptimierung",
     "Gold Benefit",
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     "Employer Branding",
   ],
   openGraph: {
-    title: "Mind Benefit",
+    title: "MeinBenefit",
     description:
       "Ein Vorteil für Menschen. Ein Benefit für Unternehmen. Finanzielle Klarheit und langfristiger Mehrwert.",
     type: "website",
     locale: "de_AT",
-    url: "https://mind-benefit.at",
-    siteName: "Mind Benefit",
+    url: "https://meinbenefit.at",
+    siteName: "MeinBenefit",
   },
 };
 

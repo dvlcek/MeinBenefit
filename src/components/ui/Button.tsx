@@ -1,4 +1,6 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+"use client";
+
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, MouseEvent, ReactNode } from "react";
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
 type ButtonSize = "md" | "lg";
@@ -52,11 +54,27 @@ export function ButtonLink({
   variant = "primary",
   size = "md",
   className = "",
+  href,
+  onClick,
   ...props
 }: LinkProps) {
+  const opensLeadForm = href === "#kontakt" || href === "mailto:office@meinbenefit.at";
+  const renderedHref = opensLeadForm ? "#lead-form-modal" : href;
+
+  function handleClick(event: MouseEvent<HTMLAnchorElement>) {
+    onClick?.(event);
+
+    if (!event.defaultPrevented && opensLeadForm) {
+      event.preventDefault();
+      window.dispatchEvent(new CustomEvent("meinbenefit:open-lead-form"));
+    }
+  }
+
   return (
     <a
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+      href={renderedHref}
+      onClick={handleClick}
       {...props}
     >
       {children}

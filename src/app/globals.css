@@ -39,6 +39,14 @@ a {
   text-decoration: none;
 }
 
+.lead-modal {
+  display: none;
+}
+
+.lead-modal:target {
+  display: block;
+}
+
 button,
 input,
 select,

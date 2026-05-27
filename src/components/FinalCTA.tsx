@@ -6,12 +6,12 @@ export function FinalCTA() {
   return (
     <section
       id="kontakt"
-      className="relative overflow-hidden border-y border-[#C99A38]/45 bg-[#073F2A] px-5 py-11 text-center text-white sm:px-6 lg:px-8"
+      className="relative overflow-hidden border-y border-[#C99A38]/45 bg-[#073F2A] px-5 py-14 text-center text-white sm:px-6 lg:px-8"
     >
       <div className="absolute bottom-0 left-0 top-0 hidden w-[260px] lg:block">
         <Image
-          src="/images/mind-benefit-gold-bars.png"
-          alt="Goldbarren als Mind Benefit Mehrwert"
+          src="/images/meinbenefit-gold-bars.png"
+          alt="Goldbarren als MeinBenefit Mehrwert"
           fill
           sizes="260px"
           className="object-cover object-left"
@@ -29,7 +29,7 @@ export function FinalCTA() {
         <p className="mx-auto mt-3 max-w-2xl text-base font-semibold text-[#F6E6B8]">
           Vorteile, die bleiben - für dich und deine Zukunft.
         </p>
-        <ButtonLink href="mailto:office@mind-benefit.at" variant="secondary" size="lg" className="mt-7">
+        <ButtonLink href="mailto:office@meinbenefit.at" variant="secondary" size="lg" className="mt-7">
           Kostenlose Erstanalyse starten <ArrowRight size={18} />
         </ButtonLink>
       </div>

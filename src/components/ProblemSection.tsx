@@ -12,25 +12,25 @@ const bullets = [
 export function ProblemSection() {
   return (
     <Section id="vorteile" className="bg-white">
-      <div className="grid overflow-hidden border border-[#D8C7A3] bg-white shadow-[0_22px_70px_rgba(17,18,15,0.08)] lg:grid-cols-[0.74fr_1fr]">
-        <div className="relative min-h-[280px] border-b border-[#D8C7A3] lg:border-b-0 lg:border-r">
+      <div className="grid overflow-hidden border border-[#D8C7A3] bg-white shadow-[0_20px_56px_rgba(17,18,15,0.07)] lg:grid-cols-[0.72fr_1fr]">
+        <div className="relative min-h-[300px] border-b border-[#D8C7A3] lg:border-b-0 lg:border-r">
           <Image
-            src="/images/mind-benefit-family-consultation.png"
-            alt="Familie bei einer persönlichen Mind Benefit Beratung"
+            src="/images/meinbenefit-family-consultation.png"
+            alt="Familie bei einer persönlichen MeinBenefit Beratung"
             fill
             sizes="(min-width: 1024px) 42vw, 100vw"
             className="object-cover"
           />
         </div>
 
-        <div className="p-7 sm:p-10 lg:p-12">
-          <h2 className="font-serif text-3xl font-semibold leading-tight text-[#17130D] sm:text-4xl">
+        <div className="p-7 sm:p-10 lg:p-11">
+          <h2 className="font-serif text-3xl font-semibold leading-[1.08] text-[#17130D] sm:text-4xl">
             Zwei Seiten. Ein gemeinsames Problem. Eine Lösung.
           </h2>
           <p className="mt-2 font-serif text-2xl text-[#073F2A]">Für Berufstätige & Familien</p>
           <p className="mt-5 max-w-2xl text-sm leading-7 text-[#4A453C] sm:text-base">
             Viele laufende Kosten verändern sich mit der Zeit. Was früher gepasst hat, ist
-            heute vielleicht nicht mehr die beste Lösung. Mind Benefit hilft dir, deine Finanzen
+            heute vielleicht nicht mehr die beste Lösung. MeinBenefit hilft dir, deine Finanzen
             zu optimieren und Potenziale freizusetzen.
           </p>
 
@@ -43,8 +43,8 @@ export function ProblemSection() {
             ))}
           </ul>
 
-          <p className="mt-8 border-t border-[#CDB98A] pt-5 text-sm font-semibold leading-7 text-[#17130D]">
-            Mit Mind Benefit mehr Klarheit gewinnen, Potenziale nutzen und langfristige Vorteile
+          <p className="mt-8 border-t border-[#D8C7A3] pt-5 text-sm font-semibold leading-7 text-[#17130D]">
+            Mit MeinBenefit mehr Klarheit gewinnen, Potenziale nutzen und langfristige Vorteile
             aufbauen.
           </p>
         </div>

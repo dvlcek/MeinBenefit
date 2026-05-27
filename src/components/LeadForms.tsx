@@ -1,23 +1,117 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, ReactNode, useEffect, useState } from "react";
+import { X } from "lucide-react";
 import { Button } from "./ui/Button";
 
 type Status = "idle" | "success" | "error";
+type FormType = "b2c" | "b2b";
 
 const inputClass =
-  "min-h-12 rounded-2xl border border-[#003D2B]/14 bg-white px-4 text-sm text-[#0B0B0A] outline-none transition placeholder:text-[#8C887D] focus:border-[#006039] focus:ring-4 focus:ring-[#006039]/10";
+  "min-h-12 border border-[#D8C7A3] bg-white px-4 text-sm text-[#17130D] outline-none transition placeholder:text-[#8C887D] focus:border-[#073F2A] focus:ring-4 focus:ring-[#073F2A]/10";
 
 const selectClass = `${inputClass} appearance-none`;
 
 export function LeadForms() {
+  const [open, setOpen] = useState(false);
+  const [activeForm, setActiveForm] = useState<FormType>("b2c");
+
+  useEffect(() => {
+    function openLeadForm() {
+      setActiveForm("b2c");
+      setOpen(true);
+    }
+
+    function handleClick(event: MouseEvent) {
+      const target = event.target as Element | null;
+      const link = target?.closest<HTMLAnchorElement>(
+        'a[href="#kontakt"], a[href="mailto:office@meinbenefit.at"]',
+      );
+
+      if (!link) return;
+
+      event.preventDefault();
+      openLeadForm();
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+
+    window.addEventListener("meinbenefit:open-lead-form", openLeadForm);
+    document.addEventListener("click", handleClick);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("meinbenefit:open-lead-form", openLeadForm);
+      document.removeEventListener("click", handleClick);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open]);
+
   return (
-    <section className="bg-white px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2">
-        <LeadFormB2C />
-        <LeadFormB2B />
+    <div
+      id="lead-form-modal"
+      className={`lead-modal fixed inset-0 z-[100] overflow-y-auto bg-[#11120F]/58 px-5 py-6 backdrop-blur-sm sm:px-6 ${
+        open ? "!block" : ""
+      }`}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="lead-form-title"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) setOpen(false);
+      }}
+    >
+      <div className="mx-auto min-h-full max-w-3xl content-center">
+        <div className="relative border border-[#D8C7A3] bg-white shadow-[0_28px_80px_rgba(17,18,15,0.28)]">
+          <div className="flex items-start justify-between gap-5 border-b border-[#D8C7A3] p-5 sm:p-7">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#B88420]">
+                Kostenlose Erstanalyse
+              </p>
+              <h2
+                id="lead-form-title"
+                className="mt-2 font-serif text-3xl font-semibold leading-[1.08] text-[#17130D] sm:text-4xl"
+              >
+                Anfrage starten
+              </h2>
+              <p className="mt-3 max-w-xl text-sm leading-6 text-[#4A453C]">
+                Wähle den passenden Bereich und sende uns deine wichtigsten Informationen.
+              </p>
+            </div>
+            <a
+              href="#"
+              className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#CDB98A] text-[#073F2A] transition hover:border-[#073F2A]"
+              aria-label="Formular schließen"
+              onClick={() => setOpen(false)}
+            >
+              <X size={19} strokeWidth={1.8} />
+            </a>
+          </div>
+
+          <div className="grid grid-cols-2 border-b border-[#D8C7A3]">
+            <FormTab active={activeForm === "b2c"} onClick={() => setActiveForm("b2c")}>
+              Privatpersonen
+            </FormTab>
+            <FormTab active={activeForm === "b2b"} onClick={() => setActiveForm("b2b")}>
+              Unternehmen
+            </FormTab>
+          </div>
+
+          <div className="p-5 sm:p-7">
+            {activeForm === "b2c" ? <LeadFormB2C /> : <LeadFormB2B />}
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
 
@@ -126,28 +220,28 @@ function FormShell({
   cta: string;
   status: Status;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <form
       id={id}
       onSubmit={onSubmit}
-      className="rounded-[34px] border border-[#003D2B]/12 bg-[#F7F3EA] p-7 shadow-[0_24px_70px_rgba(5,5,5,0.07)] sm:p-9"
+      className="bg-white"
     >
-      <h2 className="font-serif text-3xl font-semibold leading-tight text-[#0B0B0A] sm:text-4xl">
+      <h3 className="font-serif text-2xl font-semibold leading-tight text-[#17130D] sm:text-3xl">
         {title}
-      </h2>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">{children}</div>
-      <Button type="submit" className="mt-8 w-full sm:w-auto">
+      </h3>
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">{children}</div>
+      <Button type="submit" className="mt-7 w-full sm:w-auto">
         {cta}
       </Button>
       {status === "success" ? (
-        <p className="mt-5 rounded-2xl bg-[#006039]/10 px-4 py-3 text-sm font-medium text-[#003D2B]">
+        <p className="mt-5 border border-[#073F2A]/20 bg-[#F5FAF6] px-4 py-3 text-sm font-medium text-[#073F2A]">
           Danke. Deine Anfrage wurde erfolgreich übermittelt.
         </p>
       ) : null}
       {status === "error" ? (
-        <p className="mt-5 rounded-2xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+        <p className="mt-5 border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
           Bitte prüfe deine Angaben und versuche es erneut.
         </p>
       ) : null}
@@ -188,5 +282,30 @@ function Select({ label, name, options }: { label: string; name: string; options
         ))}
       </select>
     </label>
+  );
+}
+
+function FormTab({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      className={`min-h-12 px-4 text-sm font-bold transition ${
+        active
+          ? "bg-[#073F2A] text-[#F6E6B8]"
+          : "bg-white text-[#4A453C] hover:bg-[#FFFCF4] hover:text-[#073F2A]"
+      }`}
+      aria-pressed={active}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 }
