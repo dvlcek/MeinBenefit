@@ -20,19 +20,19 @@ const badges = [
     label: "DSVGO",
     detail: "Datenschutzkonform",
     icon: "/images/trust-dsvgo.webp",
-  }
+  },
 ];
 
 export function TrustSection() {
   return (
-    <section className="bg-white px-2 py-6 text-black sm:px-6 sm:py-8 lg:px-8">
-      <div className="ml-4 grid w-[360px] max-w-[calc(100%-1rem)] grid-cols-4 items-start gap-1 sm:mx-auto sm:w-auto sm:max-w-[860px] sm:gap-4 lg:max-w-[980px]">
+    <section className="bg-white px-4 py-8 text-black sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-[1200px] grid-cols-4 items-start gap-2 rounded-[28px] border border-[#E6D8C6] bg-white px-3 py-7 shadow-[0_18px_54px_rgba(23,19,13,0.045)] sm:gap-4 sm:px-8 lg:px-12">
         {badges.map((badge) => (
           <div
             key={badge.label}
-            className="flex min-w-0 flex-col items-center justify-start gap-1.5 sm:gap-2"
+            className="flex min-w-0 flex-col items-center justify-start gap-2"
           >
-            <span className="relative h-8 w-12 shrink-0 sm:h-14 sm:w-20 lg:h-16 lg:w-24">
+            <span className="relative h-9 w-12 shrink-0 sm:h-14 sm:w-20 lg:h-16 lg:w-24">
               <Image
                 src={badge.icon}
                 alt=""
@@ -43,10 +43,10 @@ export function TrustSection() {
               />
             </span>
             <div className="min-w-0">
-              <p className="text-center text-[8px] font-bold leading-tight text-black sm:text-xs">
+              <p className="text-center text-[9px] font-bold leading-tight text-[#17130D] sm:text-xs">
                 {badge.label}
               </p>
-              <p className="mt-0.5 break-words text-center text-[7px] font-semibold leading-tight text-black/70 sm:text-[11px]">
+              <p className="mt-0.5 break-words text-center text-[7px] font-semibold leading-tight text-[#6B6258] sm:text-[11px]">
                 {badge.detail}
               </p>
             </div>

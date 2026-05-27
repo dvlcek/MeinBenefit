@@ -30,23 +30,30 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="faq" className="bg-white px-5 py-14 sm:px-6 lg:px-8 lg:py-16">
-      <div className="mx-auto grid max-w-[1200px] gap-8 border-t border-[#D8C7A3] pt-10 lg:grid-cols-1 text-center">
-        <h2 className="font-serif text-3xl font-semibold text-[#17130D]">Häufige Fragen</h2>
-        <div className="grid gap-4 md:grid-cols-1">
+    <section id="faq" className="bg-white px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <div className="mx-auto grid max-w-[1200px] gap-9 rounded-[32px] border border-[#E6D8C6] bg-[#FBFAF8] p-6 shadow-[0_24px_80px_rgba(23,19,13,0.055)] sm:p-8 lg:grid-cols-[0.38fr_0.62fr] lg:p-10">
+        <div>
+          <h2 className="font-serif text-3xl font-semibold leading-[1.08] text-[#17130D] sm:text-4xl">
+            Häufige Fragen
+          </h2>
+        </div>
+        <div className="grid gap-3">
           {faqs.map((item, index) => {
             const open = openIndex === index;
             return (
-              <div key={item.q} className="border border-[#D8C7A3] bg-white shadow-[0_10px_28px_rgba(17,18,15,0.035)]">
+              <div
+                key={item.q}
+                className="overflow-hidden rounded-[18px] border border-[#E6D8C6] bg-white shadow-[0_12px_32px_rgba(23,19,13,0.035)]"
+              >
                 <button
                   type="button"
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold leading-5 text-[#17130D]"
+                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold leading-5 text-[#17130D] transition hover:bg-[#F8F3EC]"
                   aria-expanded={open}
                   onClick={() => setOpenIndex(open ? -1 : index)}
                 >
                   {item.q}
                   <Plus
-                    className={`shrink-0 text-[#17130D] transition ${open ? "rotate-45" : ""}`}
+                    className={`shrink-0 text-[#0D3A2D] transition ${open ? "rotate-45" : ""}`}
                     size={18}
                     strokeWidth={1.8}
                   />

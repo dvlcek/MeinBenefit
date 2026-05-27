@@ -29,9 +29,9 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section id="ablauf" className="bg-white px-5 py-14 sm:px-6 lg:px-8 lg:py-16">
-      <div className="mx-auto max-w-[1200px] border-y border-[#D8C7A3] py-12">
-        <h2 className="text-center font-serif text-3xl font-semibold leading-[1.08] text-[#17130D] sm:text-4xl">
+    <section id="ablauf" className="bg-white px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <div className="mx-auto max-w-[1200px] border-t border-[#E6D8C6] pt-12">
+        <h2 className="mx-auto max-w-[330px] text-center font-serif text-[28px] font-semibold leading-[1.08] text-[#17130D] sm:max-w-none sm:text-4xl lg:text-[46px]">
           So funktioniert MeinBenefit
         </h2>
         <p className="mx-auto mt-4 max-w-[760px] text-center text-sm font-semibold leading-6 text-[#4A453C] sm:text-base">
@@ -39,27 +39,27 @@ export function ProcessSection() {
           langfristigen Vorteil.
         </p>
 
-        <div className="relative mt-10 grid gap-4 lg:grid-cols-4">
-          <div className="pointer-events-none absolute left-[12%] right-[12%] top-[38px] hidden h-px bg-[#D8C7A3] lg:block" />
+        <div className="relative mt-12 grid gap-5 lg:grid-cols-4">
+          <div className="pointer-events-none absolute left-[10%] right-[10%] top-[46px] hidden h-px bg-[#E6D8C6] lg:block" />
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
               <article
                 key={step.number}
-                className="relative border border-[#D8C7A3] bg-white p-5 shadow-[0_12px_32px_rgba(17,18,15,0.04)]"
+                className="relative rounded-[26px] border border-[#E6D8C6] bg-white p-5 shadow-[0_16px_42px_rgba(23,19,13,0.045)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(23,19,13,0.08)]"
               >
                 {index < steps.length - 1 ? (
                   <ArrowRight
-                    className="absolute -right-6 top-9 z-20 hidden h-8 w-8 bg-white p-1 text-[#B88420] lg:block"
+                    className="absolute -right-6 top-9 z-20 hidden h-8 w-8 rounded-full bg-white p-1 text-[#B99772] lg:block"
                     strokeWidth={1.6}
                   />
                 ) : null}
 
-                <div className="flex items-center gap-3 border-b border-[#E6D8BA] pb-4">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#D8C7A3] bg-[#FFFCF4] font-serif text-lg font-semibold text-[#B88420]">
+                <div className="flex items-center gap-3 border-b border-[#E6D8C6] pb-4">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#E6D8C6] bg-[#FBFAF8] font-serif text-lg font-semibold text-[#B99772]">
                     {step.number}
                   </span>
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center bg-[#073F2A] text-[#F6E6B8]">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0D3A2D] text-[#E7D7C4]">
                     <Icon size={20} strokeWidth={1.8} />
                   </span>
                 </div>

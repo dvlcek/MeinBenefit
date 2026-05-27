@@ -8,7 +8,7 @@ type Status = "idle" | "success" | "error";
 type FormType = "b2c" | "b2b";
 
 const inputClass =
-  "min-h-12 border border-[#D8C7A3] bg-white px-4 text-sm text-[#17130D] outline-none transition placeholder:text-[#8C887D] focus:border-[#073F2A] focus:ring-4 focus:ring-[#073F2A]/10";
+  "min-h-12 rounded-full border border-[#E6D8C6] bg-white px-4 text-sm text-[#17130D] outline-none transition placeholder:text-[#8C887D] focus:border-[#0D3A2D] focus:ring-4 focus:ring-[#0D3A2D]/10";
 
 const selectClass = `${inputClass} appearance-none`;
 
@@ -60,7 +60,7 @@ export function LeadForms() {
   return (
     <div
       id="lead-form-modal"
-      className={`lead-modal fixed inset-0 z-[100] overflow-y-auto bg-[#11120F]/58 px-5 py-6 backdrop-blur-sm sm:px-6 ${
+      className={`lead-modal fixed inset-0 z-[100] overflow-y-auto bg-[#11120F]/58 px-5 py-6 backdrop-blur-md sm:px-6 ${
         open ? "!block" : ""
       }`}
       role="dialog"
@@ -70,11 +70,11 @@ export function LeadForms() {
         if (event.target === event.currentTarget) setOpen(false);
       }}
     >
-      <div className="mx-auto min-h-full max-w-3xl content-center">
-        <div className="relative border border-[#D8C7A3] bg-white shadow-[0_28px_80px_rgba(17,18,15,0.28)]">
-          <div className="flex items-start justify-between gap-5 border-b border-[#D8C7A3] p-5 sm:p-7">
+      <div className="mx-auto min-h-full w-full max-w-3xl content-center">
+        <div className="relative w-full overflow-hidden rounded-[30px] border border-[#E6D8C6] bg-white shadow-[0_32px_90px_rgba(17,18,15,0.28)]">
+          <div className="flex items-start justify-between gap-5 border-b border-[#E6D8C6] bg-[#FBFAF8] p-5 sm:p-7">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#B88420]">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#B99772]">
                 Kostenlose Erstanalyse
               </p>
               <h2
@@ -89,7 +89,7 @@ export function LeadForms() {
             </div>
             <a
               href="#"
-              className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#CDB98A] text-[#073F2A] transition hover:border-[#073F2A]"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#D8C8B5] text-[#0D3A2D] transition hover:border-[#0D3A2D] hover:bg-white"
               aria-label="Formular schließen"
               onClick={() => setOpen(false)}
             >
@@ -97,7 +97,7 @@ export function LeadForms() {
             </a>
           </div>
 
-          <div className="grid grid-cols-2 border-b border-[#D8C7A3]">
+          <div className="grid grid-cols-2 border-b border-[#E6D8C6]">
             <FormTab active={activeForm === "b2c"} onClick={() => setActiveForm("b2c")}>
               Privatpersonen
             </FormTab>
@@ -299,8 +299,8 @@ function FormTab({
       type="button"
       className={`min-h-12 px-4 text-sm font-bold transition ${
         active
-          ? "bg-[#073F2A] text-[#F6E6B8]"
-          : "bg-white text-[#4A453C] hover:bg-[#FFFCF4] hover:text-[#073F2A]"
+          ? "bg-[#0D3A2D] text-[#E7D7C4]"
+          : "bg-white text-[#4A453C] hover:bg-[#F8F3EC] hover:text-[#0D3A2D]"
       }`}
       aria-pressed={active}
       onClick={onClick}

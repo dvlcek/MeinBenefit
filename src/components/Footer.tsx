@@ -6,11 +6,11 @@ const legal = ["Impressum", "Datenschutz", "AGB"];
 
 export function Footer() {
   return (
-    <footer className="bg-[#11120F] px-5 pt-10 text-white sm:px-6 lg:px-8">
+    <footer className="bg-[#11120F] px-5 pt-12 text-white sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-[1200px] gap-10 pb-10 lg:grid-cols-[1.25fr_0.7fr_0.8fr_1.2fr_0.75fr]">
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex h-12 w-12 items-center justify-center border-2 border-[#C99A38] bg-[#11120F] font-serif text-lg font-bold text-[#F6E6B8]">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-[#D6B489] bg-white/5 font-serif text-lg font-bold text-[#E7D7C4]">
               MB
             </span>
             <div>
@@ -41,14 +41,14 @@ export function Footer() {
           <div className="mt-5 flex gap-3">
             <a
               href="#top"
-              className="flex h-10 w-10 items-center justify-center border border-[#C99A38] text-[#F4D184] transition hover:bg-[#C99A38] hover:text-[#11120F]"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D6B489] text-[#F4D184] transition hover:bg-[#D6B489] hover:text-[#11120F]"
               aria-label="Instagram"
             >
               <Camera size={18} />
             </a>
             <a
               href="#top"
-              className="flex h-10 w-10 items-center justify-center border border-[#C99A38] text-[#F4D184] transition hover:bg-[#C99A38] hover:text-[#11120F]"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D6B489] text-[#F4D184] transition hover:bg-[#D6B489] hover:text-[#11120F]"
               aria-label="Facebook"
             >
               <Send size={18} />
