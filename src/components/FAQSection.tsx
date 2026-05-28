@@ -31,9 +31,9 @@ export function FAQSection() {
 
   return (
     <section id="faq" className="bg-white px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
-      <div className="mx-auto grid max-w-[1200px] gap-9 rounded-[32px] border border-[#E6D8C6] bg-[#FBFAF8] p-6 shadow-[0_24px_80px_rgba(23,19,13,0.055)] sm:p-8 lg:grid-cols-[0.38fr_0.62fr] lg:p-10">
+      <div className="mx-auto grid max-w-[1200px] gap-9 sm:p-8 lg:p-10">
         <div>
-          <h2 className="font-serif text-3xl font-semibold leading-[1.08] text-[#17130D] sm:text-4xl">
+          <h2 className="font-serif text-3xl text-center font-semibold leading-[1.08] text-[#17130D] sm:text-4xl">
             Häufige Fragen
           </h2>
         </div>

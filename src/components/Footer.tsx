@@ -10,7 +10,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-[1200px] gap-10 pb-10 lg:grid-cols-[1.25fr_0.7fr_0.8fr_1.2fr_0.75fr]">
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-[#D6B489] bg-white/5 font-serif text-lg font-bold text-[#E7D7C4]">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/8 font-serif text-lg font-bold text-[#E7D7C4]">
               MB
             </span>
             <div>
@@ -41,14 +41,14 @@ export function Footer() {
           <div className="mt-5 flex gap-3">
             <a
               href="#top"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D6B489] text-[#F4D184] transition hover:bg-[#D6B489] hover:text-[#11120F]"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/8 text-[#F4D184] transition hover:bg-[#D6B489] hover:text-[#11120F]"
               aria-label="Instagram"
             >
               <Camera size={18} />
             </a>
             <a
               href="#top"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D6B489] text-[#F4D184] transition hover:bg-[#D6B489] hover:text-[#11120F]"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/8 text-[#F4D184] transition hover:bg-[#D6B489] hover:text-[#11120F]"
               aria-label="Facebook"
             >
               <Send size={18} />
@@ -56,7 +56,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="mx-auto max-w-[1200px] border-t border-white/10 py-4 text-center text-xs text-white/48">
+      <div className="mx-auto max-w-[1200px] py-4 text-center text-xs text-white/48">
         © 2024 MeinBenefit GmbH. Alle Rechte vorbehalten.
       </div>
     </footer>

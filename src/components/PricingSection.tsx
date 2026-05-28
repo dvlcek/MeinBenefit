@@ -7,12 +7,12 @@ const plans = [
     subtitle: "Für Berufstätige",
     cta: "Kostenloses Erstgespräch buchen",
     variant: "ghost" as const,
-    cardClass: "border-[#E6D8C6] bg-white text-[#17130D]",
+    cardClass: "border-[#17130D] bg-white text-[#17130D]",
     accentClass: "text-[#17130D]",
     mutedClass: "text-[#6B6258]",
     featureClass: "text-[#2D271F]",
     buttonClass:
-      "!border-[#D8C8B5] !bg-white !text-[#17130D] hover:!border-[#B99772] hover:!bg-[#F8F3EC]",
+      "!bg-white !text-[#17130D] border border-[#17130D] hover:!bg-[#17130D] hover:!text-white ",
     packageLabel: "Gold / einmalig Enthalten:",
     features: [
       "Einmalige Gold Auszahlung mit 15g Gold",
@@ -51,14 +51,14 @@ const plans = [
     subtitle: "Der Benefit, der Mitarbeiter:innen wirklich erreicht.",
     cta: "Benefit für Unternehmen anfragen",
     variant: "ghost" as const,
-    cardClass: "border-[#E6D8C6] bg-white text-[#17130D] md:col-span-2 lg:col-span-1",
+    cardClass: "border-[#E6D8C6] bg-[#F8F5EF] text-[#17130D] md:col-span-2 lg:col-span-1",
     accentClass: "text-[#17130D]",
     mutedClass: "text-[#6B6258]",
     featureClass: "text-[#2D271F]",
     buttonClass:
-      "!border-[#0D3A2D] !bg-white !text-[#0D3A2D] hover:!border-[#0D3A2D] hover:!bg-[#F5FAF6]",
-    intro:
-      "MeinBenefit ist ein Mitarbeiter-Benefit für Unternehmen. Arbeitgeber ermöglichen ihren Mitarbeiter:innen Zugang zu einem persönlichen Service, der laufende Ausgaben prüft, Potenziale sichtbar macht und langfristige Vorteile schaffen kann.",
+      "!bg-white !text-[#0D3A2D] hover:!bg-[#EEF6F1]",
+    // intro:
+    //   "MeinBenefit ist ein Mitarbeiter-Benefit für Unternehmen. Arbeitgeber ermöglichen ihren Mitarbeiter:innen Zugang zu einem persönlichen Service, der laufende Ausgaben prüft, Potenziale sichtbar macht und langfristige Vorteile schaffen kann.",
     note: "(smarte Upgrade )",
     extra: "Tarifkartre L´Rechts Text Links was MB ist",
     price: "ab 20 € / Mitarbeiter:in / Monat",
@@ -75,61 +75,67 @@ const plans = [
 
 export function PricingSection() {
   return (
-    <section id="preise" className="bg-white px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
-      <div className="mx-auto max-w-[1200px] rounded-[32px] border border-[#E6D8C6] bg-[#FBFAF8] px-5 py-10 shadow-[0_24px_80px_rgba(23,19,13,0.06)] sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#B99772]">
-            Tarifkarten
-          </p>
-          <h2 className="mt-3 font-serif text-3xl font-semibold leading-[1.08] text-[#17130D] sm:text-4xl lg:text-[46px]">
-            Für Berufstätige
-          </h2>
-          <p className="mt-4 text-base font-semibold text-[#17130D]">
-            Dein persönlicher Vorteil im Alltag.
-          </p>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#4A453C] sm:text-base">
-            Du möchtest mehr Überblick über deine laufenden Ausgaben, aber dich nicht selbst durch
-            Verträge und Anbieter kämpfen? MeinBenefit erledigt das für dich! — von der Analyse bis
-            zur Umsetzung.
-          </p>
-          <p className="mt-3 text-sm leading-6 text-[#4A453C] sm:text-base">
-            -Finde ich mal gut für den Anfang
-          </p>
-          <p className="mt-2 text-sm leading-6 text-[#4A453C] sm:text-base">Liste</p>
+    <section id="preise" className="bg-white px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+      <div className="mx-auto max-w-[1200px]">
+        <div className="grid gap-8 lg:items-end">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#B99772]">
+              Tarifkarten
+            </p>
+            <h2 className="mt-4 font-serif text-4xl font-semibold leading-[1.02] text-[#17130D] sm:text-5xl lg:text-[58px]">
+              Für Berufstätige
+            </h2>
+          </div>
+          <div className="max-w-2xl">
+            <p className="text-base text-[#17130D]">
+              Dein persönlicher Vorteil im Alltag.
+            </p>
+            <p className="mt-4 text-sm leading-7 text-[#4A453C] sm:text-base">
+              Du möchtest mehr Überblick über deine laufenden Ausgaben, aber dich nicht selbst durch
+              Verträge und Anbieter kämpfen? MeinBenefit erledigt das für dich! — von der Analyse bis
+              zur Umsetzung.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#4A453C] sm:text-base">
+              -Finde ich mal gut für den Anfang
+            </p>
+            <p className="mt-2 text-sm leading-6 text-[#4A453C] sm:text-base">Liste</p>
+          </div>
         </div>
-        <h3 className="mx-auto mt-10 max-w-2xl text-center font-serif text-2xl font-semibold leading-[1.08] text-[#17130D] sm:text-3xl">
+        <h3 className="mt-14 max-w-2xl font-serif text-2xl font-semibold leading-[1.08] text-[#17130D] sm:text-3xl">
           Finde den passenden Anfang
         </h3>
-        <div className="mx-auto mt-10 grid max-w-[1120px] items-start gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-9 grid items-start gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
           {plans.map((plan) => (
             <article
               key={plan.title}
-              className={`relative overflow-hidden rounded-[28px] border p-7 shadow-[0_18px_48px_rgba(23,19,13,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(23,19,13,0.12)] ${plan.cardClass}`}
+              className={`relative overflow-hidden rounded-[20px] border p-7 transition duration-300 hover:-translate-y-1 ${
+                plan.recommended ? "shadow-[0_22px_58px_rgba(13,58,45,0.16)]" : "shadow-[0_16px_42px_rgba(23,19,13,0.045)]"
+              } ${plan.cardClass}`}
             >
               {plan.recommended ? (
                 <span className="absolute right-4 top-4 rounded-full bg-[#D6B489] px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#17130D]">
                   Empfohlen
                 </span>
               ) : null}
-              <div className="pt-4 text-center">
+              <div className="pt-4">
                 <h3
-                  className={`font-serif text-3xl font-semibold uppercase ${plan.accentClass}`}
+                  className={`font-serif text-3xl font-semibold ${plan.accentClass}`}
                 >
                   {plan.title}
                 </h3>
-                <p className={`mt-2 text-sm font-semibold ${plan.mutedClass}`}>
+                <p className={`mt-3 text-sm font-semibold leading-6 ${plan.mutedClass}`}>
                   {"packageLabel" in plan ? plan.packageLabel : plan.subtitle}
                 </p>
               </div>
               {"intro" in plan ? (
                 <div className="mt-6 grid gap-3 text-sm leading-6 text-[#4A453C]">
-                  <p>{plan.intro}</p>
+                  {/* <p>{plan.intro}</p> */}
                   <p className="font-semibold text-[#9A6418]">{plan.note}</p>
                   <p>{plan.extra}</p>
                   <p className="font-bold text-[#17130D]">Enthalten:</p>
                 </div>
               ) : null}
-              <ul className="mt-8 grid gap-3.5">
+              <ul className="mt-8 grid gap-4">
                 {plan.features.map((feature) => (
                   <li key={feature} className={`flex items-start gap-3 text-sm ${plan.featureClass}`}>
                     <CheckCircle2 className={`mt-0.5 shrink-0 ${plan.accentClass}`} size={17} />

@@ -3,12 +3,13 @@ import path from "node:path";
 import { randomUUID } from "node:crypto";
 
 export type LeadType = "b2c" | "b2b";
+export type LeadStatus = "new" | "contacted" | "qualified" | "done" | "archived";
 
 export type LeadRecord = {
   id: string;
   type: LeadType;
   receivedAt: string;
-  status: "new";
+  status: LeadStatus;
   source: string;
   fields: Record<string, string>;
   answers: Array<{
@@ -63,6 +64,36 @@ export async function updateLeadEmailDelivery(
     lead.id === id ? { ...lead, emailDelivery } : lead,
   );
   await writeFile(leadsFile, JSON.stringify(updated, null, 2), "utf8");
+}
+
+export async function updateLead(
+  id: string,
+  updates: Partial<Pick<LeadRecord, "type" | "status" | "fields" | "answers">>,
+) {
+  await mkdir(crmDir, { recursive: true });
+  const leads = await readLeads();
+  let updatedLead: LeadRecord | null = null;
+  const updated = leads.map((lead) => {
+    if (lead.id !== id) return lead;
+    updatedLead = { ...lead, ...updates };
+    return updatedLead;
+  });
+
+  if (!updatedLead) return null;
+
+  await writeFile(leadsFile, JSON.stringify(updated, null, 2), "utf8");
+  return updatedLead;
+}
+
+export async function deleteLead(id: string) {
+  await mkdir(crmDir, { recursive: true });
+  const leads = await readLeads();
+  const updated = leads.filter((lead) => lead.id !== id);
+
+  if (updated.length === leads.length) return false;
+
+  await writeFile(leadsFile, JSON.stringify(updated, null, 2), "utf8");
+  return true;
 }
 
 export function formatLeadEmail(lead: LeadRecord) {
