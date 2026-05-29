@@ -2,6 +2,11 @@ import Image from "next/image";
 
 const badges = [
   {
+    label: "Münze Österreich",
+    detail: "Gold von Münze Österreich",
+    icon: "/images/trust-muenze-oesterreich.webp",
+  },
+  {
     label: "WKO",
     detail: "Österreichisches Unternehmen",
     icon: "/images/trust-wko.webp",
@@ -10,11 +15,6 @@ const badges = [
     label: "SSL",
     detail: "Verschlüsselte Daten",
     icon: "/images/trust-ssl.webp",
-  },
-  {
-    label: "Münze Österreich",
-    detail: "Gold von Münze Österreich",
-    icon: "/images/trust-muenze-oesterreich.webp",
   },
   {
     label: "DSVGO",
@@ -26,7 +26,7 @@ const badges = [
 export function TrustSection() {
   return (
     <section className="bg-white px-4 py-12 text-black sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-[1040px] grid-cols-4 items-start gap-3 px-1 py-4 sm:gap-10 sm:px-6 lg:px-10">
+      <div className="mx-auto grid max-w-[1200px] grid-cols-4 items-start gap-3 px-1 py-4 sm:gap-10 sm:px-6 lg:px-10">
         {badges.map((badge) => (
           <div
             key={badge.label}

@@ -31,17 +31,17 @@ export function ProcessSection() {
   return (
     <section id="ablauf" className="bg-white px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
       <div className="mx-auto max-w-[1200px]">
-        <div className="grid gap-5 lg:grid-cols-[0.44fr_0.56fr] lg:items-end">
-          <h2 className="max-w-[620px] font-serif text-[34px] font-semibold leading-[1.04] text-[#17130D] sm:text-5xl lg:text-[58px]">
+        <div className="grid gap-5">
+          <h2 className="font-serif text-[34px] text-center font-semibold leading-[1.04] text-[#17130D] sm:text-5xl lg:text-[58px]">
             So funktioniert MeinBenefit
           </h2>
-          <p className="max-w-[660px] text-sm font-semibold leading-7 text-[#4A453C] sm:text-base lg:justify-self-end">
+          <p className="text-sm text-center font-semibold leading-7 text-[#4A453C] sm:text-base">
             Einfach, persönlich und Schritt für Schritt begleitet — vom ersten Gespräch bis zum
             langfristigen Vorteil.
           </p>
         </div>
 
-        <div className="relative mt-16 grid gap-10 lg:grid-cols-4">
+        <div className="relative mt-8 grid gap-10 lg:grid-cols-4">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (

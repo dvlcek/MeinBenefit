@@ -3,50 +3,6 @@ import { ButtonLink } from "./ui/Button";
 
 const plans = [
   {
-    title: "Gold",
-    subtitle: "Für Berufstätige",
-    cta: "Kostenloses Erstgespräch buchen",
-    variant: "ghost" as const,
-    cardClass: "border-[#17130D] bg-white text-[#17130D]",
-    accentClass: "text-[#17130D]",
-    mutedClass: "text-[#6B6258]",
-    featureClass: "text-[#2D271F]",
-    buttonClass:
-      "!bg-white !text-[#17130D] border border-[#17130D] hover:!bg-[#17130D] hover:!text-white ",
-    packageLabel: "Gold / einmalig Enthalten:",
-    features: [
-      "Einmalige Gold Auszahlung mit 15g Gold",
-      "(Premium Goldpaket in kooperation mit Münze Österreich)",
-      "Exclusive Mitgliedschaft",
-      "Jährliche Vertragsoptimierung",
-      "Bis zu 180€ monatliche Entlastung",
-      "Personalisierte Betreuung",
-      "Ideal für *",
-    ],
-  },
-  {
-    title: "Premium",
-    subtitle: "Für Berufstätige",
-    cta: "Kostenloses Erstgespräch buchen",
-    variant: "secondary" as const,
-    recommended: true,
-    cardClass: "border-[#0D3A2D] bg-[#0D3A2D] text-white",
-    accentClass: "text-[#D6B489]",
-    mutedClass: "text-white/68",
-    featureClass: "text-white/82",
-    buttonClass: "",
-    packageLabel: "Premium / monatlich Enthalten:",
-    features: [
-      "Monatliches Gold Abo ab 20€",
-      "(Goldauszahlung ab 1g Gold Premium Goldpaket in kooperation mit Münze Österreich )",
-      "Exclusive Mitgliedschaft",
-      "Jährliche Vertragsoptimierung",
-      "Bis zu 180€ monatliche Entlastung",
-      "Personalisierte Betreuung",
-      "Ideal für *",
-    ],
-  },
-  {
     title: "Für Unternehmen",
     subtitle: "Der Benefit, der Mitarbeiter:innen wirklich erreicht.",
     cta: "Benefit für Unternehmen anfragen",
@@ -71,6 +27,52 @@ const plans = [
       "Eigenes Firmen Branding",
     ],
   },
+  {
+    title: "Gold",
+    subtitle: "Für Berufstätige",
+    cta: "Kostenloses Erstgespräch buchen",
+    variant: "secondary" as const,
+    recommended: true,
+    cardClass: "border-[#0D3A2D] bg-[#0D3A2D] text-white",
+    accentClass: "text-[#D6B489]",
+    mutedClass: "text-white/68",
+    featureClass: "text-white/82",
+    buttonClass: "",
+    packageLabel: "Premium / monatlich Enthalten:",
+    features: [
+      "Monatliches Gold Abo ab 20€",
+      "(Goldauszahlung ab 1g Gold Premium Goldpaket in kooperation mit Münze Österreich )",
+      "Exclusive Mitgliedschaft",
+      "Jährliche Vertragsoptimierung",
+      "Bis zu 180€ monatliche Entlastung",
+      "Personalisierte Betreuung",
+      "Ideal für *",
+    ],
+  },
+  {
+    title: "Basic",
+    subtitle: "Für Berufstätige",
+    cta: "Kostenloses Erstgespräch buchen",
+    variant: "ghost" as const,
+    cardClass: "border-[#17130D] bg-white text-[#17130D]",
+    accentClass: "text-[#17130D]",
+    mutedClass: "text-[#6B6258]",
+    featureClass: "text-[#2D271F]",
+    buttonClass:
+      "!bg-white !text-[#17130D] border border-[#17130D] hover:!bg-[#17130D] hover:!text-white ",
+    packageLabel: "Gold / einmalig Enthalten:",
+    features: [
+      "Einmalige Gold Auszahlung mit 15g Gold",
+      "(Premium Goldpaket in kooperation mit Münze Österreich)",
+      "Exclusive Mitgliedschaft",
+      "Jährliche Vertragsoptimierung",
+      "Bis zu 180€ monatliche Entlastung",
+      "Personalisierte Betreuung",
+      "Ideal für *",
+    ],
+  },
+  
+  
 ];
 
 export function PricingSection() {
@@ -95,15 +97,8 @@ export function PricingSection() {
               Verträge und Anbieter kämpfen? MeinBenefit erledigt das für dich! — von der Analyse bis
               zur Umsetzung.
             </p>
-            <p className="mt-3 text-sm leading-6 text-[#4A453C] sm:text-base">
-              -Finde ich mal gut für den Anfang
-            </p>
-            <p className="mt-2 text-sm leading-6 text-[#4A453C] sm:text-base">Liste</p>
           </div>
         </div>
-        <h3 className="mt-14 max-w-2xl font-serif text-2xl font-semibold leading-[1.08] text-[#17130D] sm:text-3xl">
-          Finde den passenden Anfang
-        </h3>
         <div className="mt-9 grid items-start gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
           {plans.map((plan) => (
             <article

@@ -1,14 +1,14 @@
 "use client";
 
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { ButtonLink } from "./ui/Button";
 
 const navItems = [
-  { label: "Vorteile", href: "#vorteile" },
+  { label: "Für Unternehmen", href: "#preise", hasDropdown: true },
+  { label: "Leistungen", href: "#vorteile", hasDropdown: true },
   { label: "So funktioniert's", href: "#ablauf" },
-  { label: "Pakete", href: "#preise" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Über uns", href: "#top" },
+  { label: "Wissen", href: "#faq", hasDropdown: true },
 ];
 
 export function Header() {
@@ -63,41 +63,42 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 px-4 pt-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:px-6 lg:px-8 ${
-        hidden && !open ? "-translate-y-[calc(100%+24px)]" : "translate-y-0"
+      className={`fixed inset-x-0 top-0 z-50 bg-white transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        hidden && !open ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="mx-auto flex h-[68px] w-full max-w-[1320px] items-center justify-between rounded-full bg-white/86 px-3 shadow-[0_12px_40px_rgba(23,19,13,0.06)] backdrop-blur-2xl sm:px-5">
-        <a href="#top" className="group flex min-w-0 items-center gap-3" aria-label="MeinBenefit Startseite">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F7F1EA] font-serif text-lg font-bold text-[#0D3A2D] transition group-hover:bg-[#EFE6DA]">
-            MB
-          </span>
+      <div className="mx-auto flex h-[82px] w-full max-w-[1320px] items-center justify-between px-4 sm:px-6 lg:px-8">
+        <a href="#top" className="group flex min-w-0 items-center gap-2.5" aria-label="MeinBenefit Startseite">
           <span className="min-w-0">
-            <span className="block font-serif text-[22px] leading-none text-[#17130D]">MeinBenefit</span>
-            <span className="mt-1 block text-xs font-semibold text-[#9A6418]">Vorteile, die bleiben.</span>
+            <span className="block font-serif text-[36px] font-semibold leading-none tracking-[0.01em] text-[#0D3A2D]">
+              MB
+            </span>
+            <span className="mt-0.5 block text-[10px] font-semibold leading-none text-[#9A6418]">MeinBenefit</span>
           </span>
         </a>
 
         <nav
           aria-label="Hauptnavigation"
-          className="hidden items-center rounded-full bg-[#F8F3EC]/86 p-1.5 lg:flex"
+          className="hidden items-center gap-9 lg:flex"
         >
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full px-5 py-2.5 text-sm font-semibold text-[#4A453C] transition hover:bg-[#0D3A2D] hover:text-white"
+              className="inline-flex items-center gap-1.5 whitespace-nowrap py-2 text-sm font-semibold text-[#2D2922] transition hover:text-[#0D3A2D]"
             >
               {item.label}
+              {item.hasDropdown ? <ChevronDown size={14} strokeWidth={2.2} /> : null}
             </a>
           ))}
         </nav>
 
-        <div className="hidden lg:block">
-          <ButtonLink href="#kontakt" size="md">
-            Kostenlose Erstanalyse starten <ArrowRight size={16} />
-          </ButtonLink>
-        </div>
+        <a
+          href="#kontakt"
+          className="hidden min-h-11 items-center justify-center gap-2 rounded-full bg-[#D6B489] px-5 text-xs font-bold text-[#17130D] shadow-[0_10px_26px_rgba(153,114,72,0.18)] transition hover:bg-[#C8A77D] lg:inline-flex"
+        >
+          Kostenlose Erstberatung <ArrowRight size={16} strokeWidth={2.4} />
+        </a>
 
         <button
           type="button"
@@ -111,21 +112,26 @@ export function Header() {
       </div>
 
       {open ? (
-        <div className="mx-auto max-w-[1320px] pt-3 lg:hidden">
-          <nav className="grid gap-2 rounded-[22px] bg-white/96 p-3 shadow-[0_24px_70px_rgba(23,19,13,0.12)] backdrop-blur-2xl">
+        <div className="border-t border-[#EFE6DA] bg-white lg:hidden">
+          <nav className="mx-auto grid max-w-[1320px] gap-1 px-4 py-4 sm:px-6">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="rounded-full px-4 py-3 text-sm font-semibold text-[#2D271F] transition hover:bg-[#F8F3EC] hover:text-[#9A6418]"
+                className="flex min-h-11 items-center justify-between px-1 text-sm font-semibold text-[#2D271F] transition hover:text-[#0D3A2D]"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
+                {item.hasDropdown ? <ChevronDown size={15} strokeWidth={2.2} /> : null}
               </a>
             ))}
-            <ButtonLink href="#kontakt" className="mt-2 w-full" onClick={() => setOpen(false)}>
-              Kostenlose Erstanalyse starten
-            </ButtonLink>
+            <a
+              href="#kontakt"
+              className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#D6B489] px-5 text-sm font-bold text-[#17130D] transition hover:bg-[#C8A77D]"
+              onClick={() => setOpen(false)}
+            >
+              Kostenlose Erstberatung <ArrowRight size={16} strokeWidth={2.4} />
+            </a>
           </nav>
         </div>
       ) : null}
