@@ -68,12 +68,18 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-[82px] w-full max-w-[1320px] items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#top" className="group flex min-w-0 items-center gap-2.5" aria-label="MeinBenefit Startseite">
+        <a
+          href="#top"
+          className="group flex min-w-0 items-center gap-2.5"
+          aria-label="MeinBenefit Startseite"
+        >
           <span className="min-w-0">
             <span className="block font-serif text-[36px] font-semibold leading-none tracking-[0.01em] text-[#0D3A2D]">
               MB
             </span>
-            <span className="mt-0.5 block text-[10px] font-semibold leading-none text-[#9A6418]">MeinBenefit</span>
+            <span className="mt-0.5 block text-[10px] font-semibold leading-none text-[#9A6418]">
+              MeinBenefit
+            </span>
           </span>
         </a>
 
@@ -88,13 +94,15 @@ export function Header() {
               className="inline-flex items-center gap-1.5 whitespace-nowrap py-2 text-sm font-semibold text-[#2D2922] transition hover:text-[#0D3A2D]"
             >
               {item.label}
-              {item.hasDropdown ? <ChevronDown size={14} strokeWidth={2.2} /> : null}
+              {item.hasDropdown ? (
+                <ChevronDown size={14} strokeWidth={2.2} />
+              ) : null}
             </a>
           ))}
         </nav>
 
         <a
-          href="#kontakt"
+          href="/kontakt?type=b2b"
           className="hidden min-h-11 items-center justify-center gap-2 rounded-full bg-[#D6B489] px-5 text-xs font-bold text-[#17130D] shadow-[0_10px_26px_rgba(153,114,72,0.18)] transition hover:bg-[#C8A77D] lg:inline-flex"
         >
           Kostenlose Erstberatung <ArrowRight size={16} strokeWidth={2.4} />
@@ -122,11 +130,13 @@ export function Header() {
                 onClick={() => setOpen(false)}
               >
                 {item.label}
-                {item.hasDropdown ? <ChevronDown size={15} strokeWidth={2.2} /> : null}
+                {item.hasDropdown ? (
+                  <ChevronDown size={15} strokeWidth={2.2} />
+                ) : null}
               </a>
             ))}
             <a
-              href="#kontakt"
+              href="/kontakt?type=b2b"
               className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#D6B489] px-5 text-sm font-bold text-[#17130D] transition hover:bg-[#C8A77D]"
               onClick={() => setOpen(false)}
             >

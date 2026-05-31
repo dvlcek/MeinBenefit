@@ -2,7 +2,17 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { LeadWizard } from "@/components/LeadWizard";
 
-export default function KontaktPage() {
+type KontaktPageProps = {
+  searchParams: Promise<{ type?: string }>;
+};
+
+export default async function KontaktPage({ searchParams }: KontaktPageProps) {
+  const params = await searchParams;
+  const initialType =
+    params.type === "b2b" || params.type === "b2c"
+      ? (params.type as "b2b" | "b2c")
+      : null;
+
   return (
     <main className="min-h-screen bg-white px-5 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-[980px]">
@@ -23,12 +33,15 @@ export default function KontaktPage() {
               Zuerst kurz einordnen.
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#4A453C]">
-              Wähle, ob du als Privatperson oder Unternehmen anfragst. Danach führen wir dich
-              Schritt für Schritt durch die passenden Fragen.
+              Wähle, ob du als Privatperson oder Unternehmen anfragst. Danach
+              führen wir dich Schritt für Schritt durch die passenden Fragen.
             </p>
           </div>
 
-          <LeadWizard />
+          <LeadWizard
+            key={initialType ?? "choose-lead-type"}
+            initialType={initialType}
+          />
         </section>
       </div>
     </main>

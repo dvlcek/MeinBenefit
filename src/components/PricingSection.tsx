@@ -1,146 +1,284 @@
 import { CheckCircle2 } from "lucide-react";
 import { ButtonLink } from "./ui/Button";
 
-const plans = [
+type PricingPlan = {
+  label: string;
+  name: string;
+  smallTitle: string;
+  price: string;
+  priceNote?: string;
+  description: string;
+  features: string[];
+  cta: string;
+  variant: "ghost" | "secondary";
+  cardClass: string;
+  labelClass: string;
+  accentClass: string;
+  featureClass: string;
+  buttonClass: string;
+  recommended?: boolean;
+};
+
+const b2cPlans: PricingPlan[] = [
   {
-    title: "Für Unternehmen",
-    subtitle: "Der Benefit, der Mitarbeiter:innen wirklich erreicht.",
-    cta: "Benefit für Unternehmen anfragen",
-    variant: "ghost" as const,
-    cardClass: "border-[#E6D8C6] bg-[#F8F5EF] text-[#17130D] md:col-span-2 lg:col-span-1",
-    accentClass: "text-[#17130D]",
-    mutedClass: "text-[#6B6258]",
-    featureClass: "text-[#2D271F]",
-    buttonClass:
-      "!bg-white !text-[#0D3A2D] hover:!bg-[#EEF6F1]",
-    // intro:
-    //   "MeinBenefit ist ein Mitarbeiter-Benefit für Unternehmen. Arbeitgeber ermöglichen ihren Mitarbeiter:innen Zugang zu einem persönlichen Service, der laufende Ausgaben prüft, Potenziale sichtbar macht und langfristige Vorteile schaffen kann.",
-    note: "(smarte Upgrade )",
-    extra: "Tarifkartre L´Rechts Text Links was MB ist",
-    price: "ab 20 € / Mitarbeiter:in / Monat",
+    label: "Für Privatpersonen",
+    name: "BASIC",
+    smallTitle: "Einmalig starten",
+    price: "3.000 € einmalig",
+    priceNote: "inkl. direktem Goldwert, z. B. 15 g physisches Gold",
+    description: "Einmal zahlen. Langfristig begleitet werden.",
     features: [
-      "Mitarbeiter-Benefit ab 20 € / MA / Monat",
-      "(Goldauszahlung ab 1g Gold Premium Goldpaket in kooperation mit Münze Österreich )",
-      "Persönlicher Service für Mitarbeiter:innen",
-      "Unterstützung für Mitarbeiterbindung",
-      "Recruiting- und Employer-Branding-Vorteil",
-      "Eigenes Firmen Branding",
+      "voller MeinBenefit-Service",
+      "persönliche Analyse Ihrer laufenden Ausgaben",
+      "Begleitung bei der Umsetzung",
+      "regelmäßige Betreuung und jährliche Prüfung",
+      "langfristige persönliche Begleitung",
+      "direkter Goldwert, z. B. 15 g physisches Gold",
+      "Goldbezug über Münze Österreich möglich",
     ],
+    cta: "Einmalig starten",
+    variant: "ghost" as const,
+    cardClass: "border-[#D6B489] bg-white text-[#17130D]",
+    labelClass: "text-[#B99772]",
+    accentClass: "text-[#17130D]",
+    featureClass: "text-[#2D271F]",
+    buttonClass: "!bg-white !text-[#17130D] border border-[#D6B489]",
   },
   {
-    title: "Gold",
-    subtitle: "Für Berufstätige",
-    cta: "Kostenloses Erstgespräch buchen",
+    label: "Für Privatpersonen",
+    name: "GOLD",
+    smallTitle: "Monatlich teilnehmen",
+    price: "ab 20 € / Monat",
+    priceNote: "Beitrag frei wählbar",
+    description:
+      "Ihr monatlicher Beitrag baut Ihren persönlichen Goldwert auf. Der MeinBenefit-Service bleibt gleich.",
+    features: [
+      "voller MeinBenefit-Service",
+      "persönliche Analyse Ihrer laufenden Ausgaben",
+      "Begleitung bei der Umsetzung",
+      "regelmäßige Betreuung und jährliche Prüfung",
+      "langfristige persönliche Begleitung",
+      "Goldwert baut sich monatlich auf",
+      "Goldbezug über Münze Österreich",
+    ],
+    cta: "Mitgliedschaft starten",
     variant: "secondary" as const,
-    recommended: true,
-    cardClass: "border-[#0D3A2D] bg-[#0D3A2D] text-white",
+    cardClass: "border-[#D6B489] bg-white text-[#17130D]",
+    labelClass: "text-[#B99772]",
     accentClass: "text-[#D6B489]",
-    mutedClass: "text-white/68",
-    featureClass: "text-white/82",
-    buttonClass: "",
-    packageLabel: "Premium / monatlich Enthalten:",
-    features: [
-      "Monatliches Gold Abo ab 20€",
-      "(Goldauszahlung ab 1g Gold Premium Goldpaket in kooperation mit Münze Österreich )",
-      "Exclusive Mitgliedschaft",
-      "Jährliche Vertragsoptimierung",
-      "Bis zu 180€ monatliche Entlastung",
-      "Personalisierte Betreuung",
-      "Ideal für *",
-    ],
-  },
-  {
-    title: "Basic",
-    subtitle: "Für Berufstätige",
-    cta: "Kostenloses Erstgespräch buchen",
-    variant: "ghost" as const,
-    cardClass: "border-[#17130D] bg-white text-[#17130D]",
-    accentClass: "text-[#17130D]",
-    mutedClass: "text-[#6B6258]",
     featureClass: "text-[#2D271F]",
-    buttonClass:
-      "!bg-white !text-[#17130D] border border-[#17130D] hover:!bg-[#17130D] hover:!text-white ",
-    packageLabel: "Gold / einmalig Enthalten:",
-    features: [
-      "Einmalige Gold Auszahlung mit 15g Gold",
-      "(Premium Goldpaket in kooperation mit Münze Österreich)",
-      "Exclusive Mitgliedschaft",
-      "Jährliche Vertragsoptimierung",
-      "Bis zu 180€ monatliche Entlastung",
-      "Personalisierte Betreuung",
-      "Ideal für *",
-    ],
+    buttonClass: "",
+    recommended: true,
   },
-  
-  
+];
+
+const b2bPlans: PricingPlan[] = [
+  {
+    label: "Für Unternehmen",
+    name: "BUSINESS",
+    smallTitle: "Für Unternehmen",
+    price: "ab 20 € / Mitarbeiter / Monat",
+    description:
+      "Für Unternehmen, die Mitarbeiterbindung, Arbeitgeberattraktivität und Wertschätzung einfach stärken möchten.",
+    features: [
+      "Persönlicher MeinBenefit-Service für Mitarbeiter",
+      "Analyse laufender Ausgaben der Mitarbeiter",
+      "Begleitung bei der Umsetzung",
+      "Geringer Aufwand für HR",
+      "Unterstützung bei Einführung und Kommunikation",
+      "Stärkung von Mitarbeiterbindung und Arbeitgeberattraktivität",
+      "Goldbezug über Münze Österreich möglich",
+    ],
+    cta: "Für Team anfragen",
+    variant: "ghost" as const,
+    cardClass: "border-[#0D3A2D] bg-white text-[#17130D]",
+    labelClass: "text-[#0D3A2D]",
+    accentClass: "text-[#17130D]",
+    featureClass: "text-[#2D271F]",
+    buttonClass: "!bg-[#0D3A2D] !text-white",
+  },
 ];
 
 export function PricingSection() {
   return (
-    <section id="preise" className="bg-white px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <section
+      id="preise"
+      className="bg-white px-5 py-20 sm:px-6 lg:px-8 lg:py-28"
+    >
       <div className="mx-auto max-w-[1200px]">
+        {/* B2C Group */}
         <div className="grid gap-8 lg:items-end">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#B99772]">
-              Tarifkarten
+              Wähle deinen persönlichen MeinBenefit-Start
             </p>
-            <h2 className="mt-4 font-serif text-4xl font-semibold leading-[1.02] text-[#17130D] sm:text-5xl lg:text-[58px]">
-              Für Berufstätige
+            <h2 className="mt-4 font-serif text-4xl font-semibold leading-[1.02] text-[#17130D] sm:text-5xl lg:text-[42px]">
+              Wähle deinen persönlichen MeinBenefit-Start
             </h2>
           </div>
           <div className="max-w-2xl">
             <p className="text-base text-[#17130D]">
-              Dein persönlicher Vorteil im Alltag.
-            </p>
-            <p className="mt-4 text-sm leading-7 text-[#4A453C] sm:text-base">
-              Du möchtest mehr Überblick über deine laufenden Ausgaben, aber dich nicht selbst durch
-              Verträge und Anbieter kämpfen? MeinBenefit erledigt das für dich! — von der Analyse bis
-              zur Umsetzung.
+              Ob einmalig oder monatlich: Wir prüfen deine aktuelle Situation,
+              zeigen mögliche Potenziale und begleiten dich persönlich bei der
+              Umsetzung.
             </p>
           </div>
         </div>
-        <div className="mt-9 grid items-start gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
-          {plans.map((plan) => (
+
+        {/* Combined single-line layout: BASIC | GOLD | BUSINESS */}
+        <div className="mt-9 grid items-stretch justify-center gap-8 sm:grid-cols-1 md:grid-cols-3 lg:gap-10">
+          {/* B2C - BASIC */}
+          {b2cPlans.slice(0, 1).map((plan) => (
             <article
-              key={plan.title}
-              className={`relative overflow-hidden rounded-[20px] border p-7 transition duration-300 hover:-translate-y-1 ${
-                plan.recommended ? "shadow-[0_22px_58px_rgba(13,58,45,0.16)]" : "shadow-[0_16px_42px_rgba(23,19,13,0.045)]"
-              } ${plan.cardClass}`}
+              key={plan.name}
+              className={`relative flex h-full flex-col justify-between overflow-hidden rounded-[20px] border p-7 transition duration-300 hover:-translate-y-1 ${plan.cardClass}`}
             >
-              {plan.recommended ? (
-                <span className="absolute right-4 top-4 rounded-full bg-[#D6B489] px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#17130D]">
-                  Empfohlen
-                </span>
-              ) : null}
-              <div className="pt-4">
-                <h3
-                  className={`font-serif text-3xl font-semibold ${plan.accentClass}`}
-                >
-                  {plan.title}
-                </h3>
-                <p className={`mt-3 text-sm font-semibold leading-6 ${plan.mutedClass}`}>
-                  {"packageLabel" in plan ? plan.packageLabel : plan.subtitle}
+              <p
+                className={`text-[10px] font-bold uppercase tracking-[0.12em] ${plan.labelClass ?? "text-[#B99772]"}`}
+              >
+                {plan.label}
+              </p>
+              <h3
+                className={`mt-3 font-serif text-3xl font-semibold ${plan.accentClass}`}
+              >
+                {plan.smallTitle}
+              </h3>
+              <p className="mt-2 text-sm font-medium text-[#4A453C]">
+                {plan.name}
+              </p>
+              <p className="mt-4 text-2xl font-serif font-bold text-[#17130D]">
+                {plan.price}
+              </p>
+              {plan.priceNote ? (
+                <p className="mt-2 text-sm font-semibold text-[#17130D]">
+                  {plan.priceNote}
                 </p>
-              </div>
-              {"intro" in plan ? (
-                <div className="mt-6 grid gap-3 text-sm leading-6 text-[#4A453C]">
-                  {/* <p>{plan.intro}</p> */}
-                  <p className="font-semibold text-[#9A6418]">{plan.note}</p>
-                  <p>{plan.extra}</p>
-                  <p className="font-bold text-[#17130D]">Enthalten:</p>
-                </div>
               ) : null}
-              <ul className="mt-8 grid gap-4">
+              <p className="mt-4 text-sm leading-6 text-[#4A453C]">
+                {plan.description}
+              </p>
+              <ul className="mt-6 grid gap-4">
                 {plan.features.map((feature) => (
-                  <li key={feature} className={`flex items-start gap-3 text-sm ${plan.featureClass}`}>
-                    <CheckCircle2 className={`mt-0.5 shrink-0 ${plan.accentClass}`} size={17} />
+                  <li
+                    key={feature}
+                    className={`flex items-start gap-3 text-sm ${plan.featureClass}`}
+                  >
+                    <CheckCircle2
+                      className={`mt-0.5 shrink-0 ${plan.accentClass}`}
+                      size={17}
+                    />
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
-              {"price" in plan ? (
-                <p className="mt-8 text-sm font-bold text-[#17130D]">{plan.price}</p>
+              <ButtonLink
+                href="#kontakt"
+                variant={plan.variant}
+                className={`mt-8 w-full ${plan.buttonClass}`}
+              >
+                {plan.cta}
+              </ButtonLink>
+            </article>
+          ))}
+
+          {/* B2C - GOLD */}
+          {b2cPlans.slice(1, 2).map((plan) => (
+            <article
+              key={plan.name}
+              className={`relative flex h-full flex-col justify-between overflow-hidden rounded-[20px] border p-7 transition duration-300 hover:-translate-y-1 ${plan.cardClass}`}
+            >
+              <p
+                className={`text-[10px] font-bold uppercase tracking-[0.12em] ${plan.labelClass ?? "text-[#B99772]"}`}
+              >
+                {plan.label}
+              </p>
+              <h3
+                className={`mt-3 font-serif text-3xl font-semibold ${plan.accentClass}`}
+              >
+                {plan.smallTitle}
+              </h3>
+              <p className="mt-2 text-sm font-medium text-[#4A453C]">
+                {plan.name}
+              </p>
+              <p className="mt-4 text-2xl font-serif font-bold text-[#17130D]">
+                {plan.price}
+              </p>
+              {plan.priceNote ? (
+                <p className="mt-2 text-sm font-semibold text-[#17130D]">
+                  {plan.priceNote}
+                </p>
               ) : null}
+              <p className="mt-4 text-sm leading-6 text-[#4A453C]">
+                {plan.description}
+              </p>
+              <ul className="mt-6 grid gap-4">
+                {plan.features.map((feature) => (
+                  <li
+                    key={feature}
+                    className={`flex items-start gap-3 text-sm ${plan.featureClass}`}
+                  >
+                    <CheckCircle2
+                      className={`mt-0.5 shrink-0 ${plan.accentClass}`}
+                      size={17}
+                    />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <ButtonLink
+                href="#kontakt"
+                variant={plan.variant}
+                className={`mt-8 w-full ${plan.buttonClass}`}
+              >
+                {plan.cta}
+              </ButtonLink>
+            </article>
+          ))}
+
+          {/* B2B - BUSINESS */}
+          {b2bPlans.map((plan) => (
+            <article
+              key={plan.name}
+              className={`relative flex h-full flex-col justify-between overflow-hidden rounded-[20px] border p-7 transition duration-300 hover:-translate-y-1 ${plan.cardClass}`}
+            >
+              <p
+                className={`text-[10px] font-bold uppercase tracking-[0.12em] ${plan.labelClass ?? "text-[#0D3A2D]"}`}
+              >
+                {plan.label}
+              </p>
+              <h3
+                className={`mt-3 font-serif text-3xl font-semibold ${plan.accentClass}`}
+              >
+                {plan.smallTitle}
+              </h3>
+              <p className="mt-2 text-sm font-medium text-[#4A453C]">
+                {plan.name}
+              </p>
+              <p className="mt-4 text-2xl font-serif font-bold text-[#17130D]">
+                {plan.price}
+              </p>
+              {plan.priceNote ? (
+                <p className="mt-2 text-sm font-semibold text-[#17130D]">
+                  {plan.priceNote}
+                </p>
+              ) : null}
+              <p className="mt-4 text-sm leading-6 text-[#4A453C]">
+                {plan.description}
+              </p>
+              <ul className="mt-6 grid gap-4">
+                {plan.features.map((feature) => (
+                  <li
+                    key={feature}
+                    className={`flex items-start gap-3 text-sm ${plan.featureClass}`}
+                  >
+                    <CheckCircle2
+                      className={`mt-0.5 shrink-0 ${plan.accentClass}`}
+                      size={17}
+                    />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
               <ButtonLink
                 href="#kontakt"
                 variant={plan.variant}

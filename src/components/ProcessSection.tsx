@@ -4,26 +4,26 @@ const steps = [
   {
     number: "01",
     icon: Phone,
-    title: "Unverbindliches / Kostenloses Erstgespräch",
-    text: "Kostenloses persönliches Gespräch und erste Einschätzung deiner Lebenssituation.",
+    title: "Unverbindliches Erstgespräch",
+    text: "Wir lernen Ihre Situation kennen und klären gemeinsam, wie MeinBenefit für Sie oder Ihr Unternehmen sinnvoll eingesetzt werden kann.",
   },
   {
     number: "02",
     icon: Search,
-    title: "Analyse deiner Ausgaben",
-    text: "Wir zeigen in wenigen Minuten die großen Zeit- und Geldfresser auf. Erstes Potenzial wird sichtbar gemacht.",
+    title: "Analyse der laufenden Ausgaben",
+    text: "Wir prüfen bestehende Ausgaben, erkennen mögliche Potenziale und machen sichtbar, wo Vorteile entstehen können.",
   },
   {
     number: "03",
     icon: Check,
-    title: "Dein persönliches Vorteilskonzept",
-    text: "Du bekommst eine klare Übersicht mit deinen persönlichen Potenzialen / Möglichkeiten.",
+    title: "Ihr persönliches Vorteilskonzept",
+    text: "Sie erhalten eine klare Übersicht mit Empfehlungen, nächsten Schritten und einem Modell, das zu Ihrer Situation passt.",
   },
   {
     number: "04",
     icon: UsersRound,
-    title: "Laufende premium Partnerschaft / Mitgliedschaft",
-    text: "Wir unterstützen dich bei der Umsetzung und bleiben langfristig an deiner Seite.",
+    title: "Langfristige Begleitung",
+    text: "Wir unterstützen Sie bei der Umsetzung, prüfen regelmäßig neue Möglichkeiten und bleiben langfristig an Ihrer Seite.",
   },
 ];
 
@@ -36,8 +36,8 @@ export function ProcessSection() {
             So funktioniert MeinBenefit
           </h2>
           <p className="text-sm text-center font-semibold leading-7 text-[#4A453C] sm:text-base">
-            Einfach, persönlich und Schritt für Schritt begleitet — vom ersten Gespräch bis zum
-            langfristigen Vorteil.
+            Ob Sie MeinBenefit privat nutzen oder als Unternehmen Ihrem Team anbieten: Wir begleiten Sie
+            persönlich, prüfen ihre laufende Ausgaben und bleiben langfristig an Ihrer Seite.
           </p>
         </div>
 

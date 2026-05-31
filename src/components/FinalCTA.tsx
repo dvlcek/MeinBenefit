@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { ButtonLink } from "./ui/Button";
 
@@ -6,32 +5,55 @@ export function FinalCTA() {
   return (
     <section
       id="kontakt"
-      className="bg-white px-5 pb-16 pt-2 text-white sm:px-6 lg:px-8 lg:pb-20"
+      className=" px-5 py-16 sm:px-6 lg:px-8 lg:py-20"
     >
-      <div className="relative mx-auto grid max-w-[1200px] overflow-hidden rounded-[32px] border border-[#214D40] bg-[#0D3A2D] shadow-[0_28px_90px_rgba(13,58,45,0.24)] lg:grid-cols-[0.38fr_0.62fr]">
-        <div className="relative hidden min-h-[360px] lg:block">
-          <Image
-            src="/images/meinbenefit-gold-bars.png"
-            alt="Goldbarren als MeinBenefit Mehrwert"
-            fill
-            sizes="460px"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#0D3A2D]/20 to-[#0D3A2D]" />
-        </div>
-        <div className="absolute bottom-[-34px] right-8 hidden font-serif text-[180px] font-bold leading-none text-white/[0.06] lg:block">
-          MB
+      <div className="mx-auto grid max-w-[1200px] gap-8 lg:grid-cols-2">
+        <div className="rounded-[28px] border border-[#E6D8C6] bg-white p-8 shadow-[0_18px_50px_rgba(23,19,13,0.08)]">
+          <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#E7E0D3] text-[#0D3A2D]">
+            <span className="text-lg font-bold">👤</span>
+          </div>
+          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#B99772]">
+            Für Berufstätige
+          </p>
+          <h3 className="mt-4 font-serif text-3xl font-semibold text-[#17130D]">
+            Persönlich starten
+          </h3>
+          <p className="mt-4 text-sm leading-7 text-[#4A453C]">
+            Wir prüfen deine aktuelle Situation und zeigen dir, welche
+            persönlichen Potenziale möglich sind.
+          </p>
+          <ButtonLink
+            href="/kontakt?type=b2c"
+            variant="secondary"
+            size="lg"
+            className="mt-8 w-full border border-[#B99772] bg-[#F5E7CB] text-[#17130D] hover:bg-[#E9D3A8]"
+          >
+            Erstgespräch buchen
+            <ArrowRight size={18} />
+          </ButtonLink>
         </div>
 
-        <div className="relative px-6 py-10 text-center sm:px-10 sm:py-14 lg:py-16 lg:text-left">
-          <h2 className="font-serif text-3xl font-semibold leading-tight text-[#F7EFE1] sm:text-5xl">
-            Bereit für weniger Papierkram und mehr Gold?
-          </h2>
-          <p className="mt-4 max-w-2xl text-base font-semibold leading-7 text-[#E7D7C4] lg:max-w-xl">
-            Vorteile, die bleiben - für dich und deine Zukunft.
+        <div className="rounded-[28px] border border-[#0D3A2D] bg-white p-8 shadow-[0_18px_50px_rgba(23,19,13,0.08)]">
+          <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#E6F1E9] text-[#0D3A2D]">
+            <span className="text-lg font-bold">🏢</span>
+          </div>
+          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#0D3A2D]">
+            Für Unternehmen
           </p>
-          <ButtonLink href="mailto:office@meinbenefit.at" variant="secondary" size="lg" className="mt-8">
-            Kostenlose Erstanalyse starten <ArrowRight size={18} />
+          <h3 className="mt-4 font-serif text-3xl font-semibold text-[#17130D]">
+            Für Ihr Team prüfen
+          </h3>
+          <p className="mt-4 text-sm leading-7 text-[#4A453C]">
+            Wir zeigen Ihnen, wie MeinBenefit als moderner Mitarbeiter-Benefit
+            in Ihrem Unternehmen eingesetzt werden kann.
+          </p>
+          <ButtonLink
+            href="/kontakt?type=b2b"
+            size="lg"
+            className="mt-8 w-full bg-[#0D3A2D] text-white hover:bg-[#164f3e]"
+          >
+            Für Ihr Team prüfen
+            <ArrowRight size={18} />
           </ButtonLink>
         </div>
       </div>

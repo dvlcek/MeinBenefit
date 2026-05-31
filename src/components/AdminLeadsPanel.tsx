@@ -1,6 +1,15 @@
 "use client";
 
-import { Building2, Check, ChevronDown, Pencil, Search, Trash2, UserRound, X } from "lucide-react";
+import {
+  Building2,
+  Check,
+  ChevronDown,
+  Pencil,
+  Search,
+  Trash2,
+  UserRound,
+  X,
+} from "lucide-react";
 import { useMemo, useState } from "react";
 import type { Dispatch, ReactNode, SetStateAction } from "react";
 import type { LeadRecord, LeadStatus, LeadType } from "@/lib/leads";
@@ -41,6 +50,17 @@ function primaryName(lead: LeadRecord) {
 
 function secondaryLine(lead: LeadRecord) {
   return lead.fields.email || lead.fields.telefon || lead.source;
+}
+
+function formatReceivedAt(timestamp: string) {
+  const date = new Date(timestamp);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
+  const hour = String(date.getHours()).padStart(2, "0");
+  const minute = String(date.getMinutes()).padStart(2, "0");
+
+  return `${day}.${month}.${year}, ${hour}:${minute}`;
 }
 
 function createDraft(lead: LeadRecord): DraftLead {
@@ -104,13 +124,17 @@ export function AdminLeadsPanel({
     });
 
     return filtered.toSorted((a, b) => {
-      const difference = new Date(b.receivedAt).getTime() - new Date(a.receivedAt).getTime();
+      const difference =
+        new Date(b.receivedAt).getTime() - new Date(a.receivedAt).getTime();
       return sort === "newest" ? difference : -difference;
     });
   }, [filter, leads, query, sort]);
 
   const selectedLead = useMemo(
-    () => visibleLeads.find((lead) => lead.id === selectedId) ?? visibleLeads[0] ?? null,
+    () =>
+      visibleLeads.find((lead) => lead.id === selectedId) ??
+      visibleLeads[0] ??
+      null,
     [selectedId, visibleLeads],
   );
 
@@ -185,7 +209,11 @@ export function AdminLeadsPanel({
       return;
     }
 
-    setLeads((current) => current.map((lead) => (lead.id === payload.lead?.id ? payload.lead : lead)));
+    setLeads((current) =>
+      current.map((lead) =>
+        lead.id === payload.lead?.id ? payload.lead : lead,
+      ),
+    );
     setEditing(false);
     setMessage("Gespeichert.");
   }
@@ -210,7 +238,9 @@ export function AdminLeadsPanel({
       return;
     }
 
-    setLeads((current) => current.filter((lead) => lead.id !== selectedLead.id));
+    setLeads((current) =>
+      current.filter((lead) => lead.id !== selectedLead.id),
+    );
     setSelectedId("");
     setEditing(false);
     setMessage("Gelöscht.");
@@ -259,7 +289,10 @@ export function AdminLeadsPanel({
               <option value="newest">Neueste zuerst</option>
               <option value="oldest">Älteste zuerst</option>
             </select>
-            <ChevronDown className="pointer-events-none -ml-7 text-[#9A6418]" size={16} />
+            <ChevronDown
+              className="pointer-events-none -ml-7 text-[#9A6418]"
+              size={16}
+            />
           </label>
         </div>
 
@@ -278,7 +311,9 @@ export function AdminLeadsPanel({
                   key={lead.id}
                   type="button"
                   className={`grid gap-3 p-4 text-left transition ${
-                    active ? "bg-[#0D3A2D] text-white" : "bg-[#F8F5EF] text-[#17130D] hover:bg-[#F1E9DD]"
+                    active
+                      ? "bg-[#0D3A2D] text-white"
+                      : "bg-[#F8F5EF] text-[#17130D] hover:bg-[#F1E9DD]"
                   }`}
                   onClick={() => {
                     setSelectedId(lead.id);
@@ -291,7 +326,9 @@ export function AdminLeadsPanel({
                     <span className="flex min-w-0 items-center gap-3">
                       <span
                         className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${
-                          active ? "bg-white/10 text-[#D6B489]" : "bg-white text-[#0D3A2D]"
+                          active
+                            ? "bg-white/10 text-[#D6B489]"
+                            : "bg-white text-[#0D3A2D]"
                         }`}
                       >
                         <Icon size={18} />
@@ -300,17 +337,24 @@ export function AdminLeadsPanel({
                         <span className="block truncate font-serif text-xl font-semibold">
                           {primaryName(lead)}
                         </span>
-                        <span className={`mt-1 block truncate text-xs font-semibold ${active ? "text-white/70" : "text-[#6B6258]"}`}>
+                        <span
+                          className={`mt-1 block truncate text-xs font-semibold ${active ? "text-white/70" : "text-[#6B6258]"}`}
+                        >
                           {secondaryLine(lead)}
                         </span>
                       </span>
                     </span>
-                    <span className={`shrink-0 text-xs font-bold ${active ? "text-[#D6B489]" : "text-[#9A6418]"}`}>
+                    <span
+                      className={`shrink-0 text-xs font-bold ${active ? "text-[#D6B489]" : "text-[#9A6418]"}`}
+                    >
                       {typeLabel(lead.type)}
                     </span>
                   </span>
-                  <span className={`text-xs font-semibold ${active ? "text-white/64" : "text-[#7A756B]"}`}>
-                    {new Date(lead.receivedAt).toLocaleString("de-AT")} · {statusLabels[lead.status]}
+                  <span
+                    className={`text-xs font-semibold ${active ? "text-white/64" : "text-[#7A756B]"}`}
+                  >
+                    {formatReceivedAt(lead.receivedAt)} ·{" "}
+                    {statusLabels[lead.status]}
                   </span>
                 </button>
               );
@@ -331,7 +375,8 @@ export function AdminLeadsPanel({
                   {primaryName(selectedLead)}
                 </h2>
                 <p className="mt-2 text-sm font-semibold text-[#6B6258]">
-                  {selectedLead.source} · {new Date(selectedLead.receivedAt).toLocaleString("de-AT")}
+                  {selectedLead.source} ·{" "}
+                  {formatReceivedAt(selectedLead.receivedAt)}
                 </p>
               </div>
 
@@ -349,8 +394,8 @@ export function AdminLeadsPanel({
                     <button
                       type="button"
                       className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-5 text-sm font-bold text-[#17130D] transition hover:bg-[#EFE6DA]"
-                    onClick={() => {
-                      setEditing(false);
+                      onClick={() => {
+                        setEditing(false);
                         setDraft(null);
                       }}
                     >
@@ -380,31 +425,36 @@ export function AdminLeadsPanel({
               </div>
             </div>
 
-            {message ? <p className="mt-5 text-sm font-bold text-[#0D3A2D]">{message}</p> : null}
+            {message ? (
+              <p className="mt-5 text-sm font-bold text-[#0D3A2D]">{message}</p>
+            ) : null}
 
             {editing ? (
-              <EditLeadForm draft={draft} setDraft={setDraft} updateField={updateField} updateAnswer={updateAnswer} />
+              <EditLeadForm
+                draft={draft}
+                setDraft={setDraft}
+                updateField={updateField}
+                updateAnswer={updateAnswer}
+              />
             ) : (
               <LeadDetails lead={selectedLead} />
             )}
           </div>
+        ) : selectedLead ? (
+          <LeadReadPanel
+            lead={selectedLead}
+            busy={busy}
+            message={message}
+            onDelete={() => void deleteSelectedLead()}
+            onEdit={() => {
+              setDraft(createDraft(selectedLead));
+              setEditing(true);
+            }}
+          />
         ) : (
-          selectedLead ? (
-            <LeadReadPanel
-              lead={selectedLead}
-              busy={busy}
-              message={message}
-              onDelete={() => void deleteSelectedLead()}
-              onEdit={() => {
-                setDraft(createDraft(selectedLead));
-                setEditing(true);
-              }}
-            />
-          ) : (
-            <div className="bg-[#F8F5EF] p-8 text-sm font-semibold text-[#4A453C]">
-              Wähle einen Lead aus der Liste.
-            </div>
-          )
+          <div className="bg-[#F8F5EF] p-8 text-sm font-semibold text-[#4A453C]">
+            Wähle einen Lead aus der Liste.
+          </div>
         )}
       </section>
     </div>
@@ -435,7 +485,7 @@ function LeadReadPanel({
             {primaryName(lead)}
           </h2>
           <p className="mt-2 text-sm font-semibold text-[#6B6258]">
-            {lead.source} · {new Date(lead.receivedAt).toLocaleString("de-AT")}
+            {lead.source} · {formatReceivedAt(lead.receivedAt)}
           </p>
         </div>
 
@@ -458,7 +508,9 @@ function LeadReadPanel({
         </div>
       </div>
 
-      {message ? <p className="mt-5 text-sm font-bold text-[#0D3A2D]">{message}</p> : null}
+      {message ? (
+        <p className="mt-5 text-sm font-bold text-[#0D3A2D]">{message}</p>
+      ) : null}
       <LeadDetails lead={lead} />
     </div>
   );
@@ -475,23 +527,38 @@ function LeadDetails({ lead }: { lead: LeadRecord }) {
 
       <DetailGroup title="Antworten">
         {lead.answers.map((answer) => (
-          <DetailRow key={`${lead.id}-${answer.id}`} label={answer.label} value={answer.value} />
+          <DetailRow
+            key={`${lead.id}-${answer.id}`}
+            label={answer.label}
+            value={answer.value}
+          />
         ))}
       </DetailGroup>
 
       <DetailGroup title="System">
         <DetailRow label="Status" value={statusLabels[lead.status]} />
         <DetailRow label="Lead-ID" value={lead.id} />
-        <DetailRow label="E-Mail" value={lead.emailDelivery?.status ?? "pending"} />
+        <DetailRow
+          label="E-Mail"
+          value={lead.emailDelivery?.status ?? "pending"}
+        />
       </DetailGroup>
     </div>
   );
 }
 
-function DetailGroup({ title, children }: { title: string; children: ReactNode }) {
+function DetailGroup({
+  title,
+  children,
+}: {
+  title: string;
+  children: ReactNode;
+}) {
   return (
     <div>
-      <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#B99772]">{title}</p>
+      <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#B99772]">
+        {title}
+      </p>
       <dl className="mt-4 grid gap-4">{children}</dl>
     </div>
   );
@@ -500,8 +567,12 @@ function DetailGroup({ title, children }: { title: string; children: ReactNode }
 function DetailRow({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-xs font-bold uppercase tracking-[0.12em] text-[#6B6258]">{label}</dt>
-      <dd className="mt-1 break-words text-sm font-semibold leading-6 text-[#17130D]">{value}</dd>
+      <dt className="text-xs font-bold uppercase tracking-[0.12em] text-[#6B6258]">
+        {label}
+      </dt>
+      <dd className="mt-1 break-words text-sm font-semibold leading-6 text-[#17130D]">
+        {value}
+      </dd>
     </div>
   );
 }
@@ -525,7 +596,13 @@ function EditLeadForm({
             className="min-h-12 w-full rounded-full bg-white px-4 text-sm font-bold text-[#17130D] outline-none focus:ring-4 focus:ring-[#0D3A2D]/10"
             value={draft.type}
             onChange={(event) =>
-              setDraft((current) => current && { ...current, type: event.target.value as LeadType })
+              setDraft(
+                (current) =>
+                  current && {
+                    ...current,
+                    type: event.target.value as LeadType,
+                  },
+              )
             }
           >
             <option value="b2c">Privatperson</option>
@@ -538,7 +615,13 @@ function EditLeadForm({
             className="min-h-12 w-full rounded-full bg-white px-4 text-sm font-bold text-[#17130D] outline-none focus:ring-4 focus:ring-[#0D3A2D]/10"
             value={draft.status}
             onChange={(event) =>
-              setDraft((current) => current && { ...current, status: event.target.value as LeadStatus })
+              setDraft(
+                (current) =>
+                  current && {
+                    ...current,
+                    status: event.target.value as LeadStatus,
+                  },
+              )
             }
           >
             {statusOptions.map((status) => (
@@ -555,29 +638,46 @@ function EditLeadForm({
         addLabel="Feld hinzufügen"
         onAdd={() =>
           setDraft((current) =>
-            current ? { ...current, fields: [...current.fields, { key: "notiz", value: "" }] } : current,
+            current
+              ? {
+                  ...current,
+                  fields: [...current.fields, { key: "notiz", value: "" }],
+                }
+              : current,
           )
         }
       >
         {draft.fields.map((field, index) => (
-          <div key={`${field.key}-${index}`} className="grid gap-3 sm:grid-cols-[0.34fr_1fr_auto]">
+          <div
+            key={`${field.key}-${index}`}
+            className="grid gap-3 sm:grid-cols-[0.34fr_1fr_auto]"
+          >
             <input
               className="min-h-12 rounded-full bg-white px-4 text-sm font-bold text-[#17130D] outline-none focus:ring-4 focus:ring-[#0D3A2D]/10"
               value={field.key}
               aria-label="Feldname"
-              onChange={(event) => updateField(index, "key", event.target.value)}
+              onChange={(event) =>
+                updateField(index, "key", event.target.value)
+              }
             />
             <input
               className="min-h-12 rounded-full bg-white px-4 text-sm font-semibold text-[#17130D] outline-none focus:ring-4 focus:ring-[#0D3A2D]/10"
               value={field.value}
               aria-label="Feldwert"
-              onChange={(event) => updateField(index, "value", event.target.value)}
+              onChange={(event) =>
+                updateField(index, "value", event.target.value)
+              }
             />
             <RemoveButton
               onClick={() =>
                 setDraft((current) =>
                   current
-                    ? { ...current, fields: current.fields.filter((_, fieldIndex) => fieldIndex !== index) }
+                    ? {
+                        ...current,
+                        fields: current.fields.filter(
+                          (_, fieldIndex) => fieldIndex !== index,
+                        ),
+                      }
                     : current,
                 )
               }
@@ -594,31 +694,50 @@ function EditLeadForm({
             current
               ? {
                   ...current,
-                  answers: [...current.answers, { id: `answer-${current.answers.length + 1}`, label: "", value: "" }],
+                  answers: [
+                    ...current.answers,
+                    {
+                      id: `answer-${current.answers.length + 1}`,
+                      label: "",
+                      value: "",
+                    },
+                  ],
                 }
               : current,
           )
         }
       >
         {draft.answers.map((answer, index) => (
-          <div key={`${answer.id}-${index}`} className="grid gap-3 sm:grid-cols-[0.46fr_1fr_auto]">
+          <div
+            key={`${answer.id}-${index}`}
+            className="grid gap-3 sm:grid-cols-[0.46fr_1fr_auto]"
+          >
             <input
               className="min-h-12 rounded-full bg-white px-4 text-sm font-bold text-[#17130D] outline-none focus:ring-4 focus:ring-[#0D3A2D]/10"
               value={answer.label}
               aria-label="Frage"
-              onChange={(event) => updateAnswer(index, "label", event.target.value)}
+              onChange={(event) =>
+                updateAnswer(index, "label", event.target.value)
+              }
             />
             <input
               className="min-h-12 rounded-full bg-white px-4 text-sm font-semibold text-[#17130D] outline-none focus:ring-4 focus:ring-[#0D3A2D]/10"
               value={answer.value}
               aria-label="Antwort"
-              onChange={(event) => updateAnswer(index, "value", event.target.value)}
+              onChange={(event) =>
+                updateAnswer(index, "value", event.target.value)
+              }
             />
             <RemoveButton
               onClick={() =>
                 setDraft((current) =>
                   current
-                    ? { ...current, answers: current.answers.filter((_, answerIndex) => answerIndex !== index) }
+                    ? {
+                        ...current,
+                        answers: current.answers.filter(
+                          (_, answerIndex) => answerIndex !== index,
+                        ),
+                      }
                     : current,
                 )
               }
@@ -630,7 +749,13 @@ function EditLeadForm({
   );
 }
 
-function FieldLabel({ label, children }: { label: string; children: ReactNode }) {
+function FieldLabel({
+  label,
+  children,
+}: {
+  label: string;
+  children: ReactNode;
+}) {
   return (
     <label>
       <span className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-[#B99772]">
@@ -655,7 +780,9 @@ function EditableGroup({
   return (
     <div>
       <div className="mb-4 flex items-center justify-between gap-4">
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#B99772]">{title}</p>
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#B99772]">
+          {title}
+        </p>
         <button
           type="button"
           className="rounded-full bg-white px-4 py-2 text-xs font-bold text-[#0D3A2D] transition hover:bg-[#EFE6DA]"
