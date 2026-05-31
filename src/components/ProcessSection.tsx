@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Phone, Search, UsersRound } from "lucide-react";
+import { Check, Phone, Search, UsersRound } from "lucide-react";
 
 const steps = [
   {
@@ -29,45 +29,57 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section id="ablauf" className="bg-white px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <section
+      id="ablauf"
+      className="relative overflow-hidden bg-white px-5 py-18 sm:px-6 lg:px-8 lg:py-24"
+    >
       <div className="mx-auto max-w-[1200px]">
-        <div className="grid gap-5">
-          <h2 className="font-serif text-[34px] text-center font-semibold leading-[1.04] text-[#17130D] sm:text-5xl lg:text-[58px]">
+        <div className="mx-auto max-w-[760px] text-center">
+          <h2 className="font-serif text-[34px] font-normal leading-[1.04] tracking-[-0.04em] text-[#17130D] sm:text-5xl lg:text-[54px]">
             So funktioniert MeinBenefit
           </h2>
-          <p className="text-sm text-center font-semibold leading-7 text-[#4A453C] sm:text-base">
-            Ob Sie MeinBenefit privat nutzen oder als Unternehmen Ihrem Team anbieten: Wir begleiten Sie
-            persönlich, prüfen ihre laufende Ausgaben und bleiben langfristig an Ihrer Seite.
+
+          <p className="mt-4 text-sm font-medium leading-7 text-[#4A453C] sm:text-base">
+            Ob Sie MeinBenefit privat nutzen oder als Unternehmen Ihrem Team
+            anbieten: Wir begleiten Sie persönlich, prüfen ihre laufende
+            Ausgaben und bleiben langfristig an Ihrer Seite.
           </p>
         </div>
 
-        <div className="relative mt-8 grid gap-10 lg:grid-cols-4">
+        <div className="mt-14 grid gap-10 lg:grid-cols-4 lg:gap-8">
           {steps.map((step, index) => {
             const Icon = step.icon;
-            return (
-              <article
-                key={step.number}
-                className="group relative py-4 transition duration-300 lg:px-4"
-              >
-                {index < steps.length - 1 ? (
-                  <ArrowRight
-                    className="absolute -right-4 top-9 z-20 hidden h-8 w-8 rounded-full bg-white p-1 text-[#B99772] lg:block"
-                    strokeWidth={1.6}
-                  />
-                ) : null}
 
+            return (
+              <article key={step.number} className="relative">
+                {/* Top number / icon / connector */}
                 <div className="flex items-center gap-4">
-                  <span className="font-serif text-5xl font-semibold text-[#D6B489]">
+                  <span className="font-serif text-[30px] font-normal leading-none tracking-[-0.03em] text-[#B99772]">
                     {step.number}
                   </span>
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#F8F3EC] text-[#0D3A2D] transition group-hover:bg-[#0D3A2D] group-hover:text-[#E7D7C4]">
-                    <Icon size={20} strokeWidth={1.8} />
+
+                  <span className="flex size-7 shrink-0 items-center justify-center text-[#7E7569]">
+                    <Icon size={16} strokeWidth={1.6} />
                   </span>
+
+                  {index !== steps.length - 1 ? (
+                    <span className="hidden h-px flex-1 bg-[repeating-linear-gradient(90deg,rgba(216,170,63,0.55)_0px,rgba(216,170,63,0.55)_2px,transparent_2px,transparent_7px)] lg:block" />
+                  ) : null}
                 </div>
 
-                <div className="pt-7">
-                  <h3 className="max-w-[230px] text-base font-bold leading-6 text-[#17130D]">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-[#4A453C]">{step.text}</p>
+                {/* Mobile connector */}
+                {index !== steps.length - 1 ? (
+                  <div className="absolute left-[15px] top-10 h-[calc(100%+24px)] w-px bg-[repeating-linear-gradient(180deg,rgba(216,170,63,0.5)_0px,rgba(216,170,63,0.5)_2px,transparent_2px,transparent_7px)] lg:hidden" />
+                ) : null}
+
+                <div className="mt-5 pl-0 lg:mt-6">
+                  <h3 className="max-w-[240px] text-[15px] font-bold leading-[1.25] text-[#17130D] sm:text-base">
+                    {step.title}
+                  </h3>
+
+                  <p className="mt-3 max-w-[260px] text-[12px] font-medium leading-6 text-[#4A453C] sm:text-[13px]">
+                    {step.text}
+                  </p>
                 </div>
               </article>
             );

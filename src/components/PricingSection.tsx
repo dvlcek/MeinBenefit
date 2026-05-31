@@ -1,4 +1,4 @@
-import { CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { ButtonLink } from "./ui/Button";
 
 type PricingPlan = {
@@ -100,194 +100,140 @@ const b2bPlans: PricingPlan[] = [
 ];
 
 export function PricingSection() {
+  const plan = b2bPlans[0];
+
+  const priceMain = plan.price.replace("ab ", "").replace(" / Mitarbeiter / Monat", "");
+  const priceSuffix = plan.price.includes("/ Mitarbeiter / Monat")
+    ? "/ Mitarbeiter / Monat"
+    : "";
+
   return (
     <section
       id="preise"
-      className="bg-white px-5 py-20 sm:px-6 lg:px-8 lg:py-28"
+      className="relative overflow-hidden px-5 py-16 sm:px-6 lg:px-8 lg:py-24"
     >
-      <div className="mx-auto max-w-[1200px]">
-        {/* B2C Group */}
-        <div className="grid gap-8 lg:items-end">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#B99772]">
-              Wähle deinen persönlichen MeinBenefit-Start
+      <div className="mx-auto max-w-[1180px]">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.70fr_1.3fr] lg:gap-8">
+          {/* Left side */}
+          <div className="relative z-10 max-w-[430px]">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#B99772]">
+              Flexibel. Fair. Planbar.
             </p>
-            <h2 className="mt-4 font-serif text-4xl font-semibold leading-[1.02] text-[#17130D] sm:text-5xl lg:text-[42px]">
+
+            <h2 className="mt-3 max-w-[390px] font-serif text-[34px] font-normal leading-[1.03] tracking-[-0.045em] text-[#17130D] sm:text-[42px] lg:text-[45px]">
               Wähle deinen persönlichen MeinBenefit-Start
             </h2>
+
+            <div className="mt-10 flex items-center gap-6">
+              <div className="relative flex size-[92px] shrink-0 items-center justify-center rounded-full border border-[#E8DDCB] bg-white shadow-[0_20px_60px_rgba(23,19,13,0.06)]">
+                <div className="flex size-[58px] items-center justify-center rounded-full border border-[#E2D2BB] text-[#0D3A2D]">
+                  <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <circle cx="10" cy="10.5" r="3.1" stroke="currentColor" strokeWidth="1.35" />
+                    <circle cx="20" cy="10.5" r="3.1" stroke="currentColor" strokeWidth="1.35" />
+                    <path
+                      d="M4.5 23.5c1-4 3.5-6 7.2-6 3.5 0 5.9 2 6.8 6"
+                      stroke="currentColor"
+                      strokeWidth="1.35"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M11.5 23.5c1-4 3.5-6 7.2-6 3.5 0 5.9 2 6.8 6"
+                      stroke="currentColor"
+                      strokeWidth="1.35"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <p className="max-w-[190px] text-[13px] font-medium leading-[1.6] text-[#4A453C]">
+                Ob einmalig oder monatlich: Wir prüfen deine aktuelle Situation,
+                zeigen mögliche Potenziale und begleiten dich persönlich bei der
+                Umsetzung.
+              </p>
+            </div>
           </div>
-          <div className="max-w-2xl">
-            <p className="text-base text-[#17130D]">
-              Ob einmalig oder monatlich: Wir prüfen deine aktuelle Situation,
-              zeigen mögliche Potenziale und begleiten dich persönlich bei der
-              Umsetzung.
-            </p>
-          </div>
-        </div>
 
-        {/* Combined single-line layout: BASIC | GOLD | BUSINESS */}
-        <div className="mt-9 grid items-stretch justify-center gap-8 sm:grid-cols-1 md:grid-cols-3 lg:gap-10">
-          {/* B2C - BASIC */}
-          {b2cPlans.slice(0, 1).map((plan) => (
-            <article
-              key={plan.name}
-              className={`relative flex h-full flex-col justify-between overflow-hidden rounded-[20px] border p-7 transition duration-300 hover:-translate-y-1 ${plan.cardClass}`}
-            >
-              <p
-                className={`text-[10px] font-bold uppercase tracking-[0.12em] ${plan.labelClass ?? "text-[#B99772]"}`}
-              >
-                {plan.label}
-              </p>
-              <h3
-                className={`mt-3 font-serif text-3xl font-semibold ${plan.accentClass}`}
-              >
+          {/* Pricing card */}
+          <article className="relative min-h-[355px] overflow-hidden rounded-[20px] border border-[#E4D8C8] bg-white shadow-[0_26px_90px_rgba(23,19,13,0.08)]">
+            {/* Diagonal blended image */}
+            <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[50%] overflow-hidden lg:block">
+              <div
+                className="absolute inset-0 scale-[1.04] bg-cover bg-center"
+                style={{
+                  backgroundImage: "url('/images/pricing-picture.webp')",
+                  clipPath: "polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                  WebkitMaskImage:
+                    "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.18) 16%, rgba(0,0,0,0.72) 34%, black 52%)",
+                  maskImage:
+                    "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.18) 16%, rgba(0,0,0,0.72) 34%, black 52%)",
+                }}
+              />
+
+              {/* Very soft premium wash, not strong gradient */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  clipPath: "polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                  background:
+                    "linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(13,58,45,0.05) 100%)",
+                }}
+              />
+            </div>
+
+            {/* Content */}
+            <div className="relative z-20 max-w-[560px] px-7 py-7 sm:px-9 sm:py-8 lg:px-10 lg:py-9">
+              <p className="text-[16px] font-medium leading-none text-[#17130D]">
                 {plan.smallTitle}
-              </h3>
-              <p className="mt-2 text-sm font-medium text-[#4A453C]">
-                {plan.name}
               </p>
-              <p className="mt-4 text-2xl font-serif font-bold text-[#17130D]">
-                {plan.price}
-              </p>
-              {plan.priceNote ? (
-                <p className="mt-2 text-sm font-semibold text-[#17130D]">
-                  {plan.priceNote}
+
+              <div className="mt-4 flex flex-wrap items-end gap-x-2 gap-y-1">
+                <p className="font-serif text-[48px] font-normal leading-none tracking-[-0.06em] text-[#0D3A2D] sm:text-[54px]">
+                  {priceMain}
                 </p>
-              ) : null}
-              <p className="mt-4 text-sm leading-6 text-[#4A453C]">
-                {plan.description}
+
+                {priceSuffix ? (
+                  <p className="pb-1.5 text-[13px] font-medium text-[#4A453C]">
+                    {priceSuffix}
+                  </p>
+                ) : null}
+              </div>
+
+              <p className="mt-2 text-[12px] font-medium text-[#4A453C]">
+                ein lösungsorientiertes Angebot für moderne Arbeitgeber.
               </p>
-              <ul className="mt-6 grid gap-4">
+
+              <ul className="mt-5 grid max-w-[430px] gap-2.5">
                 {plan.features.map((feature) => (
                   <li
                     key={feature}
-                    className={`flex items-start gap-3 text-sm ${plan.featureClass}`}
+                    className="flex items-start gap-2.5 text-[12px] font-medium leading-[1.55] text-[#2D271F]"
                   >
                     <CheckCircle2
-                      className={`mt-0.5 shrink-0 ${plan.accentClass}`}
-                      size={17}
+                      size={14}
+                      className="mt-[2px] shrink-0 text-[#B99772]"
+                      strokeWidth={1.8}
                     />
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
-              <ButtonLink
-                href="#kontakt"
-                variant={plan.variant}
-                className={`mt-8 w-full ${plan.buttonClass}`}
-              >
-                {plan.cta}
-              </ButtonLink>
-            </article>
-          ))}
 
-          {/* B2C - GOLD */}
-          {b2cPlans.slice(1, 2).map((plan) => (
-            <article
-              key={plan.name}
-              className={`relative flex h-full flex-col justify-between overflow-hidden rounded-[20px] border p-7 transition duration-300 hover:-translate-y-1 ${plan.cardClass}`}
-            >
-              <p
-                className={`text-[10px] font-bold uppercase tracking-[0.12em] ${plan.labelClass ?? "text-[#B99772]"}`}
-              >
-                {plan.label}
-              </p>
-              <h3
-                className={`mt-3 font-serif text-3xl font-semibold ${plan.accentClass}`}
-              >
-                {plan.smallTitle}
-              </h3>
-              <p className="mt-2 text-sm font-medium text-[#4A453C]">
-                {plan.name}
-              </p>
-              <p className="mt-4 text-2xl font-serif font-bold text-[#17130D]">
-                {plan.price}
-              </p>
-              {plan.priceNote ? (
-                <p className="mt-2 text-sm font-semibold text-[#17130D]">
-                  {plan.priceNote}
-                </p>
-              ) : null}
-              <p className="mt-4 text-sm leading-6 text-[#4A453C]">
-                {plan.description}
-              </p>
-              <ul className="mt-6 grid gap-4">
-                {plan.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className={`flex items-start gap-3 text-sm ${plan.featureClass}`}
-                  >
-                    <CheckCircle2
-                      className={`mt-0.5 shrink-0 ${plan.accentClass}`}
-                      size={17}
-                    />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
               <ButtonLink
                 href="#kontakt"
                 variant={plan.variant}
-                className={`mt-8 w-full ${plan.buttonClass}`}
+                className="mt-6 h-10 rounded-full !bg-[#0D3A2D] px-6 text-[12px] font-semibold !text-white shadow-[0_14px_34px_rgba(13,58,45,0.22)] transition hover:!bg-[#092A21]"
               >
-                {plan.cta}
+                MB Testzugang <ArrowRight size={14} strokeWidth={2.5} />
               </ButtonLink>
-            </article>
-          ))}
-
-          {/* B2B - BUSINESS */}
-          {b2bPlans.map((plan) => (
-            <article
-              key={plan.name}
-              className={`relative flex h-full flex-col justify-between overflow-hidden rounded-[20px] border p-7 transition duration-300 hover:-translate-y-1 ${plan.cardClass}`}
-            >
-              <p
-                className={`text-[10px] font-bold uppercase tracking-[0.12em] ${plan.labelClass ?? "text-[#0D3A2D]"}`}
-              >
-                {plan.label}
-              </p>
-              <h3
-                className={`mt-3 font-serif text-3xl font-semibold ${plan.accentClass}`}
-              >
-                {plan.smallTitle}
-              </h3>
-              <p className="mt-2 text-sm font-medium text-[#4A453C]">
-                {plan.name}
-              </p>
-              <p className="mt-4 text-2xl font-serif font-bold text-[#17130D]">
-                {plan.price}
-              </p>
-              {plan.priceNote ? (
-                <p className="mt-2 text-sm font-semibold text-[#17130D]">
-                  {plan.priceNote}
-                </p>
-              ) : null}
-              <p className="mt-4 text-sm leading-6 text-[#4A453C]">
-                {plan.description}
-              </p>
-              <ul className="mt-6 grid gap-4">
-                {plan.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className={`flex items-start gap-3 text-sm ${plan.featureClass}`}
-                  >
-                    <CheckCircle2
-                      className={`mt-0.5 shrink-0 ${plan.accentClass}`}
-                      size={17}
-                    />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <ButtonLink
-                href="#kontakt"
-                variant={plan.variant}
-                className={`mt-8 w-full ${plan.buttonClass}`}
-              >
-                {plan.cta}
-              </ButtonLink>
-            </article>
-          ))}
+            </div>
+          </article>
         </div>
       </div>
     </section>

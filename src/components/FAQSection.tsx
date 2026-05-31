@@ -54,7 +54,7 @@ export function FAQSection() {
           </h2>
         </div>
         <div className="grid gap-3">
-          <div>
+          {/* <div>
             <h3 className="text-xl font-semibold text-[#17130D]">Für Privatpersonen</h3>
           </div>
           {b2cFaqs.map((item, index) => {
@@ -85,10 +85,10 @@ export function FAQSection() {
                 ) : null}
               </div>
             );
-          })}
-          <div className="pt-8">
+          })} */}
+          {/* <div className="pt-8">
             <h3 className="text-xl font-semibold text-[#17130D]">Für Unternehmen</h3>
-          </div>
+          </div> */}
           {b2bFaqs.map((item, index) => {
             const key = `b2b-${index}`;
             const open = openKey === key;

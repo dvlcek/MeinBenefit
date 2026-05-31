@@ -1,60 +1,99 @@
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { ButtonLink } from "./ui/Button";
 
+const ctaImage = "/images/final-cta-business.webp";
+
 export function FinalCTA() {
   return (
-    <section
-      id="kontakt"
-      className=" px-5 py-16 sm:px-6 lg:px-8 lg:py-20"
-    >
-      <div className="mx-auto grid max-w-[1200px] gap-8 lg:grid-cols-2">
-        <div className="rounded-[28px] border border-[#E6D8C6] bg-white p-8 shadow-[0_18px_50px_rgba(23,19,13,0.08)]">
-          <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#E7E0D3] text-[#0D3A2D]">
-            <span className="text-lg font-bold">👤</span>
-          </div>
-          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#B99772]">
-            Für Berufstätige
-          </p>
-          <h3 className="mt-4 font-serif text-3xl font-semibold text-[#17130D]">
-            Persönlich starten
-          </h3>
-          <p className="mt-4 text-sm leading-7 text-[#4A453C]">
-            Wir prüfen deine aktuelle Situation und zeigen dir, welche
-            persönlichen Potenziale möglich sind.
-          </p>
-          <ButtonLink
-            href="/kontakt?type=b2c"
-            variant="secondary"
-            size="lg"
-            className="mt-8 w-full border border-[#B99772] bg-[#F5E7CB] text-[#17130D] hover:bg-[#E9D3A8]"
-          >
-            Erstgespräch buchen
-            <ArrowRight size={18} />
-          </ButtonLink>
+    <section id="kontakt" className="relative overflow-hidden bg-white py-16 lg:py-20">
+      <div className="relative min-h-[360px] overflow-hidden border-y border-[#E7DCCB] bg-[#FBFAF7]">
+        {/* Right image */}
+        <div className="absolute inset-y-0 right-0 hidden w-[58%] lg:block">
+          <Image
+            src={ctaImage}
+            alt="Modernes Unternehmen mit professioneller Beratung"
+            fill
+            sizes="58vw"
+            className="object-cover object-center"
+            unoptimized
+          />
+
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#FBFAF7_0%,rgba(251,250,247,0.88)_20%,rgba(251,250,247,0.34)_48%,rgba(251,250,247,0)_78%)]" />
         </div>
 
-        <div className="rounded-[28px] border border-[#0D3A2D] bg-white p-8 shadow-[0_18px_50px_rgba(23,19,13,0.08)]">
-          <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#E6F1E9] text-[#0D3A2D]">
-            <span className="text-lg font-bold">🏢</span>
+        {/* Mobile image wash */}
+        <div className="absolute inset-0 lg:hidden">
+          <Image
+            src={ctaImage}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover object-center opacity-[0.16]"
+            unoptimized
+          />
+          <div className="absolute inset-0 bg-white/84" />
+        </div>
+
+        {/* Ornament background */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          {/* Large gold curve left */}
+          <div className="absolute -left-28 -top-32 h-[520px] w-[520px] rounded-full border border-[#D8AA3F]/35" />
+          <div className="absolute -left-20 -top-24 h-[420px] w-[420px] rounded-full border border-[#D8AA3F]/18" />
+
+          {/* Thin premium top curves */}
+          <div className="absolute -right-20 top-[-170px] hidden h-[360px] w-[760px] rounded-[50%] border-t border-[#D8AA3F]/45 lg:block" />
+          <div className="absolute right-[-120px] top-[-125px] hidden h-[310px] w-[720px] rounded-[50%] border-t border-[#0D3A2D]/25 lg:block" />
+
+          {/* Soft green depth */}
+          <div className="absolute right-0 top-0 hidden h-full w-[42%] bg-[radial-gradient(circle_at_70%_20%,rgba(13,58,45,0.20),transparent_48%)] lg:block" />
+
+          {/* Bottom gold hairline */}
+          <div className="absolute bottom-0 left-0 h-px w-full bg-[linear-gradient(90deg,transparent,rgba(216,170,63,0.55),transparent)]" />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 mx-auto flex min-h-[360px] max-w-[1320px] items-center px-5 py-12 sm:px-6 lg:px-8">
+          <div className="max-w-[590px]">
+            <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#A7824E]">
+              Für Unternehmen
+            </p>
+
+            <h2 className="mt-4 max-w-[540px] font-serif text-[36px] font-normal leading-[1.02] tracking-[-0.045em] text-[#17130D] sm:text-[50px] lg:text-[58px]">
+              Für Ihr Team prüfen
+            </h2>
+
+            <p className="mt-5 max-w-[500px] text-[15px] font-medium leading-7 text-[#4A453C] sm:text-base sm:leading-8">
+              Wir zeigen Ihnen, wie MeinBenefit als moderner Mitarbeiter-Benefit
+              in Ihrem Unternehmen eingesetzt werden kann.
+            </p>
+
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <ButtonLink
+                href="/kontakt?type=b2b"
+                size="lg"
+                className="group w-full rounded-full bg-[#0D3A2D] px-7 text-white shadow-[0_16px_38px_rgba(13,58,45,0.22)] transition hover:bg-[#092A21] sm:w-auto"
+              >
+                Für Ihr Team prüfen
+                <ArrowRight
+                  size={18}
+                  className="transition group-hover:translate-x-0.5"
+                />
+              </ButtonLink>
+
+              {/* Optional second button for later */}
+              {/*
+              <ButtonLink
+                href="#preise"
+                size="lg"
+                variant="secondary"
+                className="w-full rounded-full border border-[#E2D5C0] bg-white/80 text-[#17130D] hover:bg-white sm:w-auto"
+              >
+                Preise ansehen
+              </ButtonLink>
+              */}
+            </div>
           </div>
-          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#0D3A2D]">
-            Für Unternehmen
-          </p>
-          <h3 className="mt-4 font-serif text-3xl font-semibold text-[#17130D]">
-            Für Ihr Team prüfen
-          </h3>
-          <p className="mt-4 text-sm leading-7 text-[#4A453C]">
-            Wir zeigen Ihnen, wie MeinBenefit als moderner Mitarbeiter-Benefit
-            in Ihrem Unternehmen eingesetzt werden kann.
-          </p>
-          <ButtonLink
-            href="/kontakt?type=b2b"
-            size="lg"
-            className="mt-8 w-full bg-[#0D3A2D] text-white hover:bg-[#164f3e]"
-          >
-            Für Ihr Team prüfen
-            <ArrowRight size={18} />
-          </ButtonLink>
         </div>
       </div>
     </section>

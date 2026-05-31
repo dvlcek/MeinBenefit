@@ -23,33 +23,42 @@ const badges = [
   },
 ];
 
+/* Edit icon size here only */
+const badgeIconSize = "h-16 w-24 sm:h-24 sm:w-40 lg:h-28 lg:w-48";
+
+/* Optional: edit spacing/style here */
+const sectionClass = "bg-white px-4 py-14 text-black sm:px-6 lg:px-8";
+const gridClass =
+  "mx-auto grid max-w-[1200px] grid-cols-4 items-center gap-4 px-1 py-6 sm:gap-12 sm:px-6 lg:px-10";
+const badgeClass =
+  "flex min-w-0 flex-col items-center justify-center gap-3";
+const iconClass = `relative shrink-0 opacity-90 ${badgeIconSize}`;
+
 export function TrustSection() {
   return (
-    <section className="bg-white px-4 py-12 text-black sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-[1200px] grid-cols-4 items-start gap-3 px-1 py-4 sm:gap-10 sm:px-6 lg:px-10">
+    <section className={sectionClass}>
+      <div className={gridClass}>
         {badges.map((badge) => (
-          <div
-            key={badge.label}
-            className="flex min-w-0 flex-col items-center justify-start gap-3"
-          >
-            <span className="relative h-8 w-12 shrink-0 opacity-85 sm:h-12 sm:w-20 lg:h-14 lg:w-24">
+          <div key={badge.label} className={badgeClass}>
+            <span className={iconClass}>
               <Image
                 src={badge.icon}
                 alt=""
                 fill
-                sizes="(max-width: 639px) 48px, (max-width: 1023px) 80px, 96px"
+                sizes="(max-width: 639px) 96px, (max-width: 1023px) 160px, 192px"
                 className="object-contain"
                 unoptimized
               />
             </span>
-            <div className="min-w-0">
+
+            {/* <div className="min-w-0">
               <p className="text-center text-[8px] font-bold uppercase leading-tight tracking-[0.14em] text-[#17130D] sm:text-[11px]">
                 {badge.label}
               </p>
               <p className="mt-1 break-words text-center text-[7px] font-medium leading-tight text-[#7E7569] sm:text-[11px]">
                 {badge.detail}
               </p>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
