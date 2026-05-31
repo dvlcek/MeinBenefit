@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ScrollExperience } from "@/components/ScrollExperience";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -48,8 +49,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}>
-      <body>{children}</body>
+    <html
+      lang="de"
+      className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}
+      suppressHydrationWarning
+    >
+      <body suppressHydrationWarning>
+        <ScrollExperience />
+        {children}
+      </body>
     </html>
   );
 }

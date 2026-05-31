@@ -31,30 +31,33 @@ export function ProcessSection() {
   return (
     <section
       id="ablauf"
-      className="relative overflow-hidden bg-white px-5 py-18 sm:px-6 lg:px-8 lg:py-24"
+      className="relative overflow-hidden bg-white px-4 py-12 sm:px-6 sm:py-18 lg:px-8 lg:py-24"
     >
       <div className="mx-auto max-w-[1200px]">
         <div className="mx-auto max-w-[760px] text-center">
-          <h2 className="font-serif text-[34px] font-normal leading-[1.04] tracking-[-0.04em] text-[#17130D] sm:text-5xl lg:text-[54px]">
+          <h2 className="font-serif text-[31px] font-normal leading-[1.04] tracking-[-0.04em] text-[#17130D] sm:text-5xl lg:text-[54px]">
             So funktioniert MeinBenefit
           </h2>
 
-          <p className="mt-4 text-sm font-medium leading-7 text-[#4A453C] sm:text-base">
+          <p className="mt-4 text-[13px] font-medium leading-6 text-[#4A453C] sm:text-base sm:leading-7">
             Ob Sie MeinBenefit privat nutzen oder als Unternehmen Ihrem Team
             anbieten: Wir begleiten Sie persönlich, prüfen ihre laufende
             Ausgaben und bleiben langfristig an Ihrer Seite.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-4 lg:gap-8">
+        <div className="mt-8 grid gap-6 sm:mt-14 sm:gap-10 lg:grid-cols-4 lg:gap-8">
           {steps.map((step, index) => {
             const Icon = step.icon;
 
             return (
-              <article key={step.number} className="relative">
+              <article
+                key={step.number}
+                className="relative pl-10 sm:pl-0"
+              >
                 {/* Top number / icon / connector */}
-                <div className="flex items-center gap-4">
-                  <span className="font-serif text-[30px] font-normal leading-none tracking-[-0.03em] text-[#B99772]">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <span className="absolute left-0 top-0 font-serif text-[24px] font-normal leading-none tracking-[-0.03em] text-[#B99772] sm:static sm:text-[30px]">
                     {step.number}
                   </span>
 
@@ -69,15 +72,15 @@ export function ProcessSection() {
 
                 {/* Mobile connector */}
                 {index !== steps.length - 1 ? (
-                  <div className="absolute left-[15px] top-10 h-[calc(100%+24px)] w-px bg-[repeating-linear-gradient(180deg,rgba(216,170,63,0.5)_0px,rgba(216,170,63,0.5)_2px,transparent_2px,transparent_7px)] lg:hidden" />
+                  <div className="absolute left-[15px] top-10 hidden h-[calc(100%+24px)] w-px bg-[repeating-linear-gradient(180deg,rgba(216,170,63,0.5)_0px,rgba(216,170,63,0.5)_2px,transparent_2px,transparent_7px)] sm:block lg:hidden" />
                 ) : null}
 
-                <div className="mt-5 pl-0 lg:mt-6">
-                  <h3 className="max-w-[240px] text-[15px] font-bold leading-[1.25] text-[#17130D] sm:text-base">
+                <div className="mt-4 pl-0 lg:mt-6">
+                  <h3 className="max-w-[280px] text-[14px] font-bold leading-[1.25] text-[#17130D] sm:max-w-[240px] sm:text-base">
                     {step.title}
                   </h3>
 
-                  <p className="mt-3 max-w-[260px] text-[12px] font-medium leading-6 text-[#4A453C] sm:text-[13px]">
+                  <p className="mt-2 max-w-[310px] text-[12px] font-medium leading-5 text-[#4A453C] sm:mt-3 sm:max-w-[260px] sm:leading-6 sm:text-[13px]">
                     {step.text}
                   </p>
                 </div>

@@ -6,8 +6,8 @@ const ctaImage = "/images/final-cta-business.webp";
 
 export function FinalCTA() {
   return (
-    <section id="kontakt" className="relative overflow-hidden bg-white py-16 lg:py-20">
-      <div className="relative min-h-[360px] overflow-hidden border-y border-[#E7DCCB] bg-[#FBFAF7]">
+    <section id="kontakt" className="relative overflow-hidden bg-white py-10 sm:py-16 lg:py-20">
+      <div className="relative min-h-[300px] overflow-hidden border-y border-[#E7DCCB] bg-[#FBFAF7] sm:min-h-[360px]">
         {/* Right image */}
         <div className="absolute inset-y-0 right-0 hidden w-[58%] lg:block">
           <Image
@@ -32,7 +32,7 @@ export function FinalCTA() {
             className="object-cover object-center opacity-[0.16]"
             unoptimized
           />
-          <div className="absolute inset-0 bg-white/84" />
+          <div className="absolute inset-0 bg-white/88" />
         </div>
 
         {/* Ornament background */}
@@ -53,26 +53,26 @@ export function FinalCTA() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 mx-auto flex min-h-[360px] max-w-[1320px] items-center px-5 py-12 sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto flex min-h-[300px] max-w-[1320px] items-center px-4 py-10 sm:min-h-[360px] sm:px-6 sm:py-12 lg:px-8">
           <div className="max-w-[590px]">
-            <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#A7824E]">
+            <p className="text-[9px] font-bold uppercase tracking-[0.24em] text-[#A7824E] sm:text-[10px] sm:tracking-[0.28em]">
               Für Unternehmen
             </p>
 
-            <h2 className="mt-4 max-w-[540px] font-serif text-[36px] font-normal leading-[1.02] tracking-[-0.045em] text-[#17130D] sm:text-[50px] lg:text-[58px]">
+            <h2 className="mt-3 max-w-[540px] font-serif text-[32px] font-normal leading-[1.03] tracking-[-0.04em] text-[#17130D] sm:mt-4 sm:text-[50px] sm:tracking-[-0.045em] lg:text-[58px]">
               Für Ihr Team prüfen
             </h2>
 
-            <p className="mt-5 max-w-[500px] text-[15px] font-medium leading-7 text-[#4A453C] sm:text-base sm:leading-8">
+            <p className="mt-4 max-w-[500px] text-[13px] font-medium leading-6 text-[#4A453C] sm:mt-5 sm:text-base sm:leading-8">
               Wir zeigen Ihnen, wie MeinBenefit als moderner Mitarbeiter-Benefit
               in Ihrem Unternehmen eingesetzt werden kann.
             </p>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:items-center">
               <ButtonLink
                 href="/kontakt?type=b2b"
                 size="lg"
-                className="group w-full rounded-full bg-[#0D3A2D] px-7 text-white shadow-[0_16px_38px_rgba(13,58,45,0.22)] transition hover:bg-[#092A21] sm:w-auto"
+                className="group w-full rounded-full bg-[#0D3A2D] px-7 text-[13px] text-white shadow-[0_16px_38px_rgba(13,58,45,0.22)] transition hover:bg-[#092A21] sm:w-auto sm:text-sm"
               >
                 Für Ihr Team prüfen
                 <ArrowRight

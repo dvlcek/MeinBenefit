@@ -24,7 +24,25 @@ export function ComparisonSection() {
           </p>
         </div>
 
-        <div className="relative overflow-hidden rounded-[28px] border border-[#E6D8C6] bg-white shadow-[0_24px_70px_rgba(23,19,13,0.075)]">
+        <div className="grid gap-5 sm:hidden">
+          {rows.map((row) => (
+            <div
+              key={row[0]}
+              className="border-t border-[#E6D8C6] pt-4"
+            >
+              <p className="text-[12px] font-semibold leading-5 text-[#2D271F]">
+                {row[0]}
+              </p>
+              <div className="mt-3 grid grid-cols-3 text-[9px] font-bold uppercase tracking-[0.06em]">
+                <MobileCell label="MB" value={row[1]} highlight />
+                <MobileCell label="Makler" value={row[2]} />
+                <MobileCell label="Portal" value={row[3]} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="relative hidden overflow-hidden rounded-[28px] border border-[#E6D8C6] bg-white shadow-[0_24px_70px_rgba(23,19,13,0.075)] sm:block">
           <div className="pointer-events-none absolute inset-y-0 left-[38%] z-10 w-[22%] border-x border-[#0D3A2D]/40" />
           <div className="pointer-events-none absolute inset-y-0 left-[78%] z-10 w-px bg-[#E6D8C6]" />
           <table className="w-full table-fixed border-separate border-spacing-0 text-[11px] sm:text-sm">
@@ -99,5 +117,34 @@ function Cell({
         <Icon size={18} strokeWidth={highlight ? 2.6 : 2} />
       </span>
     </td>
+  );
+}
+
+function MobileCell({
+  label,
+  value,
+  highlight = false,
+}: {
+  label: string;
+  value: string;
+  highlight?: boolean;
+}) {
+  const Icon = value === "check" ? Check : Minus;
+
+  return (
+    <span
+      className={`flex min-h-9 items-center justify-center gap-1.5 ${
+        highlight
+          ? "rounded-full bg-[#0D3A2D] text-[#E7D7C4]"
+          : "text-[#6D675E]"
+      }`}
+    >
+      <Icon
+        size={12}
+        strokeWidth={highlight ? 2.4 : 2}
+        className={highlight ? "text-[#D6B489]" : "text-[#8A857A]"}
+      />
+      {label}
+    </span>
   );
 }

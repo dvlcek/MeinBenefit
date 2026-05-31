@@ -2,30 +2,6 @@
 
 import { Plus } from "lucide-react";
 import { useState } from "react";
-import { Button } from "./ui/Button";
-
-const b2cFaqs = [
-  {
-    q: "Bekomme ich garantiert eine Ersparnis? Wie viel Erspart man sich im Durchschnitt?",
-    a: "Nein, pauschale Garantien geben wir nicht. Jede Situation ist individuell. Ziel ist es, mögliche Potenziale sichtbar zu machen und dir klar zu zeigen, welche Optionen für dich sinnvoll sein können.",
-  },
-  {
-    q: "Wie funktioniert der Gold-Benefit?",
-    a: "Kund:innen leisten einen monatlichen Beitrag, der in einen persönlichen Goldwert umgewandelt wird. Sobald der definierte Mindestwert für eine Lieferung erreicht ist, wird physisches Gold über Münze Österreich bezogen und direkt geliefert.",
-  },
-  {
-    q: "Sind meine Daten sicher?",
-    a: "Ja. Deine Daten werden vertraulich behandelt und nur für die Analyse und Betreuung im Rahmen von MeinBenefit verwendet. Transparenz und Datenschutz sind ein zentraler Bestandteil unseres Services.",
-  },
-  {
-    q: "Bin ich langfristig gebunden?",
-    a: "Die genauen Vertragsdetails hängen vom gewählten Modell ab. Wichtig ist: MeinBenefit soll verständlich, fair und transparent aufgebaut sein — ohne versteckte Kosten.",
-  },
-  {
-    q: "Für wen ist MeinBenefit geeignet?",
-    a: "MeinBenefit eignet sich besonders für Berufstätige, Familien und Menschen, die mehr Überblick über ihre laufenden Ausgaben möchten, aber keine Zeit oder Lust haben, alles selbst zu prüfen.",
-  },
-];
 
 const b2bFaqs = [
   {
@@ -43,13 +19,13 @@ const b2bFaqs = [
 ];
 
 export function FAQSection() {
-  const [openKey, setOpenKey] = useState("b2c-0");
+  const [openKey, setOpenKey] = useState("b2b-0");
 
   return (
-    <section id="faq" className="bg-white px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
-      <div className="mx-auto grid max-w-[1200px] gap-9 sm:p-8 lg:p-10">
+    <section id="faq" className="bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+      <div className="mx-auto grid max-w-[1200px] gap-6 sm:gap-9 sm:p-8 lg:p-10">
         <div>
-          <h2 className="font-serif text-3xl text-center font-semibold leading-[1.08] text-[#17130D] sm:text-4xl">
+          <h2 className="text-center font-serif text-[31px] font-semibold leading-[1.08] text-[#17130D] sm:text-4xl">
             Häufige Fragen
           </h2>
         </div>
@@ -63,11 +39,11 @@ export function FAQSection() {
             return (
               <div
                 key={item.q}
-                className="overflow-hidden rounded-[18px] border border-[#E6D8C6] bg-white shadow-[0_12px_32px_rgba(23,19,13,0.035)]"
+                className="overflow-hidden rounded-[16px] border border-[#E6D8C6] bg-white shadow-[0_12px_32px_rgba(23,19,13,0.035)] sm:rounded-[18px]"
               >
                 <button
                   type="button"
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold leading-5 text-[#17130D] transition hover:bg-[#F8F3EC]"
+                  className="flex w-full items-center justify-between gap-4 px-4 py-3.5 text-left text-[13px] font-semibold leading-5 text-[#17130D] transition hover:bg-[#F8F3EC] sm:px-5 sm:py-4 sm:text-sm"
                   aria-expanded={open}
                   onClick={() => setOpenKey(open ? "" : key)}
                 >
@@ -79,7 +55,7 @@ export function FAQSection() {
                   />
                 </button>
                 {open ? (
-                  <p className="px-5 pb-5 text-sm leading-7 text-[#4A453C]">
+                  <p className="px-4 pb-4 text-[13px] leading-6 text-[#4A453C] sm:px-5 sm:pb-5 sm:text-sm sm:leading-7">
                     {item.a}
                   </p>
                 ) : null}
@@ -95,11 +71,11 @@ export function FAQSection() {
             return (
               <div
                 key={item.q}
-                className="overflow-hidden rounded-[18px] border border-[#E6D8C6] bg-white shadow-[0_12px_32px_rgba(23,19,13,0.035)]"
+                className="border-t border-[#E6D8C6] first:border-t-0"
               >
                 <button
                   type="button"
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold leading-5 text-[#17130D] transition hover:bg-[#F8F3EC]"
+                  className="flex w-full items-center justify-between gap-4 py-4 text-left text-[15px] font-semibold leading-5 text-[#17130D] transition hover:text-[#0D3A2D] sm:px-5 sm:text-sm"
                   aria-expanded={open}
                   onClick={() => setOpenKey(open ? "" : key)}
                 >
@@ -111,7 +87,7 @@ export function FAQSection() {
                   />
                 </button>
                 {open ? (
-                  <p className="px-5 pb-5 text-sm leading-7 text-[#4A453C]">
+                  <p className="pb-5 text-[13px] leading-7 text-[#4A453C] sm:px-5 sm:text-sm">
                     {item.a}
                   </p>
                 ) : null}

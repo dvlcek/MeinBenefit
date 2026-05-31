@@ -1,6 +1,6 @@
 "use client";
 
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, MouseEvent, ReactNode } from "react";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
 type ButtonSize = "md" | "lg";
@@ -55,21 +55,12 @@ export function ButtonLink({
   size = "md",
   className = "",
   href,
-  onClick,
   ...props
 }: LinkProps) {
-  const opensLeadForm = href === "#kontakt" || href === "mailto:office@meinbenefit.at";
-  const renderedHref = opensLeadForm ? "/kontakt" : href;
-
-  function handleClick(event: MouseEvent<HTMLAnchorElement>) {
-    onClick?.(event);
-  }
-
   return (
     <a
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
-      href={renderedHref}
-      onClick={handleClick}
+      href={href}
       {...props}
     >
       {children}

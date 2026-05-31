@@ -67,17 +67,17 @@ export function Header() {
         hidden && !open ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="mx-auto flex h-[82px] w-full max-w-[1320px] items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-[72px] w-full max-w-[1320px] items-center justify-between px-4 sm:h-[82px] sm:px-6 lg:px-8">
         <a
           href="#top"
           className="group flex min-w-0 items-center gap-2.5"
           aria-label="MeinBenefit Startseite"
         >
           <span className="min-w-0">
-            <span className="block font-serif text-[36px] font-semibold leading-none tracking-[0.01em] text-[#0D3A2D]">
+            <span className="block font-serif text-[32px] font-semibold leading-none tracking-[0.01em] text-[#0D3A2D] sm:text-[36px]">
               MB
             </span>
-            <span className="mt-0.5 block text-[10px] font-semibold leading-none text-[#9A6418]">
+            <span className="mt-0.5 block text-[9px] font-semibold leading-none text-[#9A6418] sm:text-[10px]">
               MeinBenefit
             </span>
           </span>
@@ -110,7 +110,7 @@ export function Header() {
 
         <button
           type="button"
-          className="ml-4 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#F8F3EC] text-[#0D3A2D] lg:hidden"
+          className="ml-4 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F8F3EC] text-[#0D3A2D] ring-1 ring-[#E8DCCB] lg:hidden"
           aria-label={open ? "Navigation schließen" : "Navigation öffnen"}
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
@@ -120,13 +120,13 @@ export function Header() {
       </div>
 
       {open ? (
-        <div className="border-t border-[#EFE6DA] bg-white lg:hidden">
-          <nav className="mx-auto grid max-w-[1320px] gap-1 px-4 py-4 sm:px-6">
+        <div className="border-t border-[#EFE6DA] bg-white/96 shadow-[0_18px_42px_rgba(23,19,13,0.08)] backdrop-blur-md lg:hidden">
+          <nav className="mx-auto grid max-w-[1320px] gap-1 px-4 py-3 sm:px-6">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="flex min-h-11 items-center justify-between px-1 text-sm font-semibold text-[#2D271F] transition hover:text-[#0D3A2D]"
+                className="flex min-h-10 items-center justify-between rounded-xl px-2 text-[13px] font-semibold text-[#2D271F] transition hover:bg-[#F8F3EC] hover:text-[#0D3A2D]"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -137,7 +137,7 @@ export function Header() {
             ))}
             <a
               href="/kontakt?type=b2b"
-              className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#D6B489] px-5 text-sm font-bold text-[#17130D] transition hover:bg-[#C8A77D]"
+              className="mt-3 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#D6B489] px-5 text-[13px] font-bold text-[#17130D] transition hover:bg-[#C8A77D]"
               onClick={() => setOpen(false)}
             >
               Kostenlose Erstberatung <ArrowRight size={16} strokeWidth={2.4} />

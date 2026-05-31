@@ -19,59 +19,6 @@ type PricingPlan = {
   recommended?: boolean;
 };
 
-const b2cPlans: PricingPlan[] = [
-  {
-    label: "Für Privatpersonen",
-    name: "BASIC",
-    smallTitle: "Einmalig starten",
-    price: "3.000 € einmalig",
-    priceNote: "inkl. direktem Goldwert, z. B. 15 g physisches Gold",
-    description: "Einmal zahlen. Langfristig begleitet werden.",
-    features: [
-      "voller MeinBenefit-Service",
-      "persönliche Analyse Ihrer laufenden Ausgaben",
-      "Begleitung bei der Umsetzung",
-      "regelmäßige Betreuung und jährliche Prüfung",
-      "langfristige persönliche Begleitung",
-      "direkter Goldwert, z. B. 15 g physisches Gold",
-      "Goldbezug über Münze Österreich möglich",
-    ],
-    cta: "Einmalig starten",
-    variant: "ghost" as const,
-    cardClass: "border-[#D6B489] bg-white text-[#17130D]",
-    labelClass: "text-[#B99772]",
-    accentClass: "text-[#17130D]",
-    featureClass: "text-[#2D271F]",
-    buttonClass: "!bg-white !text-[#17130D] border border-[#D6B489]",
-  },
-  {
-    label: "Für Privatpersonen",
-    name: "GOLD",
-    smallTitle: "Monatlich teilnehmen",
-    price: "ab 20 € / Monat",
-    priceNote: "Beitrag frei wählbar",
-    description:
-      "Ihr monatlicher Beitrag baut Ihren persönlichen Goldwert auf. Der MeinBenefit-Service bleibt gleich.",
-    features: [
-      "voller MeinBenefit-Service",
-      "persönliche Analyse Ihrer laufenden Ausgaben",
-      "Begleitung bei der Umsetzung",
-      "regelmäßige Betreuung und jährliche Prüfung",
-      "langfristige persönliche Begleitung",
-      "Goldwert baut sich monatlich auf",
-      "Goldbezug über Münze Österreich",
-    ],
-    cta: "Mitgliedschaft starten",
-    variant: "secondary" as const,
-    cardClass: "border-[#D6B489] bg-white text-[#17130D]",
-    labelClass: "text-[#B99772]",
-    accentClass: "text-[#D6B489]",
-    featureClass: "text-[#2D271F]",
-    buttonClass: "",
-    recommended: true,
-  },
-];
-
 const b2bPlans: PricingPlan[] = [
   {
     label: "Für Unternehmen",
@@ -110,23 +57,23 @@ export function PricingSection() {
   return (
     <section
       id="preise"
-      className="relative overflow-hidden px-5 py-16 sm:px-6 lg:px-8 lg:py-24"
+      className="relative overflow-hidden px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24"
     >
       <div className="mx-auto max-w-[1180px]">
-        <div className="grid items-center gap-10 lg:grid-cols-[0.70fr_1.3fr] lg:gap-8">
+        <div className="grid items-center gap-8 lg:grid-cols-[0.70fr_1.3fr] lg:gap-8">
           {/* Left side */}
           <div className="relative z-10 max-w-[430px]">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#B99772]">
+            <p className="text-[9px] font-semibold uppercase tracking-[0.24em] text-[#B99772] sm:text-[10px] sm:tracking-[0.28em]">
               Flexibel. Fair. Planbar.
             </p>
 
-            <h2 className="mt-3 max-w-[390px] font-serif text-[34px] font-normal leading-[1.03] tracking-[-0.045em] text-[#17130D] sm:text-[42px] lg:text-[45px]">
+            <h2 className="mt-3 max-w-[390px] font-serif text-[31px] font-normal leading-[1.04] tracking-[-0.04em] text-[#17130D] sm:text-[42px] sm:tracking-[-0.045em] lg:text-[45px]">
               Wähle deinen persönlichen MeinBenefit-Start
             </h2>
 
-            <div className="mt-10 flex items-center gap-6">
-              <div className="relative flex size-[92px] shrink-0 items-center justify-center rounded-full border border-[#E8DDCB] bg-white shadow-[0_20px_60px_rgba(23,19,13,0.06)]">
-                <div className="flex size-[58px] items-center justify-center rounded-full border border-[#E2D2BB] text-[#0D3A2D]">
+            <div className="mt-6 flex items-center gap-4 sm:mt-10 sm:gap-6">
+              <div className="relative flex size-[72px] shrink-0 items-center justify-center rounded-full border border-[#E8DDCB] bg-white shadow-[0_20px_60px_rgba(23,19,13,0.06)] sm:size-[92px]">
+                <div className="flex size-[46px] items-center justify-center rounded-full border border-[#E2D2BB] text-[#0D3A2D] sm:size-[58px]">
                   <svg
                     width="30"
                     height="30"
@@ -152,7 +99,7 @@ export function PricingSection() {
                 </div>
               </div>
 
-              <p className="max-w-[190px] text-[13px] font-medium leading-[1.6] text-[#4A453C]">
+              <p className="max-w-[220px] text-[12px] font-medium leading-[1.6] text-[#4A453C] sm:max-w-[190px] sm:text-[13px]">
                 Ob einmalig oder monatlich: Wir prüfen deine aktuelle Situation,
                 zeigen mögliche Potenziale und begleiten dich persönlich bei der
                 Umsetzung.
@@ -161,7 +108,7 @@ export function PricingSection() {
           </div>
 
           {/* Pricing card */}
-          <article className="relative min-h-[355px] overflow-hidden rounded-[20px] border border-[#E4D8C8] bg-white shadow-[0_26px_90px_rgba(23,19,13,0.08)]">
+          <article className="relative overflow-hidden border-y border-[#E4D8C8] bg-white py-1 sm:min-h-[355px] sm:rounded-[20px] sm:border sm:py-0 sm:shadow-[0_26px_90px_rgba(23,19,13,0.08)]">
             {/* Diagonal blended image */}
             <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[50%] overflow-hidden lg:block">
               <div
@@ -188,32 +135,32 @@ export function PricingSection() {
             </div>
 
             {/* Content */}
-            <div className="relative z-20 max-w-[560px] px-7 py-7 sm:px-9 sm:py-8 lg:px-10 lg:py-9">
-              <p className="text-[16px] font-medium leading-none text-[#17130D]">
+            <div className="relative z-20 max-w-[560px] px-5 py-6 sm:px-9 sm:py-8 lg:px-10 lg:py-9">
+              <p className="text-[14px] font-medium leading-none text-[#17130D] sm:text-[16px]">
                 {plan.smallTitle}
               </p>
 
-              <div className="mt-4 flex flex-wrap items-end gap-x-2 gap-y-1">
-                <p className="font-serif text-[48px] font-normal leading-none tracking-[-0.06em] text-[#0D3A2D] sm:text-[54px]">
+              <div className="mt-3 flex flex-wrap items-end gap-x-2 gap-y-1 sm:mt-4">
+                <p className="font-serif text-[42px] font-normal leading-none tracking-[-0.055em] text-[#0D3A2D] sm:text-[54px] sm:tracking-[-0.06em]">
                   {priceMain}
                 </p>
 
                 {priceSuffix ? (
-                  <p className="pb-1.5 text-[13px] font-medium text-[#4A453C]">
+                  <p className="pb-1 text-[11px] font-medium leading-tight text-[#4A453C] sm:pb-1.5 sm:text-[13px]">
                     {priceSuffix}
                   </p>
                 ) : null}
               </div>
 
-              <p className="mt-2 text-[12px] font-medium text-[#4A453C]">
+              <p className="mt-2 text-[11px] font-medium leading-5 text-[#4A453C] sm:text-[12px]">
                 ein lösungsorientiertes Angebot für moderne Arbeitgeber.
               </p>
 
-              <ul className="mt-5 grid max-w-[430px] gap-2.5">
+              <ul className="mt-4 grid max-w-[430px] gap-2 sm:mt-5 sm:gap-2.5">
                 {plan.features.map((feature) => (
                   <li
                     key={feature}
-                    className="flex items-start gap-2.5 text-[12px] font-medium leading-[1.55] text-[#2D271F]"
+                    className="flex items-start gap-2.5 text-[11px] font-medium leading-[1.55] text-[#2D271F] sm:text-[12px]"
                   >
                     <CheckCircle2
                       size={14}
@@ -228,7 +175,7 @@ export function PricingSection() {
               <ButtonLink
                 href="#kontakt"
                 variant={plan.variant}
-                className="mt-6 h-10 rounded-full !bg-[#0D3A2D] px-6 text-[12px] font-semibold !text-white shadow-[0_14px_34px_rgba(13,58,45,0.22)] transition hover:!bg-[#092A21]"
+                className="mt-5 h-10 w-full rounded-full !bg-[#0D3A2D] px-6 text-[12px] font-semibold !text-white shadow-[0_14px_34px_rgba(13,58,45,0.22)] transition hover:!bg-[#092A21] sm:mt-6 sm:w-auto"
               >
                 MB Testzugang <ArrowRight size={14} strokeWidth={2.5} />
               </ButtonLink>
