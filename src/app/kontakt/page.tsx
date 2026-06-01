@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { BrandLogo } from "@/components/BrandLogo";
 import { LeadWizard } from "@/components/LeadWizard";
 
 type KontaktPageProps = {
@@ -36,10 +37,13 @@ export default async function KontaktPage({ searchParams }: KontaktPageProps) {
         : "Wählen Sie, ob Sie als Privatperson oder Unternehmen anfragen. Danach führen wir Sie durch die passenden Fragen.";
 
   return (
-    <main className="min-h-[100svh] bg-white px-5 py-5 text-[#17130D] sm:px-6 lg:px-8">
+    <main
+      data-motion-skip
+      className="min-h-[100svh] bg-white px-5 py-5 text-[#17130D] sm:px-6 lg:px-8"
+    >
       <div className="mx-auto flex min-h-[calc(100svh-40px)] max-w-[920px] flex-col">
-        {/* Back link */}
-        <div className="shrink-0">
+        <div className="flex shrink-0 items-center justify-between gap-4">
+          <BrandLogo href="/" size="sm" showTagline={false} />
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#4A453C] transition hover:text-[#0D3A2D]"

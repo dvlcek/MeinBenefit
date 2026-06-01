@@ -1,11 +1,20 @@
 import Image from "next/image";
 import { Building2, UsersRound } from "lucide-react";
+import { AnimatedStatValue } from "./AnimatedStatValue";
 import { Section } from "./ui/Section";
 
 const stats = [
-  { value: "99,7%", label: "der Unternehmen in Österreich sind KMU", icon: Building2 },
   {
-    value: "78%",
+    value: 99.7,
+    decimals: 1,
+    suffix: "%",
+    label: "der Unternehmen in Österreich sind KMU",
+    icon: Building2,
+  },
+  {
+    value: 78,
+    decimals: 0,
+    suffix: "%",
     label: "der Unternehmen sind vom Arbeits- und Fachkräftemangel betroffen",
     icon: UsersRound,
   },
@@ -50,7 +59,7 @@ export function ProblemSection() {
           </p>
 
           <div className="mt-6 grid gap-4 sm:mt-8 sm:grid-cols-2 sm:gap-5">
-            {stats.map(({ value, label, icon: Icon }) => (
+            {stats.map(({ value, decimals, suffix, label, icon: Icon }, index) => (
               <div
                 key={value}
                 className="flex items-start gap-3 border-t border-[#E8DCCB] pt-4 sm:border-y-0 sm:border-l-0 sm:border-r sm:pt-0 sm:pr-5 sm:last:border-r-0"
@@ -63,7 +72,12 @@ export function ProblemSection() {
 
                 <div>
                   <p className="font-serif text-[21px] font-semibold leading-none text-[#1F1F1F] sm:text-[22px]">
-                    {value}
+                    <AnimatedStatValue
+                      value={value}
+                      decimals={decimals}
+                      suffix={suffix}
+                      delay={index * 180}
+                    />
                   </p>
                   <p className="mt-1 text-[10px] font-medium leading-4 text-[#6F6F6F]">
                     {label}

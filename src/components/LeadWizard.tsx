@@ -113,7 +113,14 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
         .length,
     [questions, values],
   );
-  const progress = type ? Math.round((answeredCount / questions.length) * 100) : 0;
+  const progressStep = type
+    ? isSummaryStep
+      ? questions.length
+      : Math.min(index + 1, questions.length)
+    : 0;
+  const progress = type
+    ? Math.round((progressStep / questions.length) * 100)
+    : 0;
 
   const summary = useMemo(
     () =>
@@ -243,7 +250,7 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
           Zurück
         </button>
         <span className="text-sm font-bold text-[#B99772]">
-          {progress}% · {answeredCount}/{questions.length}
+          {progress}% · Schritt {progressStep}/{questions.length}
         </span>
       </div>
 

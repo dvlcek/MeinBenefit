@@ -2,6 +2,7 @@
 
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { BrandLogo } from "./BrandLogo";
 
 const navItems = [
   { label: "Für Unternehmen", href: "#preise", hasDropdown: true },
@@ -68,20 +69,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-[72px] w-full max-w-[1320px] items-center justify-between px-4 sm:h-[82px] sm:px-6 lg:px-8">
-        <a
-          href="#top"
-          className="group flex min-w-0 items-center gap-2.5"
-          aria-label="MeinBenefit Startseite"
-        >
-          <span className="min-w-0">
-            <span className="block font-serif text-[32px] font-semibold leading-none tracking-[0.01em] text-[#0D3A2D] sm:text-[36px]">
-              MB
-            </span>
-            <span className="mt-0.5 block text-[9px] font-semibold leading-none text-[#9A6418] sm:text-[10px]">
-              MeinBenefit
-            </span>
-          </span>
-        </a>
+        <BrandLogo href="#top" size="md" className="max-w-[210px]" />
 
         <nav
           aria-label="Hauptnavigation"

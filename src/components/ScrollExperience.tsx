@@ -4,13 +4,13 @@ import { useEffect } from "react";
 
 const scrollOffset = 92;
 
-const sectionSelector = "main > section:not(#top), footer";
+const motionSkipSelector = "[data-motion-skip]";
+const sectionSelector = `main:not(${motionSkipSelector}) > section:not(#top):not(${motionSkipSelector}), footer:not(${motionSkipSelector})`;
 const revealSelector = [
   ":scope h2",
   ":scope h3",
   ":scope article",
   ":scope table",
-  ":scope form",
   ":scope img",
   ":scope li",
   ":scope [class*='rounded-[18px]']",
@@ -24,6 +24,7 @@ function scrollEase(progress: number) {
 
 export function ScrollExperience() {
   useEffect(() => {
+    let disposed = false;
     let cleanup = () => {};
 
     async function setupMotion() {
@@ -43,6 +44,8 @@ export function ScrollExperience() {
           import("gsap"),
           import("gsap/ScrollTrigger"),
         ]);
+
+      if (disposed) return;
 
       const gsap = gsapModule.gsap;
       const ScrollTrigger = scrollTriggerModule.ScrollTrigger;
@@ -83,25 +86,32 @@ export function ScrollExperience() {
       }
 
       const ctx = gsap.context(() => {
-        gsap.fromTo(
+        const heroTargets = gsap.utils.toArray<HTMLElement>(
           "#top h1, #top p, #top a, #top [class*='proofItems'], #top [class*='rounded-full']",
-          { autoAlpha: 0, y: 24 },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-            stagger: 0.07,
-            clearProps: "transform,opacity,visibility",
-          },
         );
+
+        if (heroTargets.length > 0) {
+          gsap.fromTo(
+            heroTargets,
+            { autoAlpha: 0, y: 24 },
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 1,
+              ease: "power3.out",
+              stagger: 0.07,
+              clearProps: "transform,opacity,visibility",
+            },
+          );
+        }
 
         const sections = gsap.utils.toArray<HTMLElement>(sectionSelector);
 
         sections.forEach((section) => {
-          const targets = gsap.utils.toArray<HTMLElement>(
-            section.querySelectorAll(revealSelector),
-          );
+          const targets = gsap
+            .utils
+            .toArray<HTMLElement>(section.querySelectorAll(revealSelector))
+            .filter((target) => !target.closest(motionSkipSelector));
 
           if (targets.length === 0) return;
 
@@ -149,7 +159,10 @@ export function ScrollExperience() {
 
     void setupMotion();
 
-    return () => cleanup();
+    return () => {
+      disposed = true;
+      cleanup();
+    };
   }, []);
 
   return null;

@@ -29,7 +29,7 @@ const badgeIconSize = "h-11 w-16 sm:h-24 sm:w-40 lg:h-28 lg:w-48";
 /* Optional: edit spacing/style here */
 const sectionClass = "bg-white px-4 py-8 text-black sm:px-6 sm:py-14 lg:px-8";
 const gridClass =
-  "mx-auto grid max-w-[1200px] grid-cols-4 items-center gap-2 px-1 py-3 sm:gap-12 sm:px-6 sm:py-6 lg:px-10";
+  "mx-auto grid max-w-[1000px] grid-cols-4 items-center gap-2 px-1 py-3 sm:gap-12 sm:px-6 sm:py-6 lg:px-10";
 const badgeClass =
   "flex min-w-0 flex-col items-center justify-center";
 const iconClass = `relative shrink-0 opacity-80 sm:opacity-90 ${badgeIconSize}`;

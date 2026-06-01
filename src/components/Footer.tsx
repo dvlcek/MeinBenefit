@@ -1,5 +1,6 @@
 import { Camera, Mail, MapPin, Phone, Send } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { BrandLogo } from "./BrandLogo";
 
 const nav = ["Vorteile", "So funktioniert's", "Pakete", "FAQ"];
 const legal = ["Impressum", "Datenschutz", "AGB"];
@@ -9,15 +10,7 @@ export function Footer() {
     <footer className="bg-[#11120F] px-4 pt-9 text-white sm:px-6 sm:pt-12 lg:px-8">
       <div className="mx-auto grid max-w-[1200px] gap-7 pb-8 sm:gap-10 sm:pb-10 lg:grid-cols-[1.25fr_0.7fr_0.8fr_1.2fr_0.75fr]">
         <div>
-          <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/8 font-serif text-base font-bold text-[#E7D7C4] sm:h-12 sm:w-12 sm:text-lg">
-              MB
-            </span>
-            <div>
-              <p className="font-serif text-[22px] leading-none text-[#F7EFE1] sm:text-2xl">MeinBenefit</p>
-              <p className="mt-1 text-xs font-semibold text-[#F4D184]">Vorteile, die bleiben.</p>
-            </div>
-          </div>
+          <BrandLogo href="#top" tone="dark" size="lg" />
           <p className="mt-4 max-w-xs text-[13px] leading-6 text-white/64 sm:mt-5 sm:text-sm sm:leading-7">
             MeinBenefit unterstützt Berufstätige und Familien dabei, mehr Klarheit über laufende
             Kosten zu gewinnen und langfristige Vorteile aufzubauen.
