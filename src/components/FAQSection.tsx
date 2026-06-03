@@ -6,15 +6,27 @@ import { useState } from "react";
 const b2bFaqs = [
   {
     q: "Was ist MeinBenefit für Unternehmen?",
-    a: "MeinBenefit ist ein Mitarbeiter-Benefit für Unternehmen. Arbeitgeber:innen ermöglichen ihren Mitarbeiter:innen Zugang zu einem persönlichen Service, der laufende Ausgaben prüft, Potenziale sichtbar macht und langfristige Vorteile schaffen kann.",
+    a: "MeinBenefit ist ein persönlicher Mitarbeiterbenefit, den Unternehmen ihren Mitarbeitern anbieten können. Die Umsetzung wird begleitet, die Nutzung durch Mitarbeitende erfolgt freiwillig und Ihr Unternehmen zahlt keine Kosten.",
   },
   {
-    q: "Fallen zusätzliche Kosten an für Unternehmen?",
-    a: "Nein, der Arbeitgeber zahlt einen monatlichen Beitrag pro Mitarbeiter:in. Der Mindestbeitrag beträgt 20 € pro Mitarbeiter:in und Monat.",
+    q: "Entstehen für unser Unternehmen Kosten?",
+    a: "Nein. Für Ihr Unternehmen entstehen keine Kosten. MeinBenefit wird als Benefit angeboten, ohne dass Ihr Unternehmen laufende Kosten übernimmt. Die konkrete Nutzung durch Mitarbeiter wird transparent und individuell erklärt.",
   },
   {
-    q: "Wie hoch ist der Aufwand für Unternehmen?",
-    a: "Der Aufwand bleibt gering. MeinBenefit übernimmt Beratung, Kommunikation, Ablauf und Betreuung. Das Unternehmen erhält ein einfach integrierbares Benefit-Modell.",
+    q: "Müssen alle Mitarbeitenden teilnehmen?",
+    a: "Nein. Die Teilnahme ist freiwillig. Ihr Unternehmen stellt den Zugang zu MeinBenefit bereit, Mitarbeiter entscheiden selbst, ob sie das Angebot nutzen möchten.",
+  },
+  {
+    q: "Wie viel Aufwand entsteht für HR oder Geschäftsführung?",
+    a: "Der interne Aufwand bleibt gering. Wir unterstützen Sie bei der Einführung, stellen Informationen bereit und begleiten die Kommunikation an Ihre Mitarbeiter.",
+  },
+  {
+    q: "Was haben unsere Mitarbeitenden davon?",
+    a: "Mitarbeitende erhalten Zugang zu persönlicher Beratung, individueller Analyse und einer langfristigen Begleitung. Ziel ist es, mögliche Vorteile sichtbar zu machen und mögliche Lösungen aufzuzeigen.",
+  },
+  {
+    q: "Warum ist MeinBenefit ein Vorteil für Arbeitgeber?",
+    a: "MeinBenefit kann Ihre Arbeitgeberattraktivität stärken, weil Sie Ihren Mitarbeitern dadurch einen persönlichen und wertschätzenden Benefit ermöglichen, ohne intern hohen Aufwand aufzubauen.",
   },
 ];
 

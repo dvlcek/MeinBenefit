@@ -12,8 +12,8 @@ export function Footer() {
         <div>
           <BrandLogo href="#top" tone="dark" size="lg" />
           <p className="mt-4 max-w-xs text-[13px] leading-6 text-white/64 sm:mt-5 sm:text-sm sm:leading-7">
-            MeinBenefit unterstützt Berufstätige und Familien dabei, mehr Klarheit über laufende
-            Kosten zu gewinnen und langfristige Vorteile aufzubauen.
+            MeinBenefit unterstützt Berufstätige dabei, mehr Klarheit über
+            laufende Kosten zu gewinnen und langfristige Vorteile aufzubauen.
           </p>
         </div>
 

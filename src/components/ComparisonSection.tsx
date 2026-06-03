@@ -1,87 +1,135 @@
-import { Check, Minus } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { Section } from "./ui/Section";
 
-const rows = [
-  ["Persönliche / individuelle Analyse", "check", "check", "minus"],
-  ["Begleitung bei der Umsetzung", "check", "check", "minus"],
-  ["Laufende Optimierung", "check", "check", "minus"],
-  ["Premium Partnerschaft & Konditionen", "check", "minus", "minus"],
-  ["Langfristiger persönlicher Mehrwert", "check", "minus", "minus"],
-  ["Vorteile werden sichtbar und greifbar", "check", "minus", "check"],
+type Status = "check" | "x";
+
+type ComparisonRow = {
+  label: string;
+  meinBenefit: Status;
+  makler: Status;
+  portal: Status;
+};
+
+const rows: ComparisonRow[] = [
+  {
+    label: "Innovativer Benefit",
+    meinBenefit: "check",
+    makler: "check",
+    portal: "x",
+  },
+  {
+    label: "Begleitung bei der Umsetzung",
+    meinBenefit: "check",
+    makler: "check",
+    portal: "x",
+  },
+  {
+    label: "Employer Branding",
+    meinBenefit: "check",
+    makler: "x",
+    portal: "x",
+  },
+  {
+    label: "Laufende Optimierung",
+    meinBenefit: "check",
+    makler: "x",
+    portal: "x",
+  },
+  {
+    label: "Premium Partnerschaft & Konditionen",
+    meinBenefit: "check",
+    makler: "x",
+    portal: "x",
+  },
+  {
+    label: "Vorteile werden sichtbar und greifbar",
+    meinBenefit: "check",
+    makler: "x",
+    portal: "check",
+  },
 ];
 
 export function ComparisonSection() {
   return (
     <Section className="bg-white" innerClassName="max-w-[1240px]">
-      <div className="grid gap-9 lg:grid-cols-[0.28fr_0.72fr] lg:items-start">
+      <div className="grid gap-10 lg:grid-cols-[0.3fr_0.7fr] lg:items-start lg:gap-14">
         <div>
-          <h2 className="font-serif text-3xl font-semibold leading-[1.08] text-[#17130D] sm:text-4xl lg:text-[44px]">
-            Mehr als ein Vergleich. Persönlich begleitet.
+          <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#C8A96A] sm:text-[10px] sm:tracking-[0.24em]">
+            Vergleich
+          </p>
+
+          <h2 className="mt-2 max-w-[420px] font-serif text-[31px] font-semibold leading-[1.04] text-[#1F1F1F] sm:text-[44px]">
+            Mehr als ein Vergleich. Ein Benefit, der im Unternehmen ankommt.
           </h2>
-          <p className="mt-5 text-sm leading-7 text-[#4A453C] sm:text-base">
-            MeinBenefit verbindet persönliche Analyse, klare Empfehlungen und langfristige
-            Begleitung, damit aus laufenden Ausgaben echte Vorteile entstehen.
+
+          <p className="mt-4 max-w-[390px] text-[13px] font-medium leading-6 text-[#6F6F6F] sm:text-sm">
+            Viele Lösungen helfen beim Vergleichen. MeinBenefit geht weiter:
+            verständlich eingeführt, persönlich begleitet und so aufgebaut, dass
+            der Nutzen für Mitarbeiter sichtbar wird.
           </p>
         </div>
 
-        <div className="grid gap-5 sm:hidden">
-          {rows.map((row) => (
-            <div
-              key={row[0]}
-              className="border-t border-[#E6D8C6] pt-4"
-            >
-              <p className="text-[12px] font-semibold leading-5 text-[#2D271F]">
-                {row[0]}
-              </p>
-              <div className="mt-3 grid grid-cols-3 text-[9px] font-bold uppercase tracking-[0.06em]">
-                <MobileCell label="MB" value={row[1]} highlight />
-                <MobileCell label="Makler" value={row[2]} />
-                <MobileCell label="Portal" value={row[3]} />
+        {/* Mobile */}
+        <div className="rounded-[30px] bg-white px-5 py-6 shadow-[0_24px_70px_rgba(31,31,31,0.08)] sm:hidden">
+          <div className="grid grid-cols-[1fr_52px_62px_62px] items-end gap-2 border-b border-[#1F1F1F]/10 pb-4 text-[9px] font-semibold uppercase tracking-[0.08em] text-[#1F1F1F]/60">
+            <div />
+            <div className="text-center text-[#0D3A2D]">MB</div>
+            <div className="text-center">Makler</div>
+            <div className="text-center">Portal</div>
+          </div>
+
+          <div>
+            {rows.map((row) => (
+              <div
+                key={row.label}
+                className="grid grid-cols-[1fr_52px_62px_62px] items-center gap-2 border-b border-[#1F1F1F]/8 py-4 last:border-b-0"
+              >
+                <p className="text-[12px] font-semibold leading-5 text-[#1F1F1F]">
+                  {row.label}
+                </p>
+
+                <MobileCell value={row.meinBenefit} highlight />
+                <MobileCell value={row.makler} />
+                <MobileCell value={row.portal} />
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <div className="relative hidden overflow-hidden rounded-[28px] border border-[#E6D8C6] bg-white shadow-[0_24px_70px_rgba(23,19,13,0.075)] sm:block">
-          <div className="pointer-events-none absolute inset-y-0 left-[38%] z-10 w-[22%] border-x border-[#0D3A2D]/40" />
-          <div className="pointer-events-none absolute inset-y-0 left-[78%] z-10 w-px bg-[#E6D8C6]" />
-          <table className="w-full table-fixed border-separate border-spacing-0 text-[11px] sm:text-sm">
-            <colgroup>
-              <col className="w-[38%]" />
-              <col className="w-[22%]" />
-              <col className="w-[18%]" />
-              <col className="w-[22%]" />
-            </colgroup>
-            <thead>
-              <tr className="text-[9px] font-bold uppercase tracking-[0.04em] text-[#4A453C] sm:text-xs sm:tracking-[0.08em]">
-                <th className="border-b border-[#E6D8C6] bg-white px-2 py-5 text-left font-bold sm:px-5" />
-                <th className="border-b border-[#0D3A2D] bg-[#0D3A2D] px-2 py-5 text-center font-bold text-[#E7D7C4] sm:px-5">
-                  <span className="block text-[10px] leading-tight sm:text-[13px]">MeinBenefit</span>
-                  <span className="mt-1 hidden text-[10px] font-semibold tracking-[0.14em] text-[#D6B489] sm:block">
-                    Beste Wahl
-                  </span>
-                </th>
-                <th className="border-b border-r border-[#E6D8C6] bg-white px-2 py-5 text-center font-bold sm:px-5">
-                  Makler
-                </th>
-                <th className="border-b border-[#E6D8C6] bg-white px-2 py-5 text-center font-bold sm:px-5">
-                  Vergleichsportale
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row) => (
-                <tr key={row[0]}>
-                  <td className="h-[58px] border-b border-[#EFE5D7] bg-white px-2 py-3 align-middle font-semibold leading-5 text-[#2D271F] sm:px-5 sm:py-4 sm:leading-6">
-                    {row[0]}
-                  </td>
-                  <Cell value={row[1]} highlight />
-                  <Cell value={row[2]} />
-                  <Cell value={row[3]} end />
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {/* Desktop */}
+        <div className="relative hidden overflow-hidden rounded-[32px] bg-white px-7 py-7 shadow-[0_28px_90px_rgba(31,31,31,0.08)] sm:block">
+          {/* Header */}
+          <div className="grid grid-cols-[38%_22%_20%_20%] items-center border-b border-[#1F1F1F]/10 pb-5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#1F1F1F]/60">
+            <div />
+
+            <div className="text-center text-[#0D3A2D]">
+              <span className="block text-[12px] font-bold">
+                MeinBenefit
+              </span>
+            </div>
+
+            <div className="text-center">Maklerberatung</div>
+
+            <div className="text-center">Vergleichsportale</div>
+          </div>
+
+          {/* Rows */}
+          <div>
+            {rows.map((row) => (
+              <div
+                key={row.label}
+                className="grid min-h-[54px] grid-cols-[38%_22%_20%_20%] items-center border-b border-[#1F1F1F]/8 py-3.5 last:border-b-0"
+              >
+                <div className="pr-5 text-[13px] font-semibold leading-5 text-[#1F1F1F]">
+                  {row.label}
+                </div>
+
+                <Cell value={row.meinBenefit} highlight />
+                <Cell value={row.makler} />
+                <Cell value={row.portal} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </Section>
@@ -91,60 +139,53 @@ export function ComparisonSection() {
 function Cell({
   value,
   highlight = false,
-  end = false,
 }: {
-  value: string;
+  value: Status;
   highlight?: boolean;
-  end?: boolean;
 }) {
-  const Icon = value === "check" ? Check : Minus;
+  const isCheck = value === "check";
+  const Icon = isCheck ? Check : X;
 
   return (
-    <td
-      className={`h-[58px] px-2 py-3 text-center align-middle sm:px-5 ${
-        highlight
-          ? "border-b border-[#214D40] bg-[#0D3A2D] text-[#E7D7C4]"
-          : `border-b border-[#EFE5D7] bg-white text-[#7A756B] ${end ? "" : "border-r border-[#EEE2C9]"}`
-      }`}
-    >
-      <span
-        className={`mx-auto flex h-8 w-8 items-center justify-center border ${
-          highlight
-            ? "rounded-full border-[#D6B489]/40 bg-white/8 text-[#D6B489]"
-            : "border-transparent text-[#8A857A]"
-        }`}
-      >
-        <Icon size={18} strokeWidth={highlight ? 2.6 : 2} />
-      </span>
-    </td>
+    <div className="flex items-center justify-center">
+      <Icon
+        size={19}
+        strokeWidth={isCheck ? 2.4 : 2}
+        className={
+          !isCheck
+            ? "text-[#1F1F1F]/32"
+            : highlight
+              ? "text-[#0D3A2D]"
+              : "text-[#1F1F1F]"
+        }
+      />
+    </div>
   );
 }
 
 function MobileCell({
-  label,
   value,
   highlight = false,
 }: {
-  label: string;
-  value: string;
+  value: Status;
   highlight?: boolean;
 }) {
-  const Icon = value === "check" ? Check : Minus;
+  const isCheck = value === "check";
+  const Icon = isCheck ? Check : X;
 
   return (
-    <span
-      className={`flex min-h-9 items-center justify-center gap-1.5 ${
-        highlight
-          ? "rounded-full bg-[#0D3A2D] text-[#E7D7C4]"
-          : "text-[#6D675E]"
-      }`}
-    >
+    <div className="flex items-center justify-center">
       <Icon
-        size={12}
-        strokeWidth={highlight ? 2.4 : 2}
-        className={highlight ? "text-[#D6B489]" : "text-[#8A857A]"}
+        size={16}
+        strokeWidth={isCheck ? 2.4 : 2}
+        className={
+          !isCheck
+            ? "text-[#1F1F1F]/32"
+            : highlight
+              ? "text-[#0D3A2D]"
+              : "text-[#1F1F1F]"
+        }
       />
-      {label}
-    </span>
+    </div>
   );
 }

@@ -56,16 +56,16 @@ export function FinalCTA() {
         <div className="relative z-10 mx-auto flex min-h-[300px] max-w-[1320px] items-center px-4 py-10 sm:min-h-[360px] sm:px-6 sm:py-12 lg:px-8">
           <div className="max-w-[590px]">
             <p className="text-[9px] font-bold uppercase tracking-[0.24em] text-[#A7824E] sm:text-[10px] sm:tracking-[0.28em]">
-              Für Unternehmen
+              NÄCHSTER SCHRITT
             </p>
 
             <h2 className="mt-3 max-w-[540px] font-serif text-[32px] font-normal leading-[1.03] tracking-[-0.04em] text-[#17130D] sm:mt-4 sm:text-[50px] sm:tracking-[-0.045em] lg:text-[58px]">
-              Für Ihr Team prüfen
+              So kann MeinBenefit in Ihrem Unternehmen starten.
             </h2>
 
             <p className="mt-4 max-w-[500px] text-[13px] font-medium leading-6 text-[#4A453C] sm:mt-5 sm:text-base sm:leading-8">
-              Wir zeigen Ihnen, wie MeinBenefit als moderner Mitarbeiter-Benefit
-              in Ihrem Unternehmen eingesetzt werden kann.
+              Wir zeigen Ihnen im Erstgespräch, wie der Mitarbeiterbenefit
+              einfach in Ihrem Unternehmen umgesetzt werden kann.
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:items-center">

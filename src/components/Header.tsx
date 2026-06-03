@@ -5,11 +5,11 @@ import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "./BrandLogo";
 
 const navItems = [
-  { label: "Für Unternehmen", href: "#preise", hasDropdown: true },
-  { label: "Leistungen", href: "#vorteile", hasDropdown: true },
+  { label: "Für Unternehmen", href: "#preise"},
+  { label: "Leistungen", href: "#vorteile"},
   { label: "So funktioniert's", href: "#ablauf" },
   { label: "Über uns", href: "#top" },
-  { label: "Wissen", href: "#faq", hasDropdown: true },
+  { label: "Wissen", href: "#faq"},
 ];
 
 export function Header() {
@@ -93,7 +93,7 @@ export function Header() {
           href="/kontakt?type=b2b"
           className="hidden min-h-11 items-center justify-center gap-2 rounded-full bg-[#D6B489] px-5 text-xs font-bold text-[#17130D] shadow-[0_10px_26px_rgba(153,114,72,0.18)] transition hover:bg-[#C8A77D] lg:inline-flex"
         >
-          Kostenlose Erstberatung <ArrowRight size={16} strokeWidth={2.4} />
+          Kostenlose Erstberatung buchen <ArrowRight size={16} strokeWidth={2.4} />
         </a>
 
         <button
@@ -128,7 +128,7 @@ export function Header() {
               className="mt-3 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#D6B489] px-5 text-[13px] font-bold text-[#17130D] transition hover:bg-[#C8A77D]"
               onClick={() => setOpen(false)}
             >
-              Kostenlose Erstberatung <ArrowRight size={16} strokeWidth={2.4} />
+              Kostenlose Erstberatung buchen <ArrowRight size={16} strokeWidth={2.4} />
             </a>
           </nav>
         </div>
