@@ -82,9 +82,6 @@ export function Header() {
               className="inline-flex items-center gap-1.5 whitespace-nowrap py-2 text-sm font-semibold text-[#2D2922] transition hover:text-[#0D3A2D]"
             >
               {item.label}
-              {item.hasDropdown ? (
-                <ChevronDown size={14} strokeWidth={2.2} />
-              ) : null}
             </a>
           ))}
         </nav>
@@ -118,9 +115,6 @@ export function Header() {
                 onClick={() => setOpen(false)}
               >
                 {item.label}
-                {item.hasDropdown ? (
-                  <ChevronDown size={15} strokeWidth={2.2} />
-                ) : null}
               </a>
             ))}
             <a
