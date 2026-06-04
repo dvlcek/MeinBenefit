@@ -1,7 +1,11 @@
-import Image from "next/image";
 import { ArrowRight, CheckCircle2, Clock3, Sparkles } from "lucide-react";
 
 const proofItems = [
+  {
+    value: "Wertschätzender Arbeitgeber",
+    label: "Ein Benefit für Mitarbeiter der langfristig bleibt",
+    icon: Sparkles,
+  },
   {
     value: "Keine Kosten",
     label: "Für Ihr Unternehmen",
@@ -12,108 +16,138 @@ const proofItems = [
     label: "Wir begleiten den Ablauf",
     icon: Clock3,
   },
-  {
-    value: "Wertschätzender Arbeitgeber",
-    label: "Ein Benefit für Mitarbeiter der langfristig bleibt",
-    icon: Sparkles,
-  },
+  
 ];
 
 export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate min-h-[92svh] overflow-hidden bg-white px-4 pt-[72px] sm:min-h-[100svh] sm:px-6 sm:pt-[82px] lg:px-8"
+      className="relative isolate min-h-[100svh] overflow-hidden bg-white px-4 pt-[68px] sm:min-h-[100svh] sm:px-6 sm:pt-[82px] lg:px-8"
     >
-      {/* Right open image */}
-      <div className="absolute inset-y-0 right-0 top-[82px] -z-20 hidden w-[75%] lg:block">
-        <Image
-          src="/images/Hero2.webp"
-          alt="MeinBenefit Beratung mit hochwertigen Unterlagen am Schreibtisch"
-          fill
-          priority
-          sizes="58vw"
-          className="object-cover object-center"
-          unoptimized
-        />
+      <style>
+        {`
+          @keyframes proofStripRise {
+            from {
+              opacity: 0;
+              transform: translate3d(0, 34px, 0);
+            }
+
+            to {
+              opacity: 1;
+              transform: translate3d(0, 0, 0);
+            }
+          }
+
+          .hero-proof-strip {
+            animation: proofStripRise 900ms cubic-bezier(0.22, 1, 0.36, 1) 420ms both;
+            will-change: transform, opacity;
+          }
+
+          .hero-proof-strip * {
+            animation: none !important;
+            transition: none !important;
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            .hero-proof-strip {
+              animation: none;
+              opacity: 1;
+              transform: none;
+            }
+          }
+        `}
+      </style>
+
+      <div className="absolute inset-0 -z-30">
+        <video
+          className="h-full w-full object-cover object-center opacity-[0.9] saturate-[0.82] contrast-110"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/images/Hero2.webp"
+          aria-hidden="true"
+        >
+          <source src="/images/HERO.mp4" type="video/mp4" />
+        </video>
       </div>
 
-      {/* Soft fade from text to image */}
-      <div className="absolute inset-y-0 right-[30%] top-[82px] -z-10 hidden w-[55%] bg-[linear-gradient(90deg,#FFFFFF_0%,rgba(255,255,255,0.92)_36%,rgba(255,255,255,0.35)_72%,rgba(255,255,255,0)_100%)] lg:block" />
+      {/* Main video overlay */}
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(7,8,6,0.9)_0%,rgba(7,8,6,0.68)_42%,rgba(7,8,6,0.32)_72%,rgba(7,8,6,0.7)_100%)] sm:bg-[linear-gradient(90deg,rgba(7,8,6,0.88)_0%,rgba(7,8,6,0.62)_36%,rgba(7,8,6,0.26)_64%,rgba(7,8,6,0.68)_100%)]" />
 
-      {/* Page wash */}
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-[linear-gradient(0deg,#FFFFFF_0%,rgba(255,255,255,0)_100%)]" />
+      {/* Soft bottom transition */}
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-[220px] bg-[linear-gradient(180deg,rgba(7,8,6,0)_0%,rgba(7,8,6,0.08)_34%,rgba(7,8,6,0.2)_68%,rgba(7,8,6,0.3)_100%)] sm:h-[280px]" />
 
-      <div className="mx-auto flex min-h-[calc(92svh-72px)] w-full max-w-[1320px] flex-col justify-center pb-8 pt-5 sm:min-h-[calc(100svh-82px)] sm:pb-10 sm:pt-10 lg:pb-12">
-        <div className="w-full max-w-[900px]">
-          <div className="relative mb-6 h-[220px] overflow-hidden rounded-br-[92px] rounded-tl-[30px] lg:hidden">
-            <Image
-              src="/images/Hero.webp"
-              alt="MeinBenefit Beratung mit hochwertigen Unterlagen am Schreibtisch"
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-[62%_center]"
-              unoptimized
-            />
-            <div className="absolute inset-x-0 bottom-0 h-20 bg-[linear-gradient(0deg,rgba(255,255,255,0.78),rgba(255,255,255,0))]" />
+      <div className="mx-auto flex min-h-[calc(100svh-68px)] w-full max-w-[1320px] flex-col justify-end pb-0 pt-6 sm:min-h-[calc(100svh-82px)] sm:pt-12">
+        <div className="grid w-full gap-8 pb-8 sm:pb-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(300px,0.32fr)] lg:items-end lg:pb-14">
+          <div className="w-full max-w-[820px]">
+            <h1 className="max-w-[350px] font-serif text-[36px] font-normal leading-[0.98] tracking-[.01em] text-[#FFF9EF] drop-shadow-[0_18px_34px_rgba(0,0,0,0.28)] sm:max-w-[680px] sm:text-[68px] sm:leading-[0.96] lg:text-[78px]">
+              Ein Benefit für Ihr Unternehmen,
+              <span className="block text-[#D8C49E]">
+                die Wertschätzung sichtbar macht.
+              </span>
+            </h1>
+
+            <p className="mt-5 max-w-[340px] text-[14px] font-medium leading-6 text-[#F3EADF]/[0.84] sm:mt-6 sm:max-w-[560px] sm:text-[17px] sm:leading-8">
+              Mit MeinBenefit bieten Sie ihren Mitarbeitern einen persönlichen
+              Benefit der langfristig bleibt und echte Wertschätzung zeigt.
+            </p>
+
+            <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">
+              <a
+                href="/kontakt?type=b2b"
+                className="group inline-flex min-h-11 w-full max-w-[320px] items-center justify-center gap-3 rounded-full bg-[#D6B489] px-6 text-[13px] font-bold text-[#17130D] shadow-[0_18px_42px_rgba(0,0,0,0.28)] ring-1 ring-white/15 transition hover:bg-[#E1C39B] sm:min-h-12 sm:w-auto sm:max-w-none sm:px-8 sm:text-sm"
+              >
+                Für Unternehmen
+                <ArrowRight
+                  size={17}
+                  strokeWidth={2.5}
+                  className="transition group-hover:translate-x-0.5"
+                />
+              </a>
+            </div>
           </div>
 
-          {/* <p className="text-[9px] font-bold uppercase tracking-[0.24em] text-[#A7824E] sm:text-[10px] sm:tracking-[0.28em]">
-            MeinBenefit für Unternehmen
-          </p> */}
-
-          <h1 className="mt-3 max-w-[340px] font-serif tracking-[.01em] text-[36px] font-normal leading-[0.98]  text-[#17130D] sm:mt-5 sm:max-w-[640px] sm:text-[68px]  lg:text-[76px]">
-            Ein Benefit für Ihr Unternehmen,
-            <span className="block text-[#0D3A2D]">
-              die Wertschätzung sichtbar macht.
-            </span>
-          </h1>
-
-          <p className="mt-4 max-w-[340px] text-[14px] font-medium leading-6 text-[#4A453C] sm:mt-6 sm:max-w-[560px] sm:text-[17px] sm:leading-8">
-            Mit MeinBenefit bieten Sie ihren Mitarbeitern einen persönlichen
-            Benefit der langfristig bleibt und echte Wertschätzung zeigt.
-          </p>
-
-          <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">
-            <a
-              href="/kontakt?type=b2b"
-              className="group inline-flex min-h-12 w-full max-w-[340px] items-center justify-center gap-3 rounded-full bg-[#0D3A2D] px-6 text-[13px] font-bold text-white shadow-[0_16px_38px_rgba(13,58,45,0.22)] transition hover:bg-[#092A21] sm:w-auto sm:max-w-none sm:px-8 sm:text-sm"
-            >
-              Für Unternehmen
-              <ArrowRight
-                size={17}
-                strokeWidth={2.5}
-                className="transition group-hover:translate-x-0.5"
-              />
-            </a>
+          <div className="hidden justify-end lg:flex">
+            <div className="max-w-[330px] border-l border-white/[0.22] pl-6">
+              <p className="font-serif text-[24px] leading-[1.05] text-[#FFF9EF]">
+                Persönlich. Hochwertig. Einfach integrierbar.
+              </p>
+              <p className="mt-3 text-sm font-medium leading-6 text-[#F3EADF]/[0.68]">
+                Ein Arbeitgeber-Benefit, der nicht im Alltag untergeht.
+              </p>
+            </div>
           </div>
+        </div>
 
-          {/* Clean proof row */}
-          <div className="mt-6 grid max-w-[340px] gap-3 sm:mt-8 sm:flex sm:max-w-[900px] sm:flex-wrap sm:items-center sm:gap-y-5">
-            {proofItems.map((item, index) => {
+        {/* Glass proof strip */}
+        <div className="hero-proof-strip relative z-10 rounded-t-[28px] bg-[rgba(7,8,6,0.3)] px-4 py-4 shadow-[0_-18px_52px_rgba(0,0,0,0.16)] ring-1 ring-white/10 backdrop-blur-md sm:rounded-t-[36px] sm:bg-[rgba(7,8,6,0.26)] sm:px-7 sm:py-6 lg:px-8">
+          <div className="grid gap-0 sm:grid-cols-3">
+            {proofItems.map((item) => {
               const Icon = item.icon;
 
               return (
-                <div key={item.value} className="flex items-center">
-                  <div className="flex items-center gap-3 pr-5 sm:pr-7">
-                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full text-[#A7824E] sm:size-9 sm:border sm:border-[#E6D7B8] sm:bg-white/76 sm:shadow-[0_10px_24px_rgba(23,19,13,0.04)] sm:backdrop-blur-sm">
-                      <Icon size={16} strokeWidth={2} />
-                    </span>
+                <div
+                  key={item.value}
+                  className="flex items-start gap-3 border-t border-white/14 py-3 first:border-t-0 first:pt-0 last:pb-0 sm:border-t-0 sm:border-r sm:py-0 sm:pr-6 sm:last:border-r-0 sm:[&:not(:first-child)]:pl-6"
+                >
+                  <Icon
+                    size={17}
+                    strokeWidth={1.8}
+                    className="mt-1 shrink-0 text-[#D8C49E] sm:size-[19px]"
+                  />
 
-                    <div className="min-w-0">
-                      <p className="font-serif text-[17px] font-normal leading-none tracking-[-0.03em] text-[#17130D] sm:text-[18px]">
-                        {item.value}
-                      </p>
-                      <p className="mt-1 text-[9px] font-semibold uppercase leading-none tracking-[0.08em] text-[#7E7569] sm:text-[10px]">
-                        {item.label}
-                      </p>
-                    </div>
+                  <div>
+                    <p className="text-[16px] font-normal leading-5 text-[#FFF9EF] sm:text-[21px] sm:leading-6">
+                      {item.value}
+                    </p>
+
+                    <p className="mt-1 max-w-[260px] text-[11px] font-medium leading-[1.5] text-[#F3EADF]/75 sm:text-[13px] sm:leading-[1.55]">
+                      {item.label}
+                    </p>
                   </div>
-
-                  {index !== proofItems.length - 1 ? (
-                    <div className="mr-5 hidden h-9 w-px bg-gradient-to-b from-transparent via-[#D8AA3F]/55 to-transparent sm:block" />
-                  ) : null}
                 </div>
               );
             })}

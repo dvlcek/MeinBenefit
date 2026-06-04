@@ -22,69 +22,141 @@ type Question = {
   options?: string[];
 };
 
-const b2cQuestions: Question[] = [
+type QuestionStep = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description?: string;
+  questions: Question[];
+};
+
+const b2cSteps: QuestionStep[] = [
   {
-    id: "lebenssituation",
-    label: "In welcher Lebenssituation bist du?",
-    helper: "Wir richten den Einstieg direkt an deiner aktuellen Situation aus.",
-    options: ["Single", "Paar", "Familie"],
+    id: "situation",
+    eyebrow: "Ihre Situation",
+    title: "Damit wir Ihre Situation besser einordnen können.",
+    description:
+      "Diese Angaben helfen uns, den Einstieg direkt auf Ihre aktuelle Lebenssituation auszurichten.",
+    questions: [
+      {
+        id: "lebenssituation",
+        label: "In welcher Lebenssituation sind Sie?",
+        options: ["Single", "Paar", "Familie"],
+      },
+      {
+        id: "wohnsituation",
+        label: "Wie wohnen Sie derzeit?",
+        options: ["Miete", "Eigentum"],
+      },
+    ],
   },
   {
-    id: "wohnsituation",
-    label: "Wie wohnst du derzeit?",
-    options: ["Miete", "Eigentum"],
+    id: "kontaktwunsch",
+    eyebrow: "Kontaktwunsch",
+    title: "Wie möchten Sie den nächsten Schritt gehen?",
+    description:
+      "Wählen Sie aus, wie wir Sie am besten für das kostenlose Erstgespräch erreichen.",
+    questions: [
+      {
+        id: "kontakt",
+        label: "Wie möchten Sie kontaktiert werden?",
+        options: ["Online-Termin", "Telefonischer Rückruf"],
+      },
+    ],
   },
   {
-    id: "kontakt",
-    label: "Wie möchtest du kontaktiert werden?",
-    options: ["Online-Termin", "Telefonischer Rückruf"],
-  },
-  { id: "name", label: "Wie heißt du?", inputType: "text" },
-  {
-    id: "email",
-    label: "Unter welcher E-Mail erreichen wir dich?",
-    inputType: "email",
-  },
-  {
-    id: "telefon",
-    label: "Unter welcher Telefonnummer erreichen wir dich?",
-    inputType: "tel",
+    id: "kontaktdaten",
+    eyebrow: "Kontaktdaten",
+    title: "Wohin dürfen wir uns persönlich melden?",
+    description:
+      "Bitte geben Sie Ihre Kontaktdaten ein, damit wir Ihre Anfrage zuordnen und Sie erreichen können.",
+    questions: [
+      {
+        id: "name",
+        label: "Wie heißen Sie?",
+        inputType: "text",
+      },
+      {
+        id: "email",
+        label: "Unter welcher E-Mail erreichen wir Sie?",
+        inputType: "email",
+      },
+      {
+        id: "telefon",
+        label: "Unter welcher Telefonnummer erreichen wir Sie?",
+        inputType: "tel",
+      },
+    ],
   },
 ];
 
-const b2bQuestions: Question[] = [
+const b2bSteps: QuestionStep[] = [
   {
-    id: "mitarbeiter",
-    label: "Wie viele Mitarbeiter:innen hat dein Unternehmen?",
-    helper: "Diese Information hilft uns, den passenden Benefit-Ansatz vorzubereiten.",
-    options: ["5 - 10", "10 - 50", "50 - 100", "100+"],
+    id: "unternehmen",
+    eyebrow: "Unternehmen",
+    title: "Damit wir Ihr Unternehmen richtig einordnen können.",
+    description:
+      "Diese Informationen helfen uns, den passenden Benefit-Ansatz für Ihr Unternehmen vorzubereiten.",
+    questions: [
+      {
+        id: "unternehmen",
+        label: "Wie heißt das Unternehmen?",
+        inputType: "text",
+      },
+      {
+        id: "branche",
+        label: "In welcher Branche ist Ihr Unternehmen tätig?",
+        inputType: "text",
+      },
+      {
+        id: "mitarbeiter",
+        label: "Wie viele Mitarbeiter:innen hat Ihr Unternehmen?",
+        options: ["5 - 10", "10 - 50", "50 - 100", "100+"],
+      },
+    ],
   },
   {
-    id: "branche",
-    label: "In welcher Branche ist dein Unternehmen tätig?",
-    inputType: "text",
+    id: "anfrage",
+    eyebrow: "Anfrage",
+    title: "Worum geht es bei Ihrer Anfrage?",
+    description:
+      "So können wir besser einschätzen, ob es zuerst um ein Erstgespräch, ein Pilotmodell oder allgemeine Informationen geht.",
+    questions: [
+      {
+        id: "position",
+        label: "Welche Rolle haben Sie im Unternehmen?",
+        options: ["Geschäftsführung", "HR", "Assistenz", "Sonstiges"],
+      },
+      {
+        id: "interesse",
+        label: "Wofür möchten Sie MeinBenefit anfragen?",
+        options: ["Erstgespräch", "Pilotmodell", "Allgemeine Informationen"],
+      },
+    ],
   },
   {
-    id: "position",
-    label: "Welche Rolle hast du im Unternehmen?",
-    options: ["Geschäftsführung", "HR", "Assistenz", "Sonstiges"],
-  },
-  {
-    id: "interesse",
-    label: "Wofür möchtest du MeinBenefit anfragen?",
-    options: ["Erstgespräch", "Pilotmodell", "Allgemeine Informationen"],
-  },
-  { id: "unternehmen", label: "Wie heißt das Unternehmen?", inputType: "text" },
-  { id: "name", label: "Wie heißt die Ansprechperson?", inputType: "text" },
-  {
-    id: "email",
-    label: "Unter welcher E-Mail erreichen wir euch?",
-    inputType: "email",
-  },
-  {
-    id: "telefon",
-    label: "Unter welcher Telefonnummer erreichen wir euch?",
-    inputType: "tel",
+    id: "kontakt",
+    eyebrow: "Kontaktdaten",
+    title: "Wer ist die richtige Ansprechperson?",
+    description:
+      "Bitte geben Sie die Kontaktdaten an, damit wir uns persönlich mit den nächsten Schritten melden können.",
+    questions: [
+      {
+        id: "name",
+        label: "Wie heißt die Ansprechperson?",
+        inputType: "text",
+      },
+      {
+        id: "email",
+        label: "Unter welcher E-Mail erreichen wir Sie?",
+        inputType: "email",
+      },
+      {
+        id: "telefon",
+        label: "Unter welcher Telefonnummer erreichen wir Sie?",
+        inputType: "tel",
+      },
+    ],
   },
 ];
 
@@ -96,6 +168,12 @@ const contactFieldIds = new Set([
   "mitarbeiter",
 ]);
 
+function getSteps(type: LeadType | null) {
+  if (type === "b2b") return b2bSteps;
+  if (type === "b2c") return b2cSteps;
+  return [];
+}
+
 export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
   const [type, setType] = useState<LeadType | null>(initialType);
   const [index, setIndex] = useState(0);
@@ -103,34 +181,53 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
-  const questions = type === "b2b" ? b2bQuestions : b2cQuestions;
-  const isSummaryStep = type ? index >= questions.length : false;
-  const current = isSummaryStep ? null : questions[index];
-  const value = current ? (values[current.id] ?? "") : "";
-  const answeredCount = useMemo(
-    () =>
-      questions.filter((question) => values[question.id]?.trim().length > 0)
-        .length,
-    [questions, values],
+  const steps = useMemo(() => getSteps(type), [type]);
+  const allQuestions = useMemo(
+    () => steps.flatMap((step) => step.questions),
+    [steps],
   );
+
+  const isSummaryStep = type ? index >= steps.length : false;
+  const currentStep = isSummaryStep ? null : steps[index];
+
   const progressStep = type
     ? isSummaryStep
-      ? questions.length
-      : Math.min(index + 1, questions.length)
+      ? steps.length
+      : Math.min(index + 1, steps.length)
     : 0;
+
   const progress = type
-    ? Math.round((progressStep / questions.length) * 100)
+    ? Math.round((progressStep / steps.length) * 100)
     : 0;
 
   const summary = useMemo(
     () =>
-      questions.map((question) => ({
-        id: question.id,
-        label: question.label,
-        value: values[question.id] ?? "",
-      })),
-    [questions, values],
+      steps.flatMap((step) =>
+        step.questions.map((question) => ({
+          id: question.id,
+          label: question.label,
+          value: values[question.id] ?? "",
+          stepIndex: steps.findIndex((item) => item.id === step.id),
+        })),
+      ),
+    [steps, values],
   );
+
+  const answeredCount = useMemo(
+    () =>
+      allQuestions.filter((question) => values[question.id]?.trim().length > 0)
+        .length,
+    [allQuestions, values],
+  );
+
+  const currentStepComplete =
+    currentStep?.questions.every(
+      (question) => values[question.id]?.trim().length > 0,
+    ) ?? false;
+
+  const canContinue = currentStepComplete && status !== "submitting";
+  const canSubmit =
+    answeredCount === allQuestions.length && status !== "submitting";
 
   function chooseType(nextType: LeadType) {
     setType(nextType);
@@ -140,12 +237,10 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
     setError("");
   }
 
-  function updateValue(nextValue: string) {
-    if (!current) return;
-
+  function updateValue(questionId: string, nextValue: string) {
     setValues((currentValues) => ({
       ...currentValues,
-      [current.id]: nextValue,
+      [questionId]: nextValue,
     }));
   }
 
@@ -163,6 +258,7 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
 
   async function submit() {
     if (!type) return;
+
     setStatus("submitting");
     setError("");
 
@@ -184,14 +280,14 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
 
       if (!response.ok) {
         setStatus("error");
-        setError("Bitte prüfe deine Angaben und versuche es erneut.");
+        setError("Bitte prüfen Sie Ihre Angaben und versuchen Sie es erneut.");
         return;
       }
 
       setStatus("success");
     } catch {
       setStatus("error");
-      setError("Bitte prüfe deine Angaben und versuche es erneut.");
+      setError("Bitte prüfen Sie Ihre Angaben und versuchen Sie es erneut.");
     }
   }
 
@@ -204,6 +300,7 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
           text="Für Berufstätige, Familien und persönliche Vorteile im Alltag."
           onClick={() => chooseType("b2c")}
         />
+
         <ChoiceCard
           icon={Building2}
           title="Unternehmen"
@@ -222,20 +319,18 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
           size={42}
           strokeWidth={1.8}
         />
+
         <h2 className="mt-5 font-serif text-3xl font-semibold text-[#17130D]">
           Anfrage ist vorbereitet
         </h2>
+
         <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#4A453C] sm:text-base">
-          Danke. Deine Angaben wurden an MeinBenefit übermittelt und im CRM
+          Danke. Ihre Angaben wurden an MeinBenefit übermittelt und im CRM
           gespeichert.
         </p>
       </div>
     );
   }
-
-  const isLast = index === questions.length - 1;
-  const canContinue = value.trim().length > 0 && status !== "submitting";
-  const canSubmit = answeredCount === questions.length && status !== "submitting";
 
   return (
     <div className="rounded-[30px] border border-[#E6D8C6] bg-white p-5 shadow-[0_24px_70px_rgba(23,19,13,0.08)] sm:p-8">
@@ -249,8 +344,9 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
           <ArrowLeft size={16} />
           Zurück
         </button>
+
         <span className="text-sm font-bold text-[#B99772]">
-          {progress}% · Schritt {progressStep}/{questions.length}
+          {progress}% · Schritt {progressStep}/{steps.length}
         </span>
       </div>
 
@@ -266,16 +362,18 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
           <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#B99772]">
             Prüfen
           </p>
+
           <h1 className="mt-3 font-serif text-3xl font-semibold leading-tight text-[#17130D] sm:text-4xl">
             Stimmen diese Angaben?
           </h1>
+
           <p className="mt-4 text-sm leading-7 text-[#4A453C] sm:text-base">
-            Bitte prüfe deine Antworten. Wenn alles passt, senden wir deine
+            Bitte prüfen Sie Ihre Antworten. Wenn alles passt, senden wir Ihre
             Anfrage an MeinBenefit.
           </p>
 
           <div className="mt-7 divide-y divide-[#EFE6DA] rounded-[22px] border border-[#E6D8C6]">
-            {summary.map((answer, answerIndex) => (
+            {summary.map((answer) => (
               <div
                 key={answer.id}
                 className="grid gap-3 px-5 py-4 sm:grid-cols-[1fr_auto] sm:items-center"
@@ -284,10 +382,12 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
                   <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#B99772]">
                     {answer.label}
                   </p>
+
                   <p className="mt-2 text-base font-semibold text-[#17130D]">
                     {answer.value}
                   </p>
                 </div>
+
                 <button
                   type="button"
                   className="justify-self-start rounded-full border border-[#E6D8C6] px-4 py-2 text-sm font-semibold text-[#17130D] transition hover:bg-[#F8F3EC] sm:justify-self-end"
@@ -295,7 +395,7 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
                   onClick={() => {
                     setStatus("idle");
                     setError("");
-                    setIndex(answerIndex);
+                    setIndex(answer.stepIndex);
                   }}
                 >
                   Bearbeiten
@@ -304,47 +404,71 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
             ))}
           </div>
         </div>
-      ) : current ? (
+      ) : currentStep ? (
         <div className="mt-8">
           <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#B99772]">
-            {type === "b2b" ? "Unternehmen" : "Privatperson"} · Frage{" "}
-            {index + 1} von {questions.length}
+            {type === "b2b" ? "Unternehmen" : "Privatperson"} ·{" "}
+            {currentStep.eyebrow}
           </p>
+
           <h1 className="mt-3 font-serif text-3xl font-semibold leading-tight text-[#17130D] sm:text-4xl">
-            {current.label}
+            {currentStep.title}
           </h1>
-          {current.helper ? (
-            <p className="mt-4 text-sm leading-7 text-[#4A453C] sm:text-base">
-              {current.helper}
+
+          {currentStep.description ? (
+            <p className="mt-4 max-w-[650px] text-sm leading-7 text-[#4A453C] sm:text-base">
+              {currentStep.description}
             </p>
           ) : null}
 
-          {current.options ? (
-            <div className="mt-7 grid gap-3">
-              {current.options.map((option) => (
-                <button
-                  key={option}
-                  type="button"
-                  className={`rounded-[18px] border px-5 py-4 text-left text-sm font-semibold transition ${
-                    value === option
-                      ? "border-[#0D3A2D] bg-[#0D3A2D] text-white"
-                      : "border-[#E6D8C6] bg-white text-[#17130D] hover:border-[#B99772] hover:bg-[#F8F3EC]"
-                  }`}
-                  onClick={() => updateValue(option)}
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
-          ) : (
-            <input
-              className="mt-7 min-h-14 w-full rounded-full border border-[#E6D8C6] bg-white px-5 text-base font-semibold text-[#17130D] outline-none transition placeholder:text-[#8C887D] focus:border-[#0D3A2D] focus:ring-4 focus:ring-[#0D3A2D]/10"
-              type={current.inputType ?? "text"}
-              value={value}
-              placeholder="Antwort eingeben"
-              onChange={(event) => updateValue(event.target.value)}
-            />
-          )}
+          <div className="mt-7 grid gap-6">
+            {currentStep.questions.map((question) => {
+              const value = values[question.id] ?? "";
+
+              return (
+                <div key={question.id}>
+                  <p className="text-sm font-bold leading-5 text-[#17130D]">
+                    {question.label}
+                  </p>
+
+                  {question.helper ? (
+                    <p className="mt-1 text-xs font-medium leading-5 text-[#6F675D]">
+                      {question.helper}
+                    </p>
+                  ) : null}
+
+                  {question.options ? (
+                    <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                      {question.options.map((option) => (
+                        <button
+                          key={option}
+                          type="button"
+                          className={`rounded-[16px] border px-4 py-3 text-left text-sm font-semibold transition ${
+                            value === option
+                              ? "border-[#0D3A2D] bg-[#0D3A2D] text-white"
+                              : "border-[#E6D8C6] bg-white text-[#17130D] hover:border-[#B99772] hover:bg-[#F8F3EC]"
+                          }`}
+                          onClick={() => updateValue(question.id, option)}
+                        >
+                          {option}
+                        </button>
+                      ))}
+                    </div>
+                  ) : (
+                    <input
+                      className="mt-3 min-h-12 w-full rounded-full border border-[#E6D8C6] bg-white px-5 text-sm font-semibold text-[#17130D] outline-none transition placeholder:text-[#8C887D] focus:border-[#0D3A2D] focus:ring-4 focus:ring-[#0D3A2D]/10"
+                      type={question.inputType ?? "text"}
+                      value={value}
+                      placeholder="Antwort eingeben"
+                      onChange={(event) =>
+                        updateValue(question.id, event.target.value)
+                      }
+                    />
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       ) : null}
 
@@ -364,8 +488,12 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
             }
 
             if (!canContinue) return;
-            if (isLast) setIndex(questions.length);
-            else setIndex((currentIndex) => currentIndex + 1);
+
+            if (index === steps.length - 1) {
+              setIndex(steps.length);
+            } else {
+              setIndex((currentIndex) => currentIndex + 1);
+            }
           }}
         >
           {status === "submitting" ? (
@@ -377,7 +505,7 @@ export function LeadWizard({ initialType }: { initialType: LeadType | null }) {
             <>
               Angaben senden <ArrowRight size={18} />
             </>
-          ) : isLast ? (
+          ) : index === steps.length - 1 ? (
             <>
               Zusammenfassung <ArrowRight size={18} />
             </>
@@ -412,12 +540,15 @@ function ChoiceCard({
       <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0D3A2D] text-[#E7D7C4]">
         <Icon size={22} strokeWidth={1.8} />
       </span>
+
       <span className="mt-6 block font-serif text-3xl font-semibold text-[#17130D]">
         {title}
       </span>
+
       <span className="mt-3 block text-sm leading-7 text-[#4A453C]">
         {text}
       </span>
+
       <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#0D3A2D]">
         Starten <ArrowRight size={16} />
       </span>

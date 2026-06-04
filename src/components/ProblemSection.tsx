@@ -1,22 +1,17 @@
 import Image from "next/image";
-import { Building2, UsersRound } from "lucide-react";
-import { AnimatedStatValue } from "./AnimatedStatValue";
+import { BarChart3, HeartHandshake } from "lucide-react";
 import { Section } from "./ui/Section";
 
-const stats = [
+const insights = [
   {
-    value: 78,
-    decimals: 0,
-    suffix: "%",
-    label: "der Unternehmen sind vom Arbeits- und Fachkräftemangel betroffen",
-    icon: Building2,
+    title: "Wie viele Ihrer Angebote werden aktiv genutzt?",
+    text: "Benefits wirken nur dann, wenn Mitarbeiter den persönlichen Nutzen verstehen und das Angebot tatsächlich wahrnehmen.",
+    icon: BarChart3,
   },
   {
-    value: 34,
-    decimals: 0,
-    suffix: "%",
-    label: "der 18- bis 74-Jährigen sparen monatlich nichts",
-    icon: UsersRound,
+    title: "Wird Ihre Wertschätzung wahrgenommen?",
+    text: "Entscheidend ist nicht nur, dass ein Benefit existiert, sondern ob er für Mitarbeiter spürbar und langfristig relevant ist.",
+    icon: HeartHandshake,
   },
 ];
 
@@ -32,7 +27,6 @@ export function ProblemSection() {
           <div className="absolute -left-3 -top-3 h-[86%] w-[84%] rounded-[50%] border border-[#C8A96A]/60 sm:-left-6 sm:-top-5 sm:h-[92%] sm:w-[88%]" />
 
           <Image
-            // src="/images/b2b-problem.jpg"
             src="/images/Hero2.webp"
             alt=""
             width={760}
@@ -52,14 +46,17 @@ export function ProblemSection() {
             Was Sie anbieten, sollte auch wirklich ankommen.
           </h2>
 
-          <p className="mt-4 max-w-[620px] text-[13px] font-medium leading-6 text-[#6F6F6F] sm:text-sm">
-            Viele Unternehmen investieren bereits in Benefits. Doch entscheidend ist, ob Mitarbeiter den persönlichen Wert dahinter erkennen. MeinBenefit hilft dabei, diesen Vorteil spürbar und langfristig zu machen. 
+          <p className="mt-4 max-w-[620px] text-[13px] font-normal leading-6 text-[#1F1F1F] sm:text-sm">
+            Viele Unternehmen investieren bereits in Benefits. Doch entscheidend
+            ist, ob Mitarbeiter den persönlichen Wert dahinter erkennen.
+            MeinBenefit hilft dabei, diesen Vorteil spürbar und langfristig zu
+            machen.
           </p>
 
           <div className="mt-6 grid gap-4 sm:mt-8 sm:grid-cols-2 sm:gap-5">
-            {stats.map(({ value, decimals, suffix, label, icon: Icon }, index) => (
+            {insights.map(({ title, text, icon: Icon }) => (
               <div
-                key={label}
+                key={title}
                 className="flex items-start gap-3 border-t border-[#E8DCCB] pt-4 sm:border-y-0 sm:border-l-0 sm:border-r sm:pt-0 sm:pr-5 sm:last:border-r-0"
               >
                 <Icon
@@ -69,17 +66,12 @@ export function ProblemSection() {
                 />
 
                 <div>
-                  <p className="font-serif text-[26px] font-semibold leading-none text-[#1F1F1F] sm:text-[32px]">
-                    <AnimatedStatValue
-                      value={value}
-                      decimals={decimals}
-                      suffix={suffix}
-                      delay={index * 180}
-                    />
+                  <p className="font-serif text-[18px] leading-6 text-[#1F1F1F] sm:text-[20px]">
+                    {title}
                   </p>
 
-                  <p className="mt-2 max-w-[250px] text-[11px] font-medium leading-[1.55] text-[#6F6F6F] sm:text-[12px]">
-                    {label}
+                  <p className="mt-2 text-[11px] font-medium leading-[1.55] text-[#6F6F6F] sm:text-[12px]">
+                    {text}
                   </p>
                 </div>
               </div>

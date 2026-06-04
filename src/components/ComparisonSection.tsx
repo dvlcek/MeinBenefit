@@ -52,17 +52,17 @@ const rows: ComparisonRow[] = [
 export function ComparisonSection() {
   return (
     <Section className="bg-white" innerClassName="max-w-[1240px]">
-      <div className="grid gap-10 lg:grid-cols-[0.3fr_0.7fr] lg:items-start lg:gap-14">
+      <div className="grid gap-10 lg:grid-cols-[0.35fr_0.65fr] lg:items-start lg:gap-14">
         <div>
           <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#C8A96A] sm:text-[10px] sm:tracking-[0.24em]">
             Vergleich
           </p>
 
-          <h2 className="mt-2 max-w-[420px] font-serif text-[31px] font-semibold leading-[1.04] text-[#1F1F1F] sm:text-[44px]">
+          <h2 className="mt-2 max-w-[600px] font-serif text-[31px] font-normal leading-[1.04] text-[#1F1F1F] sm:text-[44px]">
             Mehr als ein Vergleich. Ein Benefit, der im Unternehmen ankommt.
           </h2>
 
-          <p className="mt-4 max-w-[390px] text-[13px] font-medium leading-6 text-[#6F6F6F] sm:text-sm">
+          <p className="mt-4 max-w-[390px] text-[13px] font-normal leading-6 sm:text-sm">
             Viele Lösungen helfen beim Vergleichen. MeinBenefit geht weiter:
             verständlich eingeführt, persönlich begleitet und so aufgebaut, dass
             der Nutzen für Mitarbeiter sichtbar wird.

@@ -162,7 +162,7 @@ export function PricingSection() {
               Echte Wertschätzung für Ihre Mitarbeiter.
             </h2>
 
-            <p className="mt-4 max-w-[400px] text-[13px] font-medium leading-6 text-[#6F6F6F] sm:text-sm">
+            <p className="mt-4 max-w-[400px] text-[13px] font-normal leading-6 sm:text-sm">
               MeinBenefit unterstützt teilnehmende Mitarbeiter, ihre Finanzen
               besser zu verstehen, mögliche Vorteile zu erkennen und
               langfristige Werte aufzubauen. Ihr Unternehmen stellt den Zugang
@@ -231,7 +231,7 @@ export function PricingSection() {
                 {plan.title}
               </h3>
 
-              <p className="mt-4 max-w-[455px] text-[13px] font-medium leading-6 text-[#6F6F6F] sm:text-sm">
+              <p className="mt-4 max-w-[455px] text-[13px] font-normal leading-6  sm:text-sm">
                 {plan.description}
               </p>
 
@@ -324,7 +324,7 @@ export function PricingSection() {
                   {plan.cta}
                   <ArrowRight size={14} strokeWidth={2.5} />
                 </ButtonLink>
-
+                  
                 <p className="max-w-[240px] text-[11px] font-medium leading-[1.5] text-[#6F6F6F]">
                   Unverbindlich. Persönlich. Einfach erklärbar.
                 </p>
