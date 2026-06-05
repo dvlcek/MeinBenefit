@@ -6,27 +6,27 @@ import { useState } from "react";
 const b2bFaqs = [
   {
     q: "Was ist MeinBenefit für Unternehmen?",
-    a: "MeinBenefit ist ein persönlicher Mitarbeiterbenefit, den Unternehmen ihren Mitarbeitern anbieten können. Die Umsetzung wird begleitet, die Nutzung durch Mitarbeitende erfolgt freiwillig und Ihr Unternehmen zahlt keine Kosten.",
+    a: "MeinBenefit ist ein persönlicher Mitarbeiterbenefit, den Unternehmen ihren Mitarbeitern anbieten können. Ihre Mitarbeiter erhalten Zugang zu persönlicher Begleitung bei laufenden Verträgen und Ausgaben. Die Teilnahme ist freiwillig und Ihr Unternehmen zahlt keine Kosten.",
   },
   {
     q: "Entstehen für unser Unternehmen Kosten?",
-    a: "Nein. Für Ihr Unternehmen entstehen keine Kosten. MeinBenefit wird als Benefit angeboten, ohne dass Ihr Unternehmen laufende Kosten übernimmt. Die konkrete Nutzung durch Mitarbeiter wird transparent und individuell erklärt.",
+    a: "Nein. Für Ihr Unternehmen entstehen keine Kosten. Sie stellen Ihren Mitarbeitern den Zugang zu MeinBenefit bereit, die Nutzung erfolgt individuell und freiwillig.",
   },
   {
     q: "Müssen alle Mitarbeitenden teilnehmen?",
-    a: "Nein. Die Teilnahme ist freiwillig. Ihr Unternehmen stellt den Zugang zu MeinBenefit bereit, Mitarbeiter entscheiden selbst, ob sie das Angebot nutzen möchten.",
+    a: "Nein. Die Teilnahme ist freiwillig. Ihre Mitarbeiter erhalten eine verständliche Einführung und entscheiden selbst, ob sie MeinBenefit nutzen möchten.",
   },
   {
     q: "Wie viel Aufwand entsteht für HR oder Geschäftsführung?",
-    a: "Der interne Aufwand bleibt gering. Wir unterstützen Sie bei der Einführung, stellen Informationen bereit und begleiten die Kommunikation an Ihre Mitarbeiter.",
+    a: "Der interne Aufwand bleibt gering. MeinBenefit unterstützt Sie bei der Einführung, stellt Informationen bereit und begleitet die Kommunikation an Ihre Mitarbeiter. Die persönliche Betreuung der teilnehmenden Mitarbeiter übernehmen wir.",
   },
   {
     q: "Was haben unsere Mitarbeitenden davon?",
-    a: "Mitarbeitende erhalten Zugang zu persönlicher Beratung, individueller Analyse und einer langfristigen Begleitung. Ziel ist es, mögliche Vorteile sichtbar zu machen und mögliche Lösungen aufzuzeigen.",
+    a: "Mitarbeiter erhalten persönliche Orientierung bei laufenden Verträgen und Ausgaben. Sie bekommen Unterstützung dabei, ihre aktuelle Situation besser einzuordnen, mögliche Vorteile zu erkennen und nächste Schritte verständlicher zu entscheiden.",
   },
   {
     q: "Warum ist MeinBenefit ein Vorteil für Arbeitgeber?",
-    a: "MeinBenefit kann Ihre Arbeitgeberattraktivität stärken, weil Sie Ihren Mitarbeitern dadurch einen persönlichen und wertschätzenden Benefit ermöglichen, ohne intern hohen Aufwand aufzubauen.",
+    a: "MeinBenefit hilft Unternehmen, Wertschätzung sichtbar zu machen und einen Benefit anzubieten, der für Mitarbeiter persönlich relevant ist. Dadurch kann Ihr Unternehmen als moderner, mitarbeiterorientierter und attraktiver Arbeitgeber wahrgenommen werden.",
   },
 ];
 

@@ -60,12 +60,11 @@ export function FinalCTA() {
             </p>
 
             <h2 className="mt-3 max-w-[540px] font-serif text-[32px] font-normal leading-[1.03] tracking-[-0.04em] text-[#17130D] sm:mt-4 sm:text-[50px] sm:tracking-[-0.045em] lg:text-[58px]">
-              So kann MeinBenefit in Ihrem Unternehmen starten.
+              Besprechen wir, wie MeinBenefit in Ihrem Unternehmen eingeführt werden kann.
             </h2>
 
             <p className="mt-4 max-w-[500px] text-[13px] font-medium leading-6 text-[#4A453C] sm:mt-5 sm:text-base sm:leading-8">
-              Wir zeigen Ihnen im Erstgespräch, wie der Mitarbeiterbenefit
-              einfach in Ihrem Unternehmen umgesetzt werden kann.
+              Im kostenlosen Erstgespräch klären wir gemeinsam den Ablauf, die Kommunikation an Ihre Mitarbeiter und wie MeinBenefit mit geringem Aufwand umgesetzt werden kann.
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:items-center">
@@ -74,7 +73,7 @@ export function FinalCTA() {
                 size="lg"
                 className="group w-full rounded-full bg-[#0D3A2D] px-7 text-[13px] text-white shadow-[0_16px_38px_rgba(13,58,45,0.22)] transition hover:bg-[#092A21] sm:w-auto sm:text-sm"
               >
-                Für Ihr Team prüfen
+                Kostenlose Erstberatung buchen
                 <ArrowRight
                   size={18}
                   className="transition group-hover:translate-x-0.5"

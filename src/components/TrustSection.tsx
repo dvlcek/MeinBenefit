@@ -3,7 +3,7 @@ import Image from "next/image";
 const badges = [
   {
     label: "Münze Österreich",
-    detail: "Gold von Münze Österreich",
+    detail: "Goldlieferung über Münze Österreich",
     icon: "/images/trust-muenze-oesterreich.webp",
   },
   {
@@ -18,7 +18,7 @@ const badges = [
   },
   {
     label: "DSVGO",
-    detail: "Datenschutzkonform",
+    detail: "Datenschutzkonforme Verarbeitung",
     icon: "/images/trust-dsvgo.webp",
   },
 ];
@@ -51,14 +51,14 @@ export function TrustSection() {
               />
             </span>
 
-            {/* <div className="min-w-0">
-              <p className="text-center text-[8px] font-bold uppercase leading-tight tracking-[0.14em] text-[#17130D] sm:text-[11px]">
+            <div className="min-w-0">
+              {/* <p className="text-center text-[8px] font-bold uppercase leading-tight tracking-[0.14em] text-[#17130D] sm:text-[11px]">
                 {badge.label}
-              </p>
+              </p> */}
               <p className="mt-1 break-words text-center text-[7px] font-medium leading-tight text-[#7E7569] sm:text-[11px]">
                 {badge.detail}
               </p>
-            </div> */}
+            </div>
           </div>
         ))}
       </div>

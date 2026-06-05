@@ -12,31 +12,31 @@ type ComparisonRow = {
 
 const rows: ComparisonRow[] = [
   {
-    label: "Persönliche Analyse Ihrer Situation",
+    label: "Überblick über mehrere laufenden Verträge",
     meinBenefit: "check",
     makler: "check",
     portal: "x",
   },
   {
-    label: "Transparenter Ablauf",
+    label: "Orientierung ohne direkten Wechsel",
     meinBenefit: "check",
-    makler: "check",
-    portal: "check",
-  },
-  {
-    label: "Begleitung bei den nächsten Schritten",
-    meinBenefit: "check",
-    makler: "check",
+    makler: "x",
     portal: "x",
   },
   {
-    label: "Persönlicher Ansprechpartner",
+    label: "Persönliche Begleitung bei den nächsten Schritten",
     meinBenefit: "check",
     makler: "check",
     portal: "x",
   },
   {
     label: "Langfristiger Vorteil durch Gold",
+    meinBenefit: "check",
+    makler: "x",
+    portal: "x",
+  },
+  {
+    label: "Kombination aus Service, Prüfung und Wertaufbau",
     meinBenefit: "check",
     makler: "x",
     portal: "x",
@@ -57,15 +57,13 @@ export function ComparisonSection() {
           </h2>
 
           <p className="mt-4 max-w-[390px] text-[13px] font-normal leading-6  sm:text-sm">
-            MeinBenefit verbindet persönliche Begleitung, verständliche
-            Empfehlungen und langfristige Unterstützung. So erhalten Sie nicht
-            nur einen Überblick, sondern auch Hilfe bei den nächsten Schritten.
+            Online Vergleiche zeigen oft nur Zahlen und Tarife. MeinBenefit geht einen Schritt weiter: Wir betrachten Ihre persönliche Situation, erklären mögliche Optionen und unterstützen Sie bei den nächsten Schritten.
           </p>
         </div>
 
         {/* Mobile */}
         <div className="rounded-[30px] bg-white px-5 py-6 shadow-[0_24px_70px_rgba(31,31,31,0.08)] sm:hidden">
-          <div className="grid grid-cols-[1fr_52px_62px_62px] items-end gap-2 border-b border-[#1F1F1F]/10 pb-4 text-[9px] font-semibold uppercase tracking-[0.08em] text-[#1F1F1F]/60">
+          <div className="grid grid-cols-[1fr_52px_62px_62px] items-end gap-2 border-b border-[#1F1F1F]/10 pb-4 text-[9px] font-semibold tracking-[0.08em] text-[#1F1F1F]/60">
             <div />
             <div className="text-center text-[#0D3A2D]">MB</div>
             <div className="text-center">Makler</div>
@@ -92,7 +90,7 @@ export function ComparisonSection() {
 
         {/* Desktop */}
         <div className="relative hidden overflow-hidden rounded-[32px] bg-white px-7 py-7 shadow-[0_28px_90px_rgba(31,31,31,0.08)] sm:block">
-          <div className="grid grid-cols-[38%_22%_20%_20%] items-center border-b border-[#1F1F1F]/10 pb-5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#1F1F1F]/60">
+          <div className="grid grid-cols-[38%_22%_20%_20%] items-center border-b border-[#1F1F1F]/10 pb-5 text-[10px] font-semibold  tracking-[0.12em] text-[#1F1F1F]/60">
             <div />
 
             <div className="text-center text-[#0D3A2D]">

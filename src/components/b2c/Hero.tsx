@@ -83,17 +83,14 @@ export function Hero() {
         <div className="grid w-full gap-8 pb-8 sm:pb-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(300px,0.32fr)] lg:items-end lg:pb-14">
           <div className="w-full max-w-[820px]">
             <h1 className="max-w-[350px] font-serif text-[36px] font-normal leading-[0.98] tracking-[.01em] text-[#FFF9EF] drop-shadow-[0_18px_34px_rgba(0,0,0,0.28)] sm:max-w-[720px] sm:text-[68px] sm:leading-[0.96] lg:text-[78px]">
-              Mehr Überblick über Ihre laufenden Verträge
+              Mehr Überblick über laufende Verträge.
               <span className="block text-[#D8C49E]">
-                und persönliche Vorteile, die bleiben.
+                Persönliche Vorteile, die bleiben.
               </span>
             </h1>
 
             <p className="mt-5 max-w-[350px] text-[14px] font-medium leading-6 text-[#F3EADF]/[0.84] sm:mt-6 sm:max-w-[610px] sm:text-[17px] sm:leading-8">
-              Viele Verträge laufen über Jahre weiter, obwohl sich Ihre
-              Lebenssituation verändert hat. MeinBenefit unterstützt Sie
-              persönlich dabei, wieder Überblick zu gewinnen, bestehende
-              Ausgaben besser zu optimieren und Vorteile zu erhalten.
+              Persönlicher Vertragscheck, verständliche Empfehlungen und ein langfristiger Vorteil in Gold.
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">

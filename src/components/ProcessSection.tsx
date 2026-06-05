@@ -5,25 +5,25 @@ const steps = [
     number: "01",
     icon: Phone,
     title: "Kostenloses Erstgespräch",
-    text: "Wir klären gemeinsam, ob MeinBenefit zu Ihrem Unternehmen passt, welche Ziele Sie mit dem Benefit verfolgen und wie die Einführung für Ihre Mitarbeitenden sinnvoll aufgebaut werden kann.",
+    text: "Wir klären, welche Ziele Sie mit einem Mitarbeiterbenefit verfolgen und wie MeinBenefit in Ihrem Unternehmen sinnvoll eingeführt werden kann.",
   },
   {
     number: "02",
     icon: Search,
     title: "Umsetzung vorbereiten",
-    text: "Wir stimmen den Ablauf mit Geschäftsführung oder HR ab und bereiten die Kommunikation für Ihre Mitarbeiter vor - klar, verständlich und mit geringem internen Aufwand.",
+    text: "Gemeinsam stimmen wir den Ablauf mit Geschäftsführung oder HR ab und bereiten die Kommunikation für Ihre Mitarbeiter verständlich vor.",
   },
   {
     number: "03",
     icon: Check,
     title: "Mitarbeiter informieren",
-    text: "Ihre Mitarbeiter erhalten eine verständliche Einführung in MeinBenefit und entscheiden freiwillig, ob sie das Angebot nutzen möchten.",
+    text: "Ihre Mitarbeiter erhalten eine klare Einführung in MeinBenefit und entscheiden freiwillig, ob sie das Angebot nutzen möchten.",
   },
   {
     number: "04",
     icon: UsersRound,
     title: "Persönliche Begleitung",
-    text: "Teilnehmende Mitarbeiter werden persönlich und langfristig begleitet. Ihr Unternehmen bleibt entlastet und zahlt keine Kosten.",
+    text: "Teilnehmende Mitarbeiter werden von MeinBenefit persönlich betreut. Ihr Unternehmen bleibt entlastet und zahlt keine zusätzliche Kosten.",
   },
 ];
 
@@ -36,13 +36,11 @@ export function ProcessSection() {
       <div className="mx-auto max-w-[1200px]">
         <div className="mx-auto max-w-[760px] text-center">
           <h2 className="font-serif text-[31px] leading-[1.04] tracking-[-0.02em] text-[#17130D] sm:text-5xl lg:text-[54px]">
-            So funktioniert MeinBenefit für Ihr Unternehmen
+            So einfach wird MeinBenefit in Ihrem Unternehmen umgesetzt.
           </h2>
 
           <p className="mt-4 text-[13px] font-medium leading-6 text-[#4A453C] sm:text-base sm:leading-7">
-            In vier Schritten führen wir MeinBenefit als kostenfreien
-            Mitarbeiterbenefit ein - klar abgestimmt mit Geschäftsführung oder
-            HR und persönlich begleitet für Ihre Mitarbeiter.
+            In vier simplen Schritten wird MeinBenefit in Ihr Unternehmen etabliert mit geringem Aufwand für Geschäftsführung und HR, persönlich begleitet für Ihre Mitarbeiter.
           </p>
         </div>
 

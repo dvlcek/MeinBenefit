@@ -11,24 +11,24 @@ const steps = [
     number: "01",
     icon: CalendarCheck,
     title: "Kostenloses Erstgespräch buchen",
-    text: "Sie wählen einen Termin, der für Sie passt. Im Gespräch klären wir, welche Themen für Sie aktuell wichtig sind.",
+    text: "Sie wählen einen passenden Termin. Im Gespräch klären wir, welche Themen für Sie aktuell wichtig sind.",
   },
   {
     number: "02",
     icon: Search,
     title: "Überblick schaffen",
-    text: "Gemeinsam verschaffen wir uns einen Überblick über Ihre bestehenden Verträge und prüfen, ob diese noch zu Ihrer Lebenssituation passen.",
+    text: "Gemeinsam sehen wir uns Ihre bestehenden Verträge an und prüfen, ob diese noch zu Ihrer aktuellen Lebenssituation passen.",
   },
   {
     number: "03",
     icon: Lightbulb,
     title: "Persönliche Möglichkeiten erkennen",
-    text: "Wir zeigen Ihnen, wo Verträge noch passen, wo Verbesserungen möglich sein können und welche nächsten Schritte für Sie sinnvoll wären.",
+    text: "Wir zeigen Ihnen, wo Verträge noch passen, wo Verbesserungen möglich sein können und welche nächsten Schritte sinnvoll wären.",
   },
   {
     number: "04",
     icon: Coins,
-    title: "Goldwert aufbauen und begleitet bleiben",
+    title: "Goldwert aufbauen",
     text: "Je nach gewähltem Modell entsteht zusätzlich ein langfristiger Vorteil in Gold. Die Lieferung erfolgt über Münze Österreich. Unser Service bleibt langfristig an Ihrer Seite.",
   },
 ];
@@ -43,13 +43,11 @@ export function ProcessSection() {
         <div className="mx-auto max-w-[780px] text-center">
 
           <h2 className="mt-2 font-serif text-[31px] leading-[1.04] tracking-[-0.02em] text-[#17130D] sm:text-5xl lg:text-[54px]">
-            So funktioniert MeinBenefit
+            In vier Schritten zu mehr Klarheit
           </h2>
 
           <p className="mt-4 text-[13px] font-normal leading-6 sm:text-base sm:leading-7">
-            In einem kostenlosen Erstgespräch lernen wir Ihre aktuelle Situation
-            kennen. Danach prüfen wir gemeinsam Ihre laufenden Verträge und
-            zeigen Ihnen verständlich, welche Möglichkeiten für Sie bestehen.
+            Im kostenlosen Erstgespräch lernen wir Ihre aktuelle Situation kennen. Danach schaffen wir gemeinsam einen Überblick über Ihre laufenden Verträge und zeigen, welche Möglichkeiten für Sie bestehen.
           </p>
         </div>
 

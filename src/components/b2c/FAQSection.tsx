@@ -5,24 +5,24 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "Was ist MeinBenefit?",
-    a: "MeinBenefit ist ein persönlicher Service, der Sie dabei unterstützt, Ihre laufenden Verträge und Ausgaben besser zu verstehen. Wir prüfen gemeinsam Ihre aktuelle Situation, zeigen mögliche Verbesserungen auf und begleiten Sie bei den nächsten Schritten.",
-  },
-  {
-    q: "Was passiert im kostenlosen Erstgespräch?",
-    a: "Im Erstgespräch lernen wir Ihre Situation kennen und klären, welche Themen für Sie aktuell wichtig sind. Sie müssen noch keine Unterlagen perfekt vorbereiten und keine Entscheidung treffen. Ziel ist es zuerst, herauszufinden, ob und wie MeinBenefit für Sie sinnvoll sein kann.",
-  },
-  {
-    q: "Muss ich danach etwas abschließen oder wechseln?",
-    a: "Nein. Sie entscheiden immer selbst, ob Sie eine Empfehlung annehmen oder einen nächsten Schritt gehen möchten. Das Erstgespräch ist unverbindlich und verpflichtet Sie zu keinem Vertragswechsel.",
+    q: "Muss ich etwas abschließen?",
+    a: "Nein. Sie entscheiden immer selbst, ob Sie eine Empfehlung annehmen oder einen nächsten Schritt gehen möchten. Das Erstgespräch ist unverbindlich und verpflichtet Sie zu keinem Vertragsabschluss oder Wechsel.",
   },
   {
     q: "Was kostet MeinBenefit?",
-    a: "Sie können zwischen zwei Modellen wählen: einem monatlichen Modell ab 20 € pro Monat oder einer Einmalzahlung von 3.000 €. Der persönliche Service bleibt in beiden Modellen gleich. Der Unterschied liegt darin, wie Sie starten möchten und wie der Goldwert aufgebaut wird.",
+    a: "MeinBenefit bietet zwei Modelle: ein Monatsmodell ab 20 € pro Monat oder ein Einmalmodell mit 3.000 €. Der persönliche Service bleibt in beiden Modellen gleich. Der Unterschied liegt darin, wie Sie starten möchten und wie der Goldwert aufgebaut wird.",
   },
   {
-    q: "Wie funktioniert die Goldauszahlung?",
-    a: "MeinBenefit verbindet persönliche Unterstützung bei laufenden Verträgen mit einem langfristigen Vorteil in Gold. Beim Monatsmodell kann der angesammelte Wert ab dem Gegenwert von 1 g Gold ausgelöst werden. Bei der Einmalzahlung von 3.000 € erhalten Sie 15 g Gold. Die Lieferung des Goldes erfolgt über Münze Österreich als Lieferant.",
+    q: "Wie funktioniert Gold?",
+    a: "Je nach gewähltem Modell entsteht ein langfristiger Vorteil in Gold. Beim Monatsmodell kann der angesammelte Wert ab dem Gegenwert von 1 g Gold ausgelöst werden. Beim Einmalmodell erhalten Sie 15 g Gold. Die Lieferung erfolgt über Münze Österreich.",
+  },
+  {
+    q: "Ist das Erstgespräch wirklich unverbindlich?",
+    a: "Ja. Im kostenlosen Erstgespräch lernen wir Ihre aktuelle Situation kennen und klären, ob MeinBenefit für Sie sinnvoll sein kann. Sie müssen noch keine Unterlagen perfekt vorbereiten und keine Entscheidung treffen.",
+  },
+  {
+    q: "Was passiert mit meinen Daten? ",
+    a: "Ihre Angaben werden vertraulich behandelt und nur für die Bearbeitung Ihrer Anfrage und die persönliche Beratung verwendet. Die Verarbeitung erfolgt datenschutzkonform. Ohne Ihre Zustimmung werden keine nächsten Schritte gesetzt.",
   },
 ];
 
